@@ -24,6 +24,7 @@
             <div class="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#contact" class="nav-link">Contact</a>
                 <a href="{{ url_for('download_resume') }}" class="resume-btn">
@@ -173,6 +174,94 @@
         </div>
     </section>
 
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <!-- Experience Timeline -->
+            <div class="experience-timeline">
+                <!-- Experience 1 -->
+                <div class="experience-item fade-in">
+                    <div class="experience-date">Sep 2020 - Dec 2021</div>
+                    <div class="experience-content">
+                        <div class="experience-company">Knowlettwoods LLP</div>
+                        <div class="experience-position">Data Analyst</div>
+                        <div class="experience-location">Noida, India</div>
+                        <ul class="experience-details">
+                            <li>Cleaned and transformed large datasets using Python and SQL, ensuring high data quality and reliability for accurate analysis</li>
+                            <li>Utilized SQL for data extraction and built Power BI dashboards to visualize KPIs, campaign ROI, CAC, and conversion funnel metrics</li>
+                            <li>Collaborated closely with sales team and product teams to translate complex business requirements into analytics solutions</li>
+                            <li>Leveraged Google Analytics to analyze website traffic and user behavior, contributing to a <strong>15% increase in conversion rates</strong></li>
+                            <li>Performed analysis to uncover customer behavior trends, channel performance and campaign impact, enabling more targeted strategies and improved ROI</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 2 -->
+                <div class="experience-item fade-in">
+                    <div class="experience-date">Aug 2019 - Jan 2020</div>
+                    <div class="experience-content">
+                        <div class="experience-company">Intermarket Private Limited</div>
+                        <div class="experience-position">Digital Market Analyst</div>
+                        <div class="experience-location">Mumbai, India</div>
+                        <ul class="experience-details">
+                            <li>Evaluated sales, revenue, and digital campaign performance using Excel and Power BI to identify trends and optimize spending</li>
+                            <li>Contributed to a <strong>15% increase in sales and 20% boost in repeat purchases</strong> through data-driven marketing insights</li>
+                            <li>Supported customer segmentation & persona development to enable targeted messaging, increasing campaign relevance & engagement</li>
+                            <li>Partnered with product and marketing teams to translate analytics into initiatives that improved customer retention and loyalty</li>
+                            <li>Prepared marketing performance reports and financial summaries for leadership, linking campaign performance to key metrics</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 3 -->
+                <div class="experience-item fade-in">
+                    <div class="experience-date">Sep 2018 - Mar 2019</div>
+                    <div class="experience-content">
+                        <div class="experience-company">Bharat Sanchar Nigam Limited</div>
+                        <div class="experience-position">Project Engineer Intern</div>
+                        <div class="experience-location">Mumbai, India</div>
+                        <ul class="experience-details">
+                            <li>Executed network performance analysis to optimize bandwidth efficiency and ensure seamless user connectivity</li>
+                            <li>Analyzed network configurations and performance logs to deliver actionable system improvements</li>
+                            <li>Performed site surveys and assisted in troubleshooting network failures, improving system uptime and reducing connectivity issues</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 4 -->
+                <div class="experience-item fade-in">
+                    <div class="experience-date">Jun 2018 - Aug 2018</div>
+                    <div class="experience-content">
+                        <div class="experience-company">Indian Telephone Industries Limited</div>
+                        <div class="experience-position">Implant Trainee</div>
+                        <div class="experience-location">Bangalore, India</div>
+                        <ul class="experience-details">
+                            <li>Supported R&D and QA teams in software testing, design processes, and product development process</li>
+                            <li>Assessed test results, identified issues, and provided feedback to enhance product performance and functionality</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience 5 -->
+                <div class="experience-item fade-in">
+                    <div class="experience-date">Jul 2017 - Aug 2017</div>
+                    <div class="experience-content">
+                        <div class="experience-company">British Telecom</div>
+                        <div class="experience-position">Implant Trainee</div>
+                        <div class="experience-location">London, United Kingdom</div>
+                        <ul class="experience-details">
+                            <li>Shadowed experienced engineers in network design and maintenance</li>
+                            <li>Assisted in the testing and troubleshooting of telecommunications equipment</li>
+                            <li>Gained exposure to project management methodologies in a large-scale organization</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
@@ -204,42 +293,114 @@
             
             <div class="skills-section fade-in">
                 <h3>Technical Skills & Expertise</h3>
-                <div class="skills-grid">
-                    <div class="skill-item">
-                        <i class="fab fa-python"></i>
-                        <span>Python</span>
+                <div class="skills-list">
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fab fa-python"></i>
+                            <span class="skill-name">Python</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="9"></div>
+                            </div>
+                            <span class="skill-rating">9/10</span>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <i class="fas fa-database"></i>
-                        <span>SQL</span>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-database"></i>
+                            <span class="skill-name">SQL</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="9"></div>
+                            </div>
+                            <span class="skill-rating">9/10</span>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <i class="fas fa-chart-bar"></i>
-                        <span>Power BI</span>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-chart-bar"></i>
+                            <span class="skill-name">Power BI</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="8"></div>
+                            </div>
+                            <span class="skill-rating">8/10</span>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Tableau</span>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="skill-name">Tableau</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="8"></div>
+                            </div>
+                            <span class="skill-rating">8/10</span>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <i class="fas fa-brain"></i>
-                        <span>Machine Learning</span>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-brain"></i>
+                            <span class="skill-name">Machine Learning</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="7"></div>
+                            </div>
+                            <span class="skill-rating">7/10</span>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <i class="fas fa-business-time"></i>
-                        <span>Business Analysis</span>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-business-time"></i>
+                            <span class="skill-name">Business Analysis</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="9"></div>
+                            </div>
+                            <span class="skill-rating">9/10</span>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <i class="fas fa-tasks"></i>
-                        <span>Requirements Gathering</span>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fab fa-google"></i>
+                            <span class="skill-name">Google Analytics</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="8"></div>
+                            </div>
+                            <span class="skill-rating">8/10</span>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <i class="fas fa-exchange-alt"></i>
-                        <span>ETL</span>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span class="skill-name">ETL Processes</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="8"></div>
+                            </div>
+                            <span class="skill-rating">8/10</span>
+                        </div>
                     </div>
-                    <div class="skill-item">
-                        <i class="fab fa-google"></i>
-                        <span>Google Analytics</span>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-tasks"></i>
+                            <span class="skill-name">Requirements Gathering</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="9"></div>
+                            </div>
+                            <span class="skill-rating">9/10</span>
+                        </div>
                     </div>
                 </div>
             </div>

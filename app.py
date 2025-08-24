@@ -18,7 +18,7 @@ def index():
 def download_resume():
     """Download resume PDF"""
     try:
-        resume_path = os.path.join(app.static_folder, 'resume', 'Vedant_Kulkarni_Resume.pdf')
+        resume_path = os.path.join(app.static_folder or 'static', 'resume', 'Vedant_Kulkarni_Resume.pdf')
         if os.path.exists(resume_path):
             return send_file(resume_path, as_attachment=True, download_name='Vedant_Kulkarni_Resume.pdf')
         else:

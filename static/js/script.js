@@ -187,3 +187,35 @@ function initializeLoadingState() {
 
 // Initialize loading state
 initializeLoadingState();
+
+// Initialize skill bar animations
+function initializeSkillBars() {
+    const skillBars = document.querySelectorAll('.skill-progress');
+    
+    const skillObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillBar = entry.target;
+                const level = skillBar.getAttribute('data-level');
+                const percentage = (level / 10) * 100;
+                
+                // Animate the skill bar
+                setTimeout(() => {
+                    skillBar.style.width = percentage + '%';
+                }, 200);
+                
+                // Stop observing this element
+                skillObserver.unobserve(skillBar);
+            }
+        });
+    }, {
+        threshold: 0.5
+    });
+
+    skillBars.forEach(bar => {
+        skillObserver.observe(bar);
+    });
+}
+
+// Initialize skill bars
+initializeSkillBars();
