@@ -1,0 +1,85 @@
+Create an elite, professional, and fully responsive personal portfolio website for Vedant Kulkarni, a Business and Data Analyst. The website's primary goal is to impress tech recruiters and hiring managers.
+
+Technology & Design:
+Stack: Flask (Python), HTML5, CSS3 (using Flexbox and Grid), and JavaScript for interactivity
+Theme: Professional dark mode with vibrant gradients. Background: #0F172A to #1E293B. Text: #E5E7EB. Accent color: #10B981 (emerald green)
+Typography: Use 'Inter' font from Google Fonts for all text
+Visual Enhancements:
+Vibrant gradient backgrounds throughout sections
+Subtle radial gradient overlays for depth
+Smooth hover transitions and scroll-based fade-in animations
+Enhanced navbar with gradient background and border
+Image Integration:
+Profile Picture: Use actual professional headshot in About section (circular frame with emerald border)
+Hero Background: Use graduation ceremony photo as background with 30% opacity, brightness filter, and contrast enhancement for visibility
+Website Structure & Content:
+1. Fixed Navigation Bar:
+
+Left: "VEDANT KULKARNI" in emerald green
+Right: Links for "Home", "Projects", "About", "Contact"
+"Download Resume" button with gradient styling linking to Vedant_Kulkarni_Resume.pdf
+2. Hero Section (id="home"):
+
+Gradient background from dark blue to emerald accent
+Large Headline: "Data-Driven Strategy, Business-Focused Results"
+Sub-headline with bold formatting: "I'm Vedant Kulkarni, a Business Analytics professional..."
+Buttons: "View My Work" (scrolls to projects) and LinkedIn profile button
+3. Projects Section (id="projects") - Timeline Layout:
+
+Title: "My Work & Case Studies"
+NO BUTTONS - All content directly visible
+Timeline-style layout with numbered sections (01, 02, 03)
+Each project section includes:
+Gradient header with project number and title
+Technology tags in the header
+Two-column content grid:
+Left: Objective & Key Actions (bulleted list)
+Right: Scope & Impact with highlighted results box
+Project Details:
+
+Project 1: C-Suite Financial & Marketing Dashboards
+
+Objective: Design and deploy BI dashboards for executive leadership with real-time company performance view
+Key Actions: Stakeholder collaboration, complex SQL queries, Power BI/Tableau implementation, user-centric design
+Impact: Replaced static monthly reports with dynamic analytics solution
+Tags: Power BI, Tableau, SQL, BI
+Project 2: Automated Invoice Processing & Data Quality Control
+
+Objective: Reduce manual effort in processing 500+ monthly invoices by 40%
+Key Actions: Python/Pandas automation, SQL workflows, email alert system, data validation
+Impact: 40% reduction in manual processing, improved vendor relationships
+Tags: Python, SQL, Automation, ETL
+Project 3: Machine Learning for Fraud Detection
+
+Objective: Build high-accuracy ML model for real-time fraud detection
+Key Actions: Dataset preprocessing with SMOTE, Random Forest/Logistic Regression training, performance evaluation
+Impact: 25% improvement in fraud detection over baseline
+Tags: Machine Learning, Scikit-learn, Python, SMOTE
+4. About Me Section (id="about"):
+
+Two-column grid layout
+Bold important text: "Bachelor of Engineering", "MSc in Business Analytics at the University of Exeter", "top 5% of my cohort in Statistics & Probability", "certified Business Analyst"
+Professional bio emphasizing dual passion for technology and business strategy
+Skills grid: Python, SQL, Power BI, Tableau, Machine Learning, Business Analysis, Requirements Gathering, ETL, Google Analytics
+5. Contact Section (id="contact"):
+
+Title: "Let's Connect"
+Contact info: vedantak070@gmail.com (mailto link) and LinkedIn profile
+Gradient background with radial overlay
+6. Footer:
+
+"© 2025 Vedant Kulkarni" with LinkedIn and GitHub icons
+Visual Design Requirements:
+Vibrant gradients instead of flat colors
+No card-based layouts for projects
+Immediate content visibility - no hidden information or modals
+Professional timeline design with numbered sections
+Impact highlighting - special styling for measurable results
+Responsive design - mobile-first approach
+Smooth animations - fade-in effects and hover transitions
+Flask Backend:
+Main route: @app.route('/') serving the portfolio
+Resume download route: @app.route('/resume') serving PDF as attachment
+Environment variable for session secret
+Static file serving for images and assets
+This prompt will recreate the exact professional, vibrant portfolio website with all detailed case studies visible immediately, perfect for impressing tech recruiters.
