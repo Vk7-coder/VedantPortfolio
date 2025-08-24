@@ -489,6 +489,136 @@ body {
     font-size: 0.8rem;
 }
 
+/* Education Section */
+.education {
+    padding: 100px 0;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%);
+    position: relative;
+}
+
+.education::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+}
+
+.education-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.education-timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(180deg, #10B981 0%, rgba(16, 185, 129, 0.3) 100%);
+    transform: translateX(-50%);
+}
+
+.education-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.education-item:nth-child(odd) {
+    flex-direction: row;
+}
+
+.education-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+
+.education-date {
+    min-width: 150px;
+    padding: 10px 20px;
+    background: linear-gradient(135deg, #10B981 0%, #34D399 100%);
+    color: white;
+    border-radius: 25px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin: 0 30px;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+}
+
+.education-content {
+    flex: 1;
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.8) 0%, rgba(15, 23, 42, 0.8) 100%);
+    border: 1px solid rgba(16, 185, 129, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.education-content:hover {
+    border-color: rgba(16, 185, 129, 0.3);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.education-degree {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #10B981;
+    margin-bottom: 8px;
+}
+
+.education-university {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #E5E7EB;
+    margin-bottom: 5px;
+}
+
+.education-location {
+    font-size: 0.9rem;
+    color: #94A3B8;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+.education-details h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #10B981;
+    margin-bottom: 15px;
+}
+
+.education-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.education-details li {
+    margin-bottom: 12px;
+    padding-left: 20px;
+    position: relative;
+    color: #CBD5E1;
+    line-height: 1.6;
+}
+
+.education-details li::before {
+    content: '▶';
+    position: absolute;
+    left: 0;
+    color: #10B981;
+    font-size: 0.8rem;
+}
+
 /* About Section */
 .about {
     padding: 100px 0;
@@ -982,6 +1112,36 @@ body {
         padding: 4px 12px;
     }
     
+    /* Education Section */
+    .education-timeline::before {
+        display: none;
+    }
+    
+    .education-item {
+        flex-direction: column !important;
+        margin-bottom: 40px;
+    }
+    
+    .education-date {
+        margin: 0 0 20px 0;
+        align-self: flex-start;
+        min-width: auto;
+        font-size: 0.85rem;
+        padding: 8px 16px;
+    }
+    
+    .education-content {
+        padding: 25px;
+    }
+    
+    .education-degree {
+        font-size: 1.2rem;
+    }
+    
+    .education-university {
+        font-size: 1.1rem;
+    }
+
     /* Experience Section */
     .experience-timeline::before {
         display: none;
@@ -1104,7 +1264,7 @@ body {
     }
     
     /* General Spacing */
-    .projects, .experience, .about, .contact {
+    .projects, .education, .experience, .about, .contact {
         padding: 80px 0;
     }
 }
@@ -1181,6 +1341,28 @@ body {
         font-size: 1rem;
     }
     
+    /* Education */
+    .education-date {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+    }
+    
+    .education-content {
+        padding: 20px;
+    }
+    
+    .education-degree {
+        font-size: 1.1rem;
+    }
+    
+    .education-university {
+        font-size: 1rem;
+    }
+    
+    .education-location {
+        font-size: 0.85rem;
+    }
+
     /* Experience */
     .experience-date {
         font-size: 0.8rem;
@@ -1272,7 +1454,7 @@ body {
     }
     
     /* General Spacing */
-    .projects, .experience, .about, .contact {
+    .projects, .education, .experience, .about, .contact {
         padding: 60px 0;
     }
     
