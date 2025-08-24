@@ -14,15 +14,55 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="static/css/style.css">
 
-    <!-- == CUSTOM STYLES FOR PROFILE IMAGE == -->
+    <!-- == CUSTOM STYLES ADDED FOR THIS UPDATE == -->
     <style>
+        /* Makes the profile image circular and professional */
         .profile-image img {
-            width: 280px;  /* Adjust size as needed */
-            height: 280px; /* Make height same as width for a perfect circle */
-            border-radius: 50%; /* This makes the image circular */
-            object-fit: cover; /* Ensures the image covers the area without stretching */
-            border: 5px solid #fff; /* Optional: Adds a white border */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* New horizontal grid layout for the Experience section */
+        .experience-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px; /* Space between the cards */
+        }
+
+        .experience-grid .experience-item {
+            flex: 1 1 30%; /* Allows cards to grow, shrink, and sets a base width */
+            min-width: 320px; /* Minimum width before cards wrap to the next line */
+            background-color: #ffffff; /* Card background */
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-top: 4px solid #6a11cb; /* Accent color */
+        }
+        
+        .experience-grid .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Remove the old timeline styling */
+        .experience-grid .experience-item::before {
+            display: none;
+        }
+
+        .experience-grid .experience-content {
+            padding: 0;
+            position: relative;
+        }
+
+        /* Adjusts spacing for the new card layout */
+        .experience-grid .experience-details li {
+            padding-left: 1.2em;
+            text-indent: -1.2em;
         }
     </style>
     <!-- ==================================== -->
@@ -62,7 +102,6 @@
                 </p>
                 <div class="hero-buttons fade-in">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <!-- ## CHANGE 1: LINKEDIN URL FIXED ## -->
                     <a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" class="btn btn-secondary">
                         <i class="fab fa-linkedin"></i> LinkedIn Profile
                     </a>
@@ -187,157 +226,6 @@
                 </div>
             </div>
 
-            <!-- Project 4 -->
-            <div class="project-timeline-item fade-in">
-                <div class="project-number">04</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>Hospital Patient Admission & Billing Process Optimization</h3>
-                        <div class="tech-tags">
-                            <span class="tag">Business Analysis</span>
-                            <span class="tag">Process Improvement</span>
-                            <span class="tag">Power BI</span>
-                            <span class="tag">Requirements Gathering</span>
-                            <span class="tag">Healthcare Analytics</span>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <div class="project-left">
-                            <h4>Objective & Key Actions</h4>
-                            <ul>
-                                <li><strong>Objective:</strong> Re-engineer hospital's patient onboarding and billing workflow to reduce administrative errors and accelerate insurance claim lifecycle</li>
-                                <li>Mapped complete patient journey using Lucidchart to identify bottlenecks and redundant steps</li>
-                                <li>Conducted root cause analysis on claim rejections using Fishbone Diagram and 5 Whys technique</li>
-                                <li>Authored comprehensive Business Requirements Document (BRD) and Functional Specification Document (FSD)</li>
-                                <li>Developed Power BI dashboard to monitor process KPIs and claim approval rates</li>
-                            </ul>
-                        </div>
-                        <div class="project-right">
-                            <h4>Scope & Impact</h4>
-                            <div class="impact-box">
-                                <div class="impact-highlight">
-                                    <strong>Strategic roadmap for process automation delivered</strong>
-                                </div>
-                                <p>Provided clear path to reduce costly claim errors and significantly improve administrative efficiency. Created dashboard system for ongoing performance monitoring of patient wait times and billing turnaround.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 5 -->
-            <div class="project-timeline-item fade-in">
-                <div class="project-number">05</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>E-commerce Conversion Prediction & Pricing Strategy</h3>
-                        <div class="tech-tags">
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">Logistic Regression</span>
-                            <span class="tag">Clustering</span>
-                            <span class="tag">E-commerce</span>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <div class="project-left">
-                            <h4>Objective & Key Actions</h4>
-                            <ul>
-                                <li><strong>Objective:</strong> Leverage machine learning for predicting customer conversion and design data-driven pricing strategy</li>
-                                <li>Utilized Python (Pandas, NumPy) for statistical analysis of customer transaction data</li>
-                                <li>Built highly accurate Logistic Regression model with 90% F1-score for conversion prediction</li>
-                                <li>Employed clustering algorithms for customer segmentation based on purchasing behavior</li>
-                                <li>Developed dynamic pricing strategy evaluating impact on sales volume and profitability</li>
-                            </ul>
-                        </div>
-                        <div class="project-right">
-                            <h4>Scope & Impact</h4>
-                            <div class="impact-box">
-                                <div class="impact-highlight">
-                                    <strong>90% F1-score conversion prediction model</strong>
-                                </div>
-                                <p>Successfully demonstrated machine learning power in e-commerce context. Predictive model provided accurate conversion insights and segmentation analysis laid groundwork for targeted marketing strategies.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 6 -->
-            <div class="project-timeline-item fade-in">
-                <div class="project-number">06</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>Customer Feedback Sentiment & Automated Response Analysis</h3>
-                        <div class="tech-tags">
-                            <span class="tag">NLP</span>
-                            <span class="tag">Sentiment Analysis</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">Machine Learning</span>
-                            <span class="tag">Automation</span>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <div class="project-left">
-                            <h4>Objective & Key Actions</h4>
-                            <ul>
-                                <li><strong>Objective:</strong> Build intelligent system for automatic sentiment analysis and complaint classification with automated responses</li>
-                                <li>Extracted and cleaned customer feedback data using SQL and Python</li>
-                                <li>Performed sentiment analysis using VADER library and built Logistic Regression classifier with 85% accuracy</li>
-                                <li>Developed content-based response system using TF-IDF and text similarity</li>
-                                <li>Tracked support KPIs including Average Handle Time and First Contact Resolution</li>
-                            </ul>
-                        </div>
-                        <div class="project-right">
-                            <h4>Scope & Impact</h4>
-                            <div class="impact-box">
-                                <div class="impact-highlight">
-                                    <strong>40% reduction in manual reply time</strong>
-                                </div>
-                                <p>Successfully automated significant portion of customer support workflow. Improved prioritization accuracy by 30% and allowed support team to focus on complex issues requiring human intervention.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Project 7 -->
-            <div class="project-timeline-item fade-in">
-                <div class="project-number">07</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>SaaS Business Intelligence & Churn Forecasting System</h3>
-                        <div class="tech-tags">
-                            <span class="tag">Business Intelligence</span>
-                            <span class="tag">Churn Prediction</span>
-                            <span class="tag">Python</span>
-                            <span class="tag">SQL</span>
-                            <span class="tag">Time-Series Forecasting</span>
-                        </div>
-                    </div>
-                    <div class="project-details">
-                        <div class="project-left">
-                            <h4>Objective & Key Actions</h4>
-                            <ul>
-                                <li><strong>Objective:</strong> Create robust BI system for SaaS company with automated reporting and predictive churn forecasting</li>
-                                <li>Automated generation of key SaaS metrics (MRR, CLV, churn rate) using Python and SQL</li>
-                                <li>Predicted future churn and revenue trends using Prophet and ARIMA time-series models</li>
-                                <li>Used clustering to segment users for targeted retention campaigns aimed at high-risk cohorts</li>
-                                <li>Implemented real-time metric alert system for proactive decision-making</li>
-                            </ul>
-                        </div>
-                        <div class="project-right">
-                            <h4>Scope & Impact</h4>
-                            <div class="impact-box">
-                                <div class="impact-highlight">
-                                    <strong>20% simulated churn reduction achieved</strong>
-                                </div>
-                                <p>Provided automated view of business health with actionable churn forecasts. Proactive alerts and user segmentation strategies demonstrated direct positive impact on revenue and customer retention.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -386,87 +274,51 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
+    <!-- ## UPDATED EXPERIENCE SECTION ## -->
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
             
-            <!-- Experience Timeline -->
-            <div class="experience-timeline">
+            <!-- New Horizontal Card Layout -->
+            <div class="experience-grid">
                 <!-- Experience 1 -->
                 <div class="experience-item fade-in">
-                    <div class="experience-date">Sep 2020 - Dec 2021</div>
                     <div class="experience-content">
-                        <div class="experience-company">Knowlettwoods LLP</div>
-                        <div class="experience-position">Data Analyst</div>
-                        <div class="experience-location">Noida, India</div>
+                        <div class="experience-position">Data Analyst (contract)</div>
+                        <div class="experience-company">Vani Research Labs, Remote</div>
+                        <div class="experience-date">1/2025 – 6/2025</div>
                         <ul class="experience-details">
-                            <li>Cleaned and transformed large datasets using Python and SQL, ensuring high data quality and reliability for accurate analysis</li>
-                            <li>Utilized SQL for data extraction and built Power BI dashboards to visualize KPIs, campaign ROI, CAC, and conversion funnel metrics</li>
-                            <li>Collaborated closely with sales team and product teams to translate complex business requirements into analytics solutions</li>
-                            <li>Leveraged Google Analytics to analyze website traffic and user behavior, contributing to a <strong>15% increase in conversion rates</strong></li>
-                            <li>Performed analysis to uncover customer behavior trends, channel performance and campaign impact, enabling more targeted strategies and improved ROI</li>
+                            <li>Analyzed AI agent performance logs and core KPIs (e.g., transcription accuracy, sentiment analysis precision) to identify and diagnose patterns in model errors, providing data-driven recommendations that guided algorithm refinement.</li>
+                            <li>Conducted competitive intelligence and market research on voice AI applications across diverse industries (including BFSI and healthcare) to identify feature gaps and benchmark product performance against top competitors.</li>
+                            <li>Authored a detailed enhancement proposal by synthesizing market research and performance data, outlining actionable strategies to improve the AI agent's capabilities and align the product roadmap with emerging industry trends.</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Experience 2 -->
                 <div class="experience-item fade-in">
-                    <div class="experience-date">Aug 2019 - Jan 2020</div>
                     <div class="experience-content">
-                        <div class="experience-company">Intermarket Private Limited</div>
-                        <div class="experience-position">Digital Market Analyst</div>
-                        <div class="experience-location">Mumbai, India</div>
+                        <div class="experience-position">Data Analyst (contract)</div>
+                        <div class="experience-company">Vishwa Vision Marketing, Mumbai</div>
+                        <div class="experience-date">11/2024 – 1/2025</div>
                         <ul class="experience-details">
-                            <li>Evaluated sales, revenue, and digital campaign performance using Excel and Power BI to identify trends and optimize spending</li>
-                            <li>Contributed to a <strong>15% increase in sales and 20% boost in repeat purchases</strong> through data-driven marketing insights</li>
-                            <li>Supported customer segmentation & persona development to enable targeted messaging, increasing campaign relevance & engagement</li>
-                            <li>Partnered with product and marketing teams to translate analytics into initiatives that improved customer retention and loyalty</li>
-                            <li>Prepared marketing performance reports and financial summaries for leadership, linking campaign performance to key metrics</li>
+                            <li>Conducted comprehensive market and competitor analysis to identify high-potential B2B sectors (hospitality, aviation), leading to a refocused marketing strategy that increased qualified inbound leads by over 25%.</li>
+                            <li>Developed data-driven customer segmentation models by analyzing past sales data and client specifications, creating detailed B2B personas that guided the launch of targeted marketing campaigns and boosted client engagement rates.</li>
+                            <li>Designed and implemented a KPI framework to track the sales funnel and marketing ROI, creating standardized reports in Excel that enabled leadership to make informed decisions on budget allocation and channel strategy.</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Experience 3 -->
                 <div class="experience-item fade-in">
-                    <div class="experience-date">Sep 2018 - Mar 2019</div>
                     <div class="experience-content">
-                        <div class="experience-company">Bharat Sanchar Nigam Limited</div>
-                        <div class="experience-position">Project Engineer Intern</div>
-                        <div class="experience-location">Mumbai, India</div>
+                        <div class="experience-position">Data Analyst, Customer Operations</div>
+                        <div class="experience-company">British Telecom, Exeter, United Kingdom</div>
+                        <div class="experience-date">05/2023 – 10/2024</div>
                         <ul class="experience-details">
-                            <li>Executed network performance analysis to optimize bandwidth efficiency and ensure seamless user connectivity</li>
-                            <li>Analyzed network configurations and performance logs to deliver actionable system improvements</li>
-                            <li>Performed site surveys and assisted in troubleshooting network failures, improving system uptime and reducing connectivity issues</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Experience 4 -->
-                <div class="experience-item fade-in">
-                    <div class="experience-date">Jun 2018 - Aug 2018</div>
-                    <div class="experience-content">
-                        <div class="experience-company">Indian Telephone Industries Limited</div>
-                        <div class="experience-position">Implant Trainee</div>
-                        <div class="experience-location">Bangalore, India</div>
-                        <ul class="experience-details">
-                            <li>Supported R&D and QA teams in software testing, design processes, and product development process</li>
-                            <li>Assessed test results, identified issues, and provided feedback to enhance product performance and functionality</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Experience 5 -->
-                <div class="experience-item fade-in">
-                    <div class="experience-date">Jul 2017 - Aug 2017</div>
-                    <div class="experience-content">
-                        <div class="experience-company">British Telecom</div>
-                        <div class="experience-position">Implant Trainee</div>
-                        <div class="experience-location">London, United Kingdom</div>
-                        <ul class="experience-details">
-                            <li>Shadowed experienced engineers in network design and maintenance</li>
-                            <li>Assisted in the testing and troubleshooting of telecommunications equipment</li>
-                            <li>Gained exposure to project management methodologies in a large-scale organization</li>
+                            <li>Analyzed customer query data using Excel to identify trends, patterns, and root causes of common issues, contributing to a 15% reduction in repeat inquiries.</li>
+                            <li>Translated qualitative customer feedback into quantitative data, performing sentiment analysis to inform product and service enhancement strategies.</li>
+                            <li>Collaborated with cross-functional teams by providing data-driven reports that highlighted recurring technical issues, leading to more efficient process improvements and bug fixes.</li>
                         </ul>
                     </div>
                 </div>
@@ -480,7 +332,6 @@
             <div class="about-content">
                 <div class="about-text fade-in">
                     <h2>About Me</h2>
-                    <!-- ## CHANGE 2: "ABOUT ME" TEXT UPDATED ## -->
                     <p>
                         As a certified Business Analyst with an <strong>MSc in Business Analytics</strong> from the University of Exeter and a <strong>Bachelor of Engineering</strong>, I bring a robust analytical foundation to every challenge. My academic excellence is highlighted by ranking in the <strong>top 5% of my cohort in Statistics & Probability</strong>.
                     </p>
