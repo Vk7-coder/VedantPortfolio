@@ -13,6 +13,19 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="static/css/style.css">
+
+    <!-- == CUSTOM STYLES FOR PROFILE IMAGE == -->
+    <style>
+        .profile-image img {
+            width: 280px;  /* Adjust size as needed */
+            height: 280px; /* Make height same as width for a perfect circle */
+            border-radius: 50%; /* This makes the image circular */
+            object-fit: cover; /* Ensures the image covers the area without stretching */
+            border: 5px solid #fff; /* Optional: Adds a white border */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+        }
+    </style>
+    <!-- ==================================== -->
 </head>
 <body>
     <!-- Fixed Navigation -->
@@ -49,7 +62,8 @@
                 </p>
                 <div class="hero-buttons fade-in">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="https://linkedin.com/in/vedant-kulkarni" target="_blank" class="btn btn-secondary">
+                    <!-- ## CHANGE 1: LINKEDIN URL FIXED ## -->
+                    <a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" class="btn btn-secondary">
                         <i class="fab fa-linkedin"></i> LinkedIn Profile
                     </a>
                 </div>
@@ -466,24 +480,19 @@
             <div class="about-content">
                 <div class="about-text fade-in">
                     <h2>About Me</h2>
+                    <!-- ## CHANGE 2: "ABOUT ME" TEXT UPDATED ## -->
                     <p>
-                        I hold a <strong>Bachelor of Engineering</strong> and am currently pursuing an 
-                        <strong>MSc in Business Analytics at the University of Exeter</strong>, where I ranked in the 
-                        <strong>top 5% of my cohort in Statistics & Probability</strong>. As a 
-                        <strong>certified Business Analyst</strong>, I bridge the gap between technical complexity and business strategy.
+                        As a certified Business Analyst with an <strong>MSc in Business Analytics</strong> from the University of Exeter and a <strong>Bachelor of Engineering</strong>, I bring a robust analytical foundation to every challenge. My academic excellence is highlighted by ranking in the <strong>top 5% of my cohort in Statistics & Probability</strong>.
                     </p>
                     <p>
-                        My dual passion for technology and business strategy drives me to create data-driven solutions 
-                        that deliver measurable impact. I specialize in transforming raw data into compelling narratives 
-                        that inform critical business decisions and drive organizational growth.
+                        I am driven by a dual passion for technology and business strategy, specializing in transforming raw data into compelling narratives that inform critical decisions and drive organizational growth. I excel at bridging the gap between technical complexity and strategic business objectives.
                     </p>
                     <p>
-                        With expertise spanning from advanced analytics to stakeholder management, I excel at translating 
-                        business requirements into technical solutions that exceed expectations and deliver sustainable value.
+                        With expertise spanning from advanced analytics to stakeholder management, I am adept at translating business requirements into technical solutions that not only meet expectations but also deliver sustainable, measurable value.
                     </p>
                 </div>
                 <div class="about-image fade-in">
-                    <div class="profile-.image">
+                    <div class="profile-image">
                         <img src="static/images/profile.jpg" alt="Vedant Kulkarni">
                     </div>
                 </div>
