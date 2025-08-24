@@ -23,170 +23,137 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        /* --- NEW INTERACTIVE TIMELINE STYLES --- */
-        .timeline-container {
+        /* --- NEW ELEGANT VERTICAL TIMELINE STYLES --- */
+        .vertical-timeline {
             position: relative;
-            width: 100%;
-            padding: 40px 0;
-            margin-top: 50px;
+            padding: 50px 0;
+            margin: 0 auto;
+            max-width: 1000px;
         }
 
-        .timeline-line {
+        .vertical-timeline::before {
+            content: '';
             position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 100%;
-            height: 4px;
-            background-color: #e0e0e0;
-        }
-
-        .timeline-wrapper {
-            display: flex;
-            justify-content: space-between;
-            position: relative;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background-color: #e9ecef;
+            border-radius: 2px;
         }
 
         .timeline-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            padding: 10px 40px;
             position: relative;
-            text-align: center;
+            width: 50%;
+            opacity: 0; /* Initially hidden for animation */
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        
+        .timeline-item.is-visible {
+             opacity: 1;
+             transform: translateY(0);
         }
 
-        .timeline-bubble {
-            width: 120px;
-            height: 120px;
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-dot {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
             border-radius: 50%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 4px solid white;
-            z-index: 10;
+            background-color: white;
+            border: 4px solid #6a11cb;
+            top: 30px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
         }
 
-        .timeline-bubble:hover {
-            transform: scale(1.1);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+        
+        /* Alternating dot colors */
+        .timeline-item:nth-child(even) .timeline-dot { border-color: #2575fc; }
+        .timeline-item:nth-child(3) .timeline-dot,
+        .timeline-item:nth-child(4) .timeline-dot { border-color: #009E74; }
+
+
+        .timeline-card {
+            padding: 25px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            position: relative;
+            transition: transform 0.3s ease;
         }
 
-        .timeline-bubble.active {
-            transform: scale(1.15);
-            box-shadow: 0 0 0 4px white, 0 0 0 8px var(--bubble-color);
+        .timeline-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-card::before {
+            content: " "; height: 0; position: absolute; top: 22px; width: 0; z-index: 1;
+            right: -15px; border: medium solid white; border-width: 10px 0 10px 15px;
+            border-color: transparent transparent transparent white;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-card::before {
+            content: " "; height: 0; position: absolute; top: 22px; width: 0; z-index: 1;
+            left: -15px; border: medium solid white; border-width: 10px 15px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+
+        .timeline-date {
+            font-weight: 500; color: #888; margin-bottom: 5px; font-size: 0.9rem;
         }
 
         .timeline-title {
-            font-weight: 700;
-            font-size: 1rem;
-        }
-        .timeline-subtitle, .timeline-date {
-            font-size: 0.8rem;
-            opacity: 0.9;
+            font-weight: 700; font-size: 1.2rem; margin-bottom: 5px;
         }
 
-        .timeline-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.5s ease-out, padding 0.5s ease-out, margin-top 0.5s ease-out;
-            background: #f9f9f9;
-            border-radius: 8px;
-            text-align: left;
-            position: absolute;
-            width: 300px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-            z-index: 20;
-            padding: 0 20px;
-            margin-top: 0;
+        .timeline-subtitle {
+            font-weight: 600; color: #555; margin-bottom: 15px;
+        }
+
+        .timeline-card ul {
+            padding-left: 20px; margin: 0;
         }
         
-        .timeline-item:nth-child(odd) .timeline-content {
-            top: 140px; /* Position below the bubble */
+        .timeline-card ul li {
+            margin-bottom: 10px; color: #444;
         }
-        .timeline-item:nth-child(even) .timeline-content {
-            bottom: 140px; /* Position above the bubble */
+        .timeline-card ul li::marker {
+            color: #6a11cb;
         }
-
-        .timeline-content.show {
-            max-height: 500px; /* Large enough to show content */
-            padding: 20px;
-            margin-top: 20px;
-        }
-        .timeline-item:nth-child(even) .timeline-content.show {
-            margin-top: 0;
-            margin-bottom: 20px;
+        .timeline-item:nth-child(even) .timeline-card ul li::marker {
+             color: #2575fc;
         }
 
-        .timeline-content ul {
-            list-style-type: none;
-            padding-left: 0;
-            margin: 0;
-        }
-        .timeline-content ul li {
-            padding-left: 1.2em;
-            text-indent: -1.2em;
-            margin-bottom: 10px;
-            position: relative;
-        }
-        .timeline-content ul li::before {
-            content: '•';
-            color: var(--bubble-color);
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-        }
-
-        /* Responsive Design for Mobile */
-        @media (max-width: 992px) {
-            .timeline-line {
-                left: 60px;
-                top: 0;
-                width: 4px;
-                height: 100%;
-                transform: translateX(-50%);
-            }
-            .timeline-wrapper {
-                flex-direction: column;
-                align-items: flex-start;
-                padding-left: 60px;
-            }
-            .timeline-item {
-                flex-direction: row;
-                text-align: left;
-                width: 100%;
-                margin-bottom: 30px;
-            }
-            .timeline-bubble {
-                margin-right: 20px;
-                flex-shrink: 0;
-            }
-            .timeline-item:nth-child(odd) .timeline-content,
-            .timeline-item:nth-child(even) .timeline-content {
-                position: static;
-                width: auto;
-                margin-left: 140px; /* Aligns with bubble */
-                margin-top: -120px; /* Puts it beside the bubble */
-            }
-            .timeline-item:nth-child(even) .timeline-content.show {
-                margin-bottom: 0;
-                margin-top: -120px;
-            }
-             .timeline-content.show {
-                margin-top: 10px;
+        /* Responsive Design */
+        @media screen and (max-width: 768px) {
+            .vertical-timeline::before { left: 20px; }
+            .timeline-item { width: 100%; padding-left: 60px; padding-right: 15px; }
+            .timeline-item:nth-child(odd), .timeline-item:nth-child(even) { left: 0; }
+            .timeline-dot { left: 10px; }
+            .timeline-item:nth-child(odd) .timeline-card::before,
+            .timeline-item:nth-child(even) .timeline-card::before {
+                left: -15px; border-width: 10px 15px 10px 0;
+                border-color: transparent white transparent transparent;
             }
         }
-         @media (max-width: 768px) {
-            .timeline-item:nth-child(odd) .timeline-content,
-            .timeline-item:nth-child(even) .timeline-content {
-                 margin-left: 0;
-                 margin-top: 10px;
-             }
-         }
     </style>
 </head>
 <body>
@@ -230,6 +197,8 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">My Work & Case Studies</h2>
+            
+            <!-- Project 1 -->
             <div class="project-timeline-item fade-in">
                 <div class="project-number">01</div>
                 <div class="project-content">
@@ -243,6 +212,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Project 2 -->
             <div class="project-timeline-item fade-in">
                 <div class="project-number">02</div>
                 <div class="project-content">
@@ -256,6 +227,82 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Project 3 -->
+            <div class="project-timeline-item fade-in">
+                <div class="project-number">03</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3>Machine Learning for Fraud Detection</h3>
+                        <div class="tech-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Scikit-learn</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">SMOTE</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-left">
+                            <h4>Objective & Key Actions</h4>
+                            <ul>
+                                <li><strong>Objective:</strong> Build high-accuracy ML model for real-time fraud detection</li>
+                                <li>Preprocessed imbalanced dataset using SMOTE techniques</li>
+                                <li>Trained Random Forest and Logistic Regression models</li>
+                                <li>Conducted comprehensive performance evaluation and model comparison</li>
+                                <li>Implemented real-time scoring pipeline for production deployment</li>
+                            </ul>
+                        </div>
+                        <div class="project-right">
+                            <h4>Scope & Impact</h4>
+                            <div class="impact-box">
+                                <div class="impact-highlight">
+                                    <strong>25% improvement in fraud detection accuracy</strong>
+                                </div>
+                                <p>Enhanced fraud detection capabilities over baseline models, reduced false positives by 30%, and enabled real-time transaction monitoring for enhanced security.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-timeline-item fade-in">
+                <div class="project-number">04</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3>Hospital Patient Admission & Billing Process Optimization</h3>
+                        <div class="tech-tags">
+                            <span class="tag">Business Analysis</span>
+                            <span class="tag">Process Improvement</span>
+                            <span class="tag">Power BI</span>
+                            <span class="tag">Requirements Gathering</span>
+                            <span class="tag">Healthcare Analytics</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-left">
+                            <h4>Objective & Key Actions</h4>
+                            <ul>
+                                <li><strong>Objective:</strong> Re-engineer hospital's patient onboarding and billing workflow to reduce administrative errors and accelerate insurance claim lifecycle</li>
+                                <li>Mapped complete patient journey using Lucidchart to identify bottlenecks and redundant steps</li>
+                                <li>Conducted root cause analysis on claim rejections using Fishbone Diagram and 5 Whys technique</li>
+                                <li>Authored comprehensive Business Requirements Document (BRD) and Functional Specification Document (FSD)</li>
+                                <li>Developed Power BI dashboard to monitor process KPIs and claim approval rates</li>
+                            </ul>
+                        </div>
+                        <div class="project-right">
+                            <h4>Scope & Impact</h4>
+                            <div class="impact-box">
+                                <div class="impact-highlight">
+                                    <strong>Strategic roadmap for process automation delivered</strong>
+                                </div>
+                                <p>Provided clear path to reduce costly claim errors and significantly improve administrative efficiency. Created dashboard system for ongoing performance monitoring of patient wait times and billing turnaround.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </section>
 
@@ -288,109 +335,98 @@
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline-container">
-                <div class="timeline-line"></div>
-                <div class="timeline-wrapper">
+            <div class="vertical-timeline">
 
-                    <!-- Experience 1 -->
-                    <div class="timeline-item">
-                        <div class="timeline-bubble" style="--bubble-color: #6a11cb;">
-                            <div class="timeline-title">Data Analyst</div>
-                            <div class="timeline-subtitle">Vani Research Labs</div>
-                            <div class="timeline-date">2025</div>
-                        </div>
-                        <div class="timeline-content">
-                            <ul>
-                                <li>Analyzed AI agent performance logs and core KPIs (e.g., transcription accuracy, sentiment analysis precision) to identify and diagnose patterns in model errors, providing data-driven recommendations that guided algorithm refinement.</li>
-                                <li>Conducted competitive intelligence and market research on voice AI applications across diverse industries (including BFSI and healthcare) to identify feature gaps and benchmark product performance against top competitors.</li>
-                                <li>Authored a detailed enhancement proposal by synthesizing market research and performance data, outlining actionable strategies to improve the AI agent's capabilities and align the product roadmap with emerging industry trends.</li>
-                            </ul>
-                        </div>
+                <!-- Experience Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">1/2025 – 6/2025</div>
+                        <h3 class="timeline-title">Data Analyst (contract)</h3>
+                        <h4 class="timeline-subtitle">Vani Research Labs, Remote</h4>
+                        <ul>
+                            <li>Analyzed AI agent performance logs and core KPIs to identify patterns in model errors, providing data-driven recommendations that guided algorithm refinement.</li>
+                            <li>Conducted competitive intelligence on voice AI applications to identify feature gaps and benchmark product performance against top competitors.</li>
+                            <li>Authored a detailed enhancement proposal synthesizing market research and performance data, outlining actionable strategies to improve the AI agent's capabilities.</li>
+                        </ul>
                     </div>
-
-                    <!-- Experience 2 -->
-                    <div class="timeline-item">
-                         <div class="timeline-bubble" style="--bubble-color: #2575fc;">
-                            <div class="timeline-title">Data Analyst</div>
-                            <div class="timeline-subtitle">Vishwa Vision Mktg</div>
-                            <div class="timeline-date">2024-2025</div>
-                        </div>
-                        <div class="timeline-content">
-                            <ul>
-                                <li>Conducted comprehensive market and competitor analysis to identify high-potential B2B sectors (hospitality, aviation), leading to a refocused marketing strategy that increased qualified inbound leads by over 25%.</li>
-                                <li>Developed data-driven customer segmentation models by analyzing past sales data and client specifications, creating detailed B2B personas that guided the launch of targeted marketing campaigns and boosted client engagement rates.</li>
-                                <li>Designed and implemented a KPI framework to track the sales funnel and marketing ROI, creating standardized reports in Excel that enabled leadership to make informed decisions on budget allocation and channel strategy.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Experience 3 -->
-                    <div class="timeline-item">
-                        <div class="timeline-bubble" style="--bubble-color: #009E74;">
-                            <div class="timeline-title">Data Analyst</div>
-                            <div class="timeline-subtitle">British Telecom</div>
-                            <div class="timeline-date">2023-2024</div>
-                        </div>
-                        <div class="timeline-content">
-                             <ul>
-                                <li>Analyzed customer query data using Excel to identify trends, patterns, and root causes of common issues, contributing to a 15% reduction in repeat inquiries.</li>
-                                <li>Translated qualitative customer feedback into quantitative data, performing sentiment analysis to inform product and service enhancement strategies.</li>
-                                <li>Collaborated with cross-functional teams by providing data-driven reports that highlighted recurring technical issues, leading to more efficient process improvements and bug fixes.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Experience 4 -->
-                    <div class="timeline-item">
-                        <div class="timeline-bubble" style="--bubble-color: #0072B2;">
-                            <div class="timeline-title">Data Analyst</div>
-                            <div class="timeline-subtitle">Knowlettwoods LLP</div>
-                            <div class="timeline-date">2020-2021</div>
-                        </div>
-                        <div class="timeline-content">
-                            <ul>
-                                <li>Collaborated closely with sales team and product teams to translate complex business requirements into analytics solutions.</li>
-                                <li>Leveraged Google Analytics to analyze website traffic and user behavior, contributing to a 15% increase in conversion rates.</li>
-                                <li>Cleaned and transformed large datasets using Python and SQL, ensuring high data quality and reliability for accurate analysis.</li>
-                                <li>Utilized SQL for data extraction and built Power BI dashboards to visualize KPIs, campaign ROI, CAC, and conversion funnel metrics.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Experience 5 -->
-                    <div class="timeline-item">
-                        <div class="timeline-bubble" style="--bubble-color: #D55E00;">
-                            <div class="timeline-title">Digital Market Analyst</div>
-                            <div class="timeline-subtitle">Intermarket Pvt. Ltd</div>
-                            <div class="timeline-date">2019-2020</div>
-                        </div>
-                        <div class="timeline-content">
-                            <ul>
-                                <li>Evaluated, sales, revenue, and digital campaign performance using Excel and Power BI to identify trends and optimize spending.</li>
-                                <li>Contributed to a 15% increase in sales and 20% boost in repeat purchases through data-driven marketing insights.</li>
-                                <li>Supported customer segmentation & persona development to enable targeted messaging, increasing campaign relevance & engagement.</li>
-                                <li>Collaborated with cross-functional teams to translate customer data into actionable insights driving business growth & strategy.</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <!-- Experience 6 -->
-                    <div class="timeline-item">
-                        <div class="timeline-bubble" style="--bubble-color: #CC79A7;">
-                            <div class="timeline-title">Project Engineer Intern</div>
-                            <div class="timeline-subtitle">BSNL</div>
-                            <div class="timeline-date">2018-2019</div>
-                        </div>
-                        <div class="timeline-content">
-                             <ul>
-                                <li>Executed network performance analysis to optimize bandwidth efficiency and ensure seamless user connectivity.</li>
-                                <li>Analyzed network configurations and performance logs to deliver actionable system improvements.</li>
-                                <li>Performed site surveys and assisted in troubleshooting network failures, improving system uptime and reducing connectivity issues.</li>
-                            </ul>
-                        </div>
-                    </div>
-
                 </div>
+
+                <!-- Experience Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">11/2024 – 1/2025</div>
+                        <h3 class="timeline-title">Data Analyst (contract)</h3>
+                        <h4 class="timeline-subtitle">Vishwa Vision Marketing, Mumbai</h4>
+                        <ul>
+                            <li>Conducted market and competitor analysis to identify high-potential B2B sectors, leading to a refocused marketing strategy that increased qualified inbound leads by over 25%.</li>
+                            <li>Developed data-driven customer segmentation models, creating detailed B2B personas that guided targeted marketing campaigns and boosted client engagement.</li>
+                            <li>Designed a KPI framework to track the sales funnel and marketing ROI, enabling leadership to make informed decisions on budget allocation.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">05/2023 – 10/2024</div>
+                        <h3 class="timeline-title">Data Analyst, Customer Operations</h3>
+                        <h4 class="timeline-subtitle">British Telecom, Exeter, United Kingdom</h4>
+                        <ul>
+                            <li>Analyzed customer query data using Excel to identify trends and root causes of common issues, contributing to a 15% reduction in repeat inquiries.</li>
+                            <li>Translated qualitative customer feedback into quantitative data, performing sentiment analysis to inform product and service enhancement strategies.</li>
+                            <li>Collaborated with cross-functional teams by providing data-driven reports that highlighted recurring technical issues, leading to more efficient process improvements.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">08/2020 - 12/2021</div>
+                        <h3 class="timeline-title">Data Analyst</h3>
+                        <h4 class="timeline-subtitle">Knowlettwoods LLP, Noida, India</h4>
+                        <ul>
+                            <li>Leveraged Google Analytics to analyze website traffic and user behavior, contributing to a 15% increase in conversion rates.</li>
+                            <li>Cleaned and transformed large datasets using Python and SQL, ensuring high data quality for accurate analysis.</li>
+                            <li>Utilized SQL for data extraction and built Power BI dashboards to visualize KPIs, campaign ROI, and conversion funnel metrics.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Experience Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">07/2019 - 01/2020</div>
+                        <h3 class="timeline-title">Digital Market Analyst</h3>
+                        <h4 class="timeline-subtitle">Intermarket Private Limited, Mumbai, India</h4>
+                        <ul>
+                            <li>Evaluated sales, revenue, and digital campaign performance using Excel and Power BI to identify trends and optimize spending.</li>
+                            <li>Contributed to a 15% increase in sales and 20% boost in repeat purchases through data-driven marketing insights.</li>
+                            <li>Supported customer segmentation & persona development to enable targeted messaging, increasing campaign relevance & engagement.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience Item 6 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-card">
+                        <div class="timeline-date">08/2018 - 03/2019</div>
+                        <h3 class="timeline-title">Project Engineer Intern</h3>
+                        <h4 class="timeline-subtitle">Bharat Sanchar Nigam Limited, Mumbai, India</h4>
+                        <ul>
+                            <li>Executed network performance analysis to optimize bandwidth efficiency and ensure seamless user connectivity.</li>
+                            <li>Analyzed network configurations and performance logs to deliver actionable system improvements.</li>
+                            <li>Performed site surveys and assisted in troubleshooting network failures, improving system uptime and reducing connectivity issues.</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
@@ -409,8 +445,29 @@
                     <div class="profile-image"><img src="static/images/profile.jpg" alt="Vedant Kulkarni"></div>
                 </div>
             </div>
-            <div class="skills-section fade-in"><h3>Technical Skills & Expertise</h3><div class="skills-list"><div class="skill-row"><div class="skill-info"><i class="fab fa-python"></i><span class="skill-name">Python</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div><span class="skill-rating">9/10</span></div></div><div class="skill-row"><div class="skill-info"><i class="fas fa-database"></i><span class="skill-name">SQL</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div><span class="skill-rating">9/10</span></div></div><div class="skill-row"><div class="skill-info"><i class="fas fa-chart-bar"></i><span class="skill-name">Power BI</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="8"></div></div><span class="skill-rating">8/10</span></div></div><div class="skill-row"><div class="skill-info"><i class="fas fa-chart-line"></i><span class="skill-name">Tableau</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="8"></div></div><span class="skill-rating">8/10</span></div></div><div class="skill-row"><div class="skill-info"><i class="fas fa-brain"></i><span class="skill-name">Machine Learning</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="7"></div></div><span class="skill-rating">7/10</span></div></div><div class="skill-row"><div class="skill-info"><i class="fas fa-business-time"></i><span class="skill-name">Business Analysis</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div><span class="skill-rating">9/10</span></div></div><div class="skill-row"><div class="skill-info"><i class="fab fa-google"></i><span class="skill-name">Google Analytics</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="8"></div></div><span class="skill-rating">8/10</span></div></div><div class="skill-row"><div class="skill-info"><i class="fas fa-exchange-alt"></i><span class="skill-name">ETL Processes</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="8"></div></div><span class="skill-rating">8/10</span></div></div><div class="skill-row"><div class="skill-info"><i class="fas fa-tasks"></i><span class="skill-name">Requirements Gathering</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div><span class="skill-rating">9/10</span></div></div></div></div>
-            <div class="certifications-section fade-in"><h3>Professional Certifications & Courses</h3><div class="certifications-grid"><div class="certification-card"><div class="cert-logo"><i class="fas fa-certificate"></i></div><div class="cert-content"><h4>ECBA™ Certification</h4><p class="cert-issuer">International Institute of Business Analyst (IIBA)</p><div class="cert-skills"><span class="cert-skill">Requirement Management</span><span class="cert-skill">Business Analysis Planning</span><span class="cert-skill">Stakeholder Elicitation</span><span class="cert-skill">Process Design & Analysis</span></div></div></div><div class="certification-card"><div class="cert-logo"><i class="fab fa-google"></i></div><div class="cert-content"><h4>Advanced Google Analytics</h4><p class="cert-issuer">Google Analytics Academy</p><div class="cert-skills"><span class="cert-skill">Power User Techniques</span><span class="cert-skill">Google Analytics 360</span><span class="cert-skill">User Behavior Analysis</span><span class="cert-skill">Custom Reporting</span></div></div></div><div class="certification-card"><div class="cert-logo"><i class="fab fa-python"></i></div><div class="cert-content"><h4>Python Programming</h4><p class="cert-issuer">IT vedant Education Pvt. Ltd</p><div class="cert-skills"><span class="cert-skill">Core Python Syntax</span><span class="cert-skill">Algorithms & Functions</span><span class="cert-skill">SDLC & Agile Methodologies</span><span class="cert-skill">Data Structures</span></div></div></div><div class="certification-card"><div class="cert-logo"><i class="fas fa-tasks"></i></div><div class="cert-content"><h4>Agile Business Analyst & Scrum</h4><p class="cert-issuer">Imarticus Learning</p><div class="cert-skills"><span class="cert-skill">Business Workflow Mapping</span><span class="cert-skill">Process Automation</span><span class="cert-skill">End-to-End Process Design</span><span class="cert-skill">Aris & Lucidchart</span></div></div></div></div></div>
+            <div class="skills-section fade-in">
+                <h3>Technical Skills & Expertise</h3>
+                <div class="skills-list">
+                    <div class="skill-row"><div class="skill-info"><i class="fab fa-python"></i><span class="skill-name">Python</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div><span class="skill-rating">9/10</span></div></div>
+                    <div class="skill-row"><div class="skill-info"><i class="fas fa-database"></i><span class="skill-name">SQL</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div><span class="skill-rating">9/10</span></div></div>
+                    <div class="skill-row"><div class="skill-info"><i class="fas fa-chart-bar"></i><span class="skill-name">Power BI</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="8"></div></div><span class="skill-rating">8/10</span></div></div>
+                    <div class="skill-row"><div class="skill-info"><i class="fas fa-chart-line"></i><span class="skill-name">Tableau</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="8"></div></div><span class="skill-rating">8/10</span></div></div>
+                    <div class="skill-row"><div class="skill-info"><i class="fas fa-brain"></i><span class="skill-name">Machine Learning</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="7"></div></div><span class="skill-rating">7/10</span></div></div>
+                    <div class="skill-row"><div class="skill-info"><i class="fas fa-business-time"></i><span class="skill-name">Business Analysis</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div><span class="skill-rating">9/10</span></div></div>
+                    <div class="skill-row"><div class="skill-info"><i class="fab fa-google"></i><span class="skill-name">Google Analytics</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="8"></div></div><span class="skill-rating">8/10</span></div></div>
+                    <div class="skill-row"><div class="skill-info"><i class="fas fa-exchange-alt"></i><span class="skill-name">ETL Processes</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="8"></div></div><span class="skill-rating">8/10</span></div></div>
+                    <div class="skill-row"><div class="skill-info"><i class="fas fa-tasks"></i><span class="skill-name">Requirements Gathering</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div><span class="skill-rating">9/10</span></div></div>
+                </div>
+            </div>
+            <div class="certifications-section fade-in">
+                <h3>Professional Certifications & Courses</h3>
+                <div class="certifications-grid">
+                    <div class="certification-card"><div class="cert-logo"><i class="fas fa-certificate"></i></div><div class="cert-content"><h4>ECBA™ Certification</h4><p class="cert-issuer">International Institute of Business Analyst (IIBA)</p><div class="cert-skills"><span class="cert-skill">Requirement Management</span><span class="cert-skill">Business Analysis Planning</span><span class="cert-skill">Stakeholder Elicitation</span><span class="cert-skill">Process Design & Analysis</span></div></div></div>
+                    <div class="certification-card"><div class="cert-logo"><i class="fab fa-google"></i></div><div class="cert-content"><h4>Advanced Google Analytics</h4><p class="cert-issuer">Google Analytics Academy</p><div class="cert-skills"><span class="cert-skill">Power User Techniques</span><span class="cert-skill">Google Analytics 360</span><span class="cert-skill">User Behavior Analysis</span><span class="cert-skill">Custom Reporting</span></div></div></div>
+                    <div class="certification-card"><div class="cert-logo"><i class="fab fa-python"></i></div><div class="cert-content"><h4>Python Programming</h4><p class="cert-issuer">IT vedant Education Pvt. Ltd</p><div class="cert-skills"><span class="cert-skill">Core Python Syntax</span><span class="cert-skill">Algorithms & Functions</span><span class="cert-skill">SDLC & Agile Methodologies</span><span class="cert-skill">Data Structures</span></div></div></div>
+                    <div class="certification-card"><div class="cert-logo"><i class="fas fa-tasks"></i></div><div class="cert-content"><h4>Agile Business Analyst & Scrum</h4><p class="cert-issuer">Imarticus Learning</p><div class="cert-skills"><span class="cert-skill">Business Workflow Mapping</span><span class="cert-skill">Process Automation</span><span class="cert-skill">End-to-End Process Design</span><span class="cert-skill">Aris & Lucidchart</span></div></div></div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -443,10 +500,10 @@
         </div>
     </footer>
 
-    <!-- ## JAVASCRIPT FOR INTERACTIVE TIMELINE ## -->
+    <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Include existing script logic for navbar, etc.
+            // Standard menu and scroll logic
             const navbar = document.getElementById('navbar');
             const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
             const navMenu = document.querySelector('.nav-menu');
@@ -463,29 +520,20 @@
                 navMenu.classList.toggle('active');
             });
             
-            // New Timeline Logic
-            const timelineBubbles = document.querySelectorAll('.timeline-bubble');
-            
-            timelineBubbles.forEach(bubble => {
-                const bubbleColor = window.getComputedStyle(bubble).getPropertyValue('--bubble-color');
-                bubble.style.backgroundColor = bubbleColor;
-
-                bubble.addEventListener('click', function() {
-                    const content = this.nextElementSibling;
-                    const isAlreadyActive = this.classList.contains('active');
-
-                    // Reset all items first
-                    timelineBubbles.forEach(b => {
-                        b.classList.remove('active');
-                        b.nextElementSibling.classList.remove('show');
-                    });
-
-                    // If it wasn't already active, activate it
-                    if (!isAlreadyActive) {
-                        this.classList.add('active');
-                        content.classList.add('show');
+            // Animation logic for timeline
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
                     }
                 });
+            }, {
+                threshold: 0.1
+            });
+
+            timelineItems.forEach(item => {
+                observer.observe(item);
             });
         });
     </script>
