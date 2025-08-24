@@ -891,6 +891,31 @@ body {
     transform: translateY(0);
 }
 
+/* Mobile Navigation */
+.nav-menu.active {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%);
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.nav-menu.active .nav-link {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(16, 185, 129, 0.1);
+}
+
+.nav-menu.active .resume-btn {
+    margin-top: 10px;
+    text-align: center;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .nav-menu {
@@ -901,8 +926,10 @@ body {
         display: block;
     }
     
+    /* Hero Section */
     .hero-title {
         font-size: 2.5rem;
+        line-height: 1.2;
     }
     
     .hero-subtitle {
@@ -912,11 +939,25 @@ body {
     .hero-buttons {
         flex-direction: column;
         align-items: flex-start;
+        gap: 15px;
     }
     
+    .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+    
+    /* Projects Section */
     .project-timeline-item {
         flex-direction: column;
         gap: 20px;
+        margin-bottom: 60px;
+    }
+    
+    .project-number {
+        font-size: 3rem;
+        text-align: left;
+        min-width: auto;
     }
     
     .project-number::after {
@@ -925,26 +966,23 @@ body {
     
     .project-details {
         grid-template-columns: 1fr;
-        gap: 30px;
+        gap: 25px;
     }
     
-    .about-content {
-        grid-template-columns: 1fr;
-        gap: 40px;
-        text-align: center;
+    .project-content {
+        padding: 25px;
     }
     
-    .contact-info {
-        flex-direction: column;
-        align-items: center;
+    .tech-tags {
+        gap: 8px;
     }
     
-    .footer-content {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
+    .tag {
+        font-size: 0.8rem;
+        padding: 4px 12px;
     }
     
+    /* Experience Section */
     .experience-timeline::before {
         display: none;
     }
@@ -957,12 +995,49 @@ body {
     .experience-date {
         margin: 0 0 20px 0;
         align-self: flex-start;
+        min-width: auto;
+        font-size: 0.85rem;
+        padding: 8px 16px;
     }
     
+    .experience-content {
+        padding: 25px;
+    }
+    
+    .experience-company {
+        font-size: 1.2rem;
+    }
+    
+    .experience-position {
+        font-size: 1rem;
+    }
+    
+    /* About Section */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .profile-image img {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .about-text h2 {
+        font-size: 2rem;
+    }
+    
+    .about-text p {
+        font-size: 1rem;
+    }
+    
+    /* Skills Section */
     .skill-row {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
+        padding: 15px 10px;
     }
     
     .skill-level {
@@ -970,12 +1045,67 @@ body {
         max-width: none;
     }
     
+    .skill-info {
+        min-width: auto;
+    }
+    
+    /* Certifications */
     .certifications-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .certification-card {
         padding: 25px;
+    }
+    
+    .cert-logo i {
+        font-size: 2.5rem;
+        width: 70px;
+        height: 70px;
+    }
+    
+    .cert-content h4 {
+        font-size: 1.2rem;
+    }
+    
+    .cert-skills {
+        gap: 6px;
+    }
+    
+    .cert-skill {
+        font-size: 0.8rem;
+        padding: 4px 10px;
+    }
+    
+    /* Contact Section */
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .contact-item {
+        padding: 15px 25px;
+        font-size: 1rem;
+    }
+    
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+    
+    /* Section Titles */
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 40px;
+    }
+    
+    /* General Spacing */
+    .projects, .experience, .about, .contact {
+        padding: 80px 0;
     }
 }
 
@@ -984,20 +1114,170 @@ body {
         padding: 0 15px;
     }
     
-    .hero-title {
-        font-size: 2rem;
+    /* Navigation */
+    .nav-container {
+        padding: 0 15px;
+        height: 60px;
     }
     
-    .section-title {
+    .nav-brand a {
+        font-size: 1.3rem;
+    }
+    
+    .nav-menu.active {
+        padding: 15px;
+    }
+    
+    /* Hero Section */
+    .hero-title {
         font-size: 2rem;
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    /* Section Titles */
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    /* Projects */
+    .project-number {
+        font-size: 2.5rem;
     }
     
     .project-content {
-        padding: 25px;
+        padding: 20px;
+    }
+    
+    .project-header h3 {
+        font-size: 1.5rem;
+        line-height: 1.3;
+    }
+    
+    .tech-tags {
+        gap: 6px;
+    }
+    
+    .tag {
+        font-size: 0.75rem;
+        padding: 3px 10px;
+    }
+    
+    .impact-box {
+        padding: 20px;
+    }
+    
+    .impact-highlight {
+        font-size: 1rem;
+    }
+    
+    /* Experience */
+    .experience-date {
+        font-size: 0.8rem;
+        padding: 6px 14px;
+    }
+    
+    .experience-content {
+        padding: 20px;
+    }
+    
+    .experience-company {
+        font-size: 1.1rem;
+    }
+    
+    .experience-position {
+        font-size: 0.95rem;
+    }
+    
+    .experience-location {
+        font-size: 0.85rem;
+    }
+    
+    /* About Section */
+    .about-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .about-text p {
+        font-size: 0.95rem;
     }
     
     .profile-image img {
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
+    }
+    
+    .skills-section h3 {
+        font-size: 1.6rem;
+    }
+    
+    .skill-name {
+        font-size: 1rem;
+    }
+    
+    .skill-rating {
+        font-size: 0.85rem;
+    }
+    
+    /* Certifications */
+    .certifications-section h3 {
+        font-size: 1.6rem;
+    }
+    
+    .certification-card {
+        padding: 20px;
+    }
+    
+    .cert-logo i {
+        font-size: 2rem;
+        width: 60px;
+        height: 60px;
+    }
+    
+    .cert-content h4 {
+        font-size: 1.1rem;
+    }
+    
+    .cert-issuer {
+        font-size: 0.9rem;
+    }
+    
+    .cert-skill {
+        font-size: 0.75rem;
+        padding: 3px 8px;
+    }
+    
+    /* Contact */
+    .contact-content h2 {
+        font-size: 2rem;
+    }
+    
+    .contact-content p {
+        font-size: 1rem;
+    }
+    
+    .contact-item {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+    
+    /* General Spacing */
+    .projects, .experience, .about, .contact {
+        padding: 60px 0;
+    }
+    
+    .certifications-section {
+        margin-top: 60px;
+        padding-top: 30px;
     }
 }
