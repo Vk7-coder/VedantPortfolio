@@ -1,0 +1,40 @@
+Project 4: Hospital Patient Admission & Billing Process Optimization
+Objective: To re-engineer the hospital's patient onboarding and billing workflow to reduce administrative errors, accelerate the insurance claim lifecycle, and improve the overall patient experience.
+Scope: The project involved an end-to-end analysis of the existing ("AS-IS") process, from a patient's initial admission to the final claim resolution. The goal was to design a streamlined future-state ("TO-BE") process ready for implementation.
+Key Actions & Technologies:
+Mapped the complete patient journey and administrative workflows using Lucidchart to visually identify bottlenecks and redundant steps.
+Conducted root cause analysis on claim rejections using a Fishbone Diagram and the 5 Whys technique, pinpointing critical failure points in the process.
+Authored a comprehensive Business Requirements Document (BRD) and Functional Specification Document (FSD), outlining the scope for EMR integration and automated billing workflows.
+Developed a Power BI dashboard to monitor new process KPIs, including average patient wait time, billing turnaround time, and claim approval rate.
+Conclusion & Impact: Delivered a strategic roadmap for process automation that provided the hospital with a clear path to reduce costly claim errors and significantly improve administrative efficiency. The new dashboard design created a system for ongoing performance monitoring.
+Tags: Business Analysis, Process Improvement, Power BI, Requirements Gathering, Root Cause Analysis, Healthcare Analytics
+Project 5: E-commerce Conversion Prediction & Pricing Strategy
+Objective: To leverage machine learning for predicting customer conversion and to design a data-driven pricing strategy that optimized sales, profitability, and ROI.
+Scope: This project focused on the customer behavior and sales data of an e-commerce platform. It included developing a predictive model for conversion and using customer segmentation to inform a dynamic pricing strategy.
+Key Actions & Technologies:
+Utilized Python (Pandas, NumPy) for statistical analysis of customer transaction data.
+Built a highly accurate Logistic Regression model with an F1-score of 90% to predict the likelihood of a customer making a purchase.
+Employed clustering algorithms to perform customer segmentation, identifying distinct groups based on purchasing behavior and characteristics.
+Developed and analyzed a new pricing strategy, evaluating its potential impact on key business metrics like sales volume, revenue, and overall profitability.
+Conclusion & Impact: This project successfully demonstrated the power of machine learning in an e-commerce context. The predictive model provided accurate conversion insights, and the segmentation analysis laid the groundwork for targeted marketing and pricing strategies to maximize revenue.
+Tags: Machine Learning, Python, Logistic Regression, Clustering, E-commerce, Pricing Strategy
+Project 6: Customer Feedback Sentiment & Automated Response Analysis
+Objective: To build an intelligent system that could automatically analyze customer feedback for sentiment, classify complaints, and automate initial responses, thereby reducing manual workload and improving support team efficiency.
+Scope: The project involved creating a complete NLP (Natural Language Processing) pipeline, from data extraction and cleaning to sentiment analysis, complaint classification, and automated reply generation.
+Key Actions & Technologies:
+Extracted and cleaned raw customer feedback data using SQL and Python.
+Performed sentiment analysis using the VADER library and built a Logistic Regression model to classify complaints, achieving 85% accuracy.
+Developed a content-based response system using TF-IDF, keyword matching, and text similarity to generate automated replies for common issues.
+Tracked key support KPIs (like Average Handle Time and First Contact Resolution) to measure the system's impact.
+Conclusion & Impact: The implemented system successfully automated a significant portion of the customer support workflow, cutting manual reply time by 40%. This allowed the support team to focus on more complex issues and improved prioritization accuracy by 30%.
+Tags: NLP, Sentiment Analysis, Python, Machine Learning, Automation, Customer Service Analytics
+Project 7: SaaS Business Intelligence & Churn Forecasting System
+Objective: To create a robust BI system for a SaaS company to automate key metric reporting and to build a predictive model to forecast customer churn, enabling proactive retention efforts.
+Scope: This project involved automating the calculation and visualization of core SaaS metrics (MRR, CLV, churn rate) and developing a time-series model to predict future churn and revenue trends.
+Key Actions & Technologies:
+Automated the generation of key SaaS metrics using Python and SQL, dramatically speeding up the reporting process.
+Predicted future churn and revenue trends using time-series forecasting models like Prophet and ARIMA.
+Used clustering to segment users based on behavior, allowing for targeted retention campaigns aimed at high-risk cohorts.
+Implemented a real-time metric alert system in Python to notify stakeholders of significant changes, enabling proactive decision-making.
+Conclusion & Impact: The system provided a clear, automated view of business health and delivered actionable churn forecasts. The proactive alerts and user segmentation strategies led to a simulated churn reduction of 20%, demonstrating a direct and positive impact on revenue.
+Tags: Business Intelligence, Churn Prediction, Python, SQL, Time-Series Forecasting, SaaS Analytics
