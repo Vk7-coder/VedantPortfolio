@@ -81,6 +81,17 @@
             }
         }
         /* ================================ */
+
+        /* == FIX 2: STYLE FOR THE NEW 'ABOUT' TEXT == */
+        .hero-about-subtitle {
+            display: block; /* Puts it on a new line */
+            font-size: 1.2rem; /* Smaller font size */
+            font-weight: 400; /* Normal font weight, not bold */
+            margin-top: 15px; /* Adds space from the main title */
+            line-height: 1.6;
+            opacity: 0.9; /* Slightly less prominent than the main title */
+        }
+        /* ========================================= */
     </style>
     <!-- ==================================== -->
 </head>
@@ -112,11 +123,15 @@
     <section id="home" class="hero">
         <div class="hero-background"></div>
         <div class="hero-content">
-            <!-- FIX 2: Restored correct hero section structure -->
             <div class="hero-flex-container">
                 <div class="hero-text">
-                    <!-- FIX 1: Updated the headline -->
-                    <h1 class="hero-title fade-in"> Transforming Data into Business Success</h1>
+                    
+                    <h1 class="hero-title fade-in">
+                        <!-- FIX 1: ADDED A LINE BREAK <br> TO MAKE THE HEADLINE FULLY VISIBLE -->
+                        Transforming Data into<br>Business Success
+                        <!-- FIX 2: ADDED 'ABOUT' IN A SPAN WITH A NEW CLASS FOR SMALLER FONT -->
+                        <span class="hero-about-subtitle">About</span>
+                    </h1>
                     
                     <p class="hero-subtitle fade-in">
                      Hi, I’m Vedant Kulkarni, a certified Business Analyst with an MSc in Business Analytics and a Bachelor in Engineering. I specialize in turning data into actionable insights that drive business growth. Proficient in Python, SQL, and Power BI, I have delivered dashboards, predictive models, and analytics solutions across market, customer, and AI data. I excel at translating business requirements into solutions that deliver sustainable and measurable value. With expertise in advanced analytics, stakeholder management, and marketing insight, I help organizations optimize decision-making, enhance customer experience, and achieve measurable results                        
@@ -418,7 +433,6 @@
                     <div class="education-date">Jan 2022 - Apr 2023</div>
                     <div class="education-content">
                         <div class="education-logo">
-                            <!-- FIX 3: Removed duplicate image tag -->
                             <img src="static/images/exeter.jpg" alt="University of Exeter Logo">
                         </div>
                         <div>
@@ -442,7 +456,6 @@
                     <div class="education-date">Jun 2015 - Aug 2019</div>
                     <div class="education-content">
                         <div class="education-logo">
-                            <!-- FIX 3: Removed duplicate image tag -->
                             <img src="static/images/Mumbai_university_logo.jpg" alt="Mumbai University Logo">
                         </div>
                         <div>
@@ -681,7 +694,6 @@
                     <!-- ECBA Certification -->
                     <div class="certification-card">
                         <div class="cert-logo">
-                            <!-- FIX 3: Removed duplicate image tag -->
                             <img src="static/images/iiba.jpg" alt="IIBA ECBA Logo">
                         </div>
                         <div class="cert-content-wrapper">
@@ -701,7 +713,6 @@
                     <!-- Google Analytics Certification -->
                     <div class="certification-card">
                         <div class="cert-logo">
-                            <!-- FIX 3: Removed duplicate image tag -->
                             <img src="static/images/google_analytics.png" alt="Google Analytics Logo">
                         </div>
                         <div class="cert-content-wrapper">
@@ -721,7 +732,6 @@
                     <!-- Python Programming -->
                     <div class="certification-card">
                         <div class="cert-logo">
-                           <!-- FIX 3: Removed duplicate image tag -->
                            <img src="static/images/ITvedant.png" alt="I.T. Vedant Logo">
                         </div>
                         <div class="cert-content-wrapper">
@@ -741,7 +751,6 @@
                     <!-- Agile Business Analyst -->
                     <div class="certification-card">
                         <div class="cert-logo">
-                            <!-- FIX 3: Removed duplicate image tag -->
                             <img src="static/images/ima.jpg" alt="Imarticus Learning Logo">
                         </div>
                         <div class="cert-content-wrapper">
