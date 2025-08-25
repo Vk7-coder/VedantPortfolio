@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vedant Kulkarni - Business & Data Analyst Portfolio</title>
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
@@ -45,6 +45,42 @@
             display: flex;
             align-items: flex-start;
         }
+
+        /* == STYLES FOR NEW HERO LAYOUT == */
+        .hero-flex-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            width: 100%;
+        }
+        .hero-text {
+            flex-basis: 65%;
+        }
+        .hero-image {
+            flex-basis: 35%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        @media (max-width: 992px) {
+            .hero-flex-container {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+            .hero-text {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .hero-image {
+                margin-bottom: 30px;
+            }
+            .hero-text, .hero-image {
+                flex-basis: 100%;
+            }
+        }
+        /* ================================ */
     </style>
     <!-- ==================================== -->
 </head>
@@ -71,21 +107,28 @@
             </div>
         </div>
     </nav>
-    
+
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background"></div>
         <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title fade-in">Data-Driven Strategy, Business-Focused Results</h1>
-                <p class="hero-subtitle fade-in">
-                    I'm <strong>Vedant Kulkarni</strong>, a Business & Data Analytics professional who transforms complex data into actionable insights that drive strategic business decisions. Proficient in leveraging Python, SQL, and Power BI to perform data extraction, cleansing, predictive modeling, and visualization. Proven success in analyzing market, customer, and AI data to build performance dashboards and deliver actionable insights.
-                </p>
-                <div class="hero-buttons fade-in">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" class="btn btn-secondary">
-                        <i class="fab fa-linkedin"></i> LinkedIn Profile
-                    </a>
+            <div class="hero-flex-container">
+                <div class="hero-text">
+                    <h1 class="hero-title fade-in">Data-Driven Strategy, Business-Focused Results</h1>
+                    <p class="hero-subtitle fade-in">
+                        Hi, I’m Vedant Kulkarni, a certified Business Analyst with an MSc in Business Analytics from the University of Exeter and a Bachelor of Engineering from Mumbai University. I bring a robust analytical foundation to every challenge. I am driven by a dual passion for technology and business strategy, specializing in transforming raw data into compelling narratives that inform critical decisions and drive organizational growth. Proficient in Python, SQL, and Power BI, I have proven success in analyzing market, customer, and AI data to build performance dashboards, predictive models, and analytics solutions. I excel at bridging the gap between technical complexity and strategic business objectives, translating business requirements into solutions that deliver sustainable, measurable value. With expertise spanning advanced analytics, stakeholder management, and marketing insight, I enable organizations to optimize decision-making, enhance customer experience, and drive growth
+                    </p>
+                    <div class="hero-buttons fade-in">
+                        <a href="#projects" class="btn btn-primary">View My Work</a>
+                        <a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" class="btn btn-secondary">
+                            <i class="fab fa-linkedin"></i> LinkedIn Profile
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image fade-in">
+                    <div class="profile-image">
+                        <img src="static/images/profile.jpg" alt="Vedant Kulkarni">
+                    </div>
                 </div>
             </div>
         </div>
@@ -95,7 +138,7 @@
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">My Work & Case Studies</h2>
-            
+
             <!-- Project 1 -->
             <div class="project-timeline-item fade-in">
                 <div class="project-number">01</div>
@@ -365,7 +408,7 @@
     <section id="education" class="education">
         <div class="container">
             <h2 class="section-title">Education</h2>
-            
+
             <div class="education-timeline">
                 <!-- Education 1 -->
                 <div class="education-item fade-in">
@@ -373,6 +416,7 @@
                     <div class="education-content">
                         <div class="education-logo">
                             <!-- UPDATED LOGO PATH -->
+                            <img src="static/images/University of Exeter.jpg" alt="University of Exeter Logo">
                             <img src="static/images/exeter.jpg" alt="University of Exeter Logo">
                         </div>
                         <div>
@@ -397,6 +441,7 @@
                     <div class="education-content">
                         <div class="education-logo">
                             <!-- UPDATED LOGO PATH -->
+                            <img src="static/images/University of Mumbai.jpg" alt="Mumbai University Logo">
                             <img src="static/images/Mumbai_university_logo.jpg" alt="Mumbai University Logo">
                         </div>
                         <div>
@@ -421,7 +466,7 @@
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
-            
+
             <div class="experience-timeline">
                 <!-- Experience 1 -->
                 <div class="experience-item fade-in">
@@ -498,7 +543,7 @@
                         </ul>
                     </div>
                 </div>
-                
+
                 <!-- Experience 6 -->
                 <div class="experience-item fade-in">
                     <div class="experience-date">08/2018 - 03/2019</div>
@@ -522,23 +567,9 @@
             <div class="about-content">
                 <div class="about-text fade-in">
                     <h2>About Me</h2>
-                    <p>
-                        As a certified Business Analyst with an <strong>MSc in Business Analytics</strong> from the University of Exeter and a <strong>Bachelor of Engineering</strong>, I bring a robust analytical foundation to every challenge. My academic excellence is highlighted by ranking in the <strong>top 5% of my cohort in Statistics & Probability</strong>.
-                    </p>
-                    <p>
-                        I am driven by a dual passion for technology and business strategy, specializing in transforming raw data into compelling narratives that inform critical decisions and drive organizational growth. I excel at bridging the gap between technical complexity and strategic business objectives.
-                    </p>
-                    <p>
-                        With expertise spanning from advanced analytics to stakeholder management, I am adept at translating business requirements into technical solutions that not only meet expectations but also deliver sustainable, measurable value.
-                    </p>
-                </div>
-                <div class="about-image fade-in">
-                    <div class="profile-image">
-                        <img src="static/images/profile.jpg" alt="Vedant Kulkarni">
-                    </div>
                 </div>
             </div>
-            
+
             <div class="skills-section fade-in">
                 <h3>Technical Skills & Expertise</h3>
                 <div class="skills-list">
@@ -652,7 +683,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="certifications-section fade-in">
                 <h3>Professional Certifications & Courses</h3>
                 <div class="certifications-grid">
@@ -660,6 +691,7 @@
                     <div class="certification-card">
                         <div class="cert-logo">
                             <!-- UPDATED LOGO PATH -->
+                            <img src="static/images/ECBA CERTIFIED IIBA.jpg" alt="IIBA ECBA Logo">
                             <img src="static/images/iiba.jpg" alt="IIBA ECBA Logo">
                         </div>
                         <div class="cert-content-wrapper">
@@ -680,6 +712,7 @@
                     <div class="certification-card">
                         <div class="cert-logo">
                             <!-- UPDATED LOGO PATH -->
+                            <img src="static/images/Google Analytics.jpg" alt="Google Analytics Logo">
                             <img src="static/images/google_analytics.png" alt="Google Analytics Logo">
                         </div>
                         <div class="cert-content-wrapper">
@@ -700,6 +733,7 @@
                     <div class="certification-card">
                         <div class="cert-logo">
                            <!-- UPDATED LOGO PATH -->
+                           <img src="static/images/I.T.VEDANT.jpg" alt="I.T. Vedant Logo">
                            <img src="static/images/ITvedant.png" alt="I.T. Vedant Logo">
                         </div>
                         <div class="cert-content-wrapper">
@@ -720,6 +754,7 @@
                     <div class="certification-card">
                         <div class="cert-logo">
                             <!-- UPDATED LOGO PATH -->
+                            <img src="static/images/IMARTICUS LEARNING.jpg" alt="Imarticus Learning Logo">
                             <img src="static/images/ima.jpg" alt="Imarticus Learning Logo">
                         </div>
                         <div class="cert-content-wrapper">
