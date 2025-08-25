@@ -7,10 +7,10 @@
     
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="static/css/style.css">
 
@@ -24,30 +24,24 @@
             border: 5px solid #fff; /* Optional: Adds a white border */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
         }
-        
-        /* NEW STYLES FOR CIRCULAR LOGOS */
         .education-item .education-logo,
         .certification-card .cert-logo {
-            width: 60px;
-            height: 60px;
+            width: 60px; /* Adjust logo width */
+            height: 60px; /* Adjust logo height */
             margin-right: 20px;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 50%; /* Makes the container circular */
-            background-color: #ffffff; /* Adds a white background */
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Adds a subtle shadow */
-            overflow: hidden; /* Hides image parts outside the circle */
         }
         .education-item .education-logo img,
         .certification-card .cert-logo img {
-            max-width: 75%; /* Adjusts logo size for padding inside the circle */
-            max-height: 75%;
-            object-fit: contain; /* Fits the logo inside without cropping */
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
         .education-content,
-        .certification-card {
+        .cert-content-wrapper {
             display: flex;
             align-items: flex-start;
         }
@@ -77,7 +71,7 @@
             </div>
         </div>
     </nav>
-
+    
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background"></div>
@@ -96,14 +90,14 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Summary Section -->
-    <section id="summary" class="about" style="padding-top: 50px; padding-bottom: 50px; background-color: #f8f9fa;">
+    <section id="summary" class="about">
         <div class="container">
-            <h2 class="section-title">Summary</h2>
-            <div class="about-content" style="flex-direction: column; align-items: center;">
-                <div class="about-text fade-in" style="text-align: center; max-width: 800px;">
-                    <p style="font-size: 1.1rem; color: #555;">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>Summary</h2>
+                    <p>
                         Data Analyst with an MSc in Business Analytics and expertise in the end-to-end data lifecycle. Proficient in leveraging Python, SQL, and Power BI to perform data extraction, cleansing, predictive modeling, and visualization. Proven success in analyzing market, customer, and AI data to build performance dashboards and deliver actionable insights.
                     </p>
                 </div>
@@ -264,6 +258,120 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Project 5 -->
+            <div class="project-timeline-item fade-in">
+                <div class="project-number">05</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3>E-commerce Conversion Prediction & Pricing Strategy</h3>
+                        <div class="tech-tags">
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Logistic Regression</span>
+                            <span class="tag">Clustering</span>
+                            <span class="tag">E-commerce</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-left">
+                            <h4>Objective & Key Actions</h4>
+                            <ul>
+                                <li><strong>Objective:</strong> Leverage machine learning for predicting customer conversion and design data-driven pricing strategy</li>
+                                <li>Utilized Python (Pandas, NumPy) for statistical analysis of customer transaction data</li>
+                                <li>Built highly accurate Logistic Regression model with 90% F1-score for conversion prediction</li>
+                                <li>Employed clustering algorithms for customer segmentation based on purchasing behavior</li>
+                                <li>Developed dynamic pricing strategy evaluating impact on sales volume and profitability</li>
+                            </ul>
+                        </div>
+                        <div class="project-right">
+                            <h4>Scope & Impact</h4>
+                            <div class="impact-box">
+                                <div class="impact-highlight">
+                                    <strong>90% F1-score conversion prediction model</strong>
+                                </div>
+                                <p>Successfully demonstrated machine learning power in e-commerce context. Predictive model provided accurate conversion insights and segmentation analysis laid groundwork for targeted marketing strategies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-timeline-item fade-in">
+                <div class="project-number">06</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3>Customer Feedback Sentiment & Automated Response Analysis</h3>
+                        <div class="tech-tags">
+                            <span class="tag">NLP</span>
+                            <span class="tag">Sentiment Analysis</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Machine Learning</span>
+                            <span class="tag">Automation</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-left">
+                            <h4>Objective & Key Actions</h4>
+                            <ul>
+                                <li><strong>Objective:</strong> Build intelligent system for automatic sentiment analysis and complaint classification with automated responses</li>
+                                <li>Extracted and cleaned customer feedback data using SQL and Python</li>
+                                <li>Performed sentiment analysis using VADER library and built Logistic Regression classifier with 85% accuracy</li>
+                                <li>Developed content-based response system using TF-IDF and text similarity</li>
+                                <li>Tracked support KPIs including Average Handle Time and First Contact Resolution</li>
+                            </ul>
+                        </div>
+                        <div class="project-right">
+                            <h4>Scope & Impact</h4>
+                            <div class="impact-box">
+                                <div class="impact-highlight">
+                                    <strong>40% reduction in manual reply time</strong>
+                                </div>
+                                <p>Successfully automated significant portion of customer support workflow. Improved prioritization accuracy by 30% and allowed support team to focus on complex issues requiring human intervention.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="project-timeline-item fade-in">
+                <div class="project-number">07</div>
+                <div class="project-content">
+                    <div class="project-header">
+                        <h3>SaaS Business Intelligence & Churn Forecasting System</h3>
+                        <div class="tech-tags">
+                            <span class="tag">Business Intelligence</span>
+                            <span class="tag">Churn Prediction</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Time-Series Forecasting</span>
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <div class="project-left">
+                            <h4>Objective & Key Actions</h4>
+                            <ul>
+                                <li><strong>Objective:</strong> Create robust BI system for SaaS company with automated reporting and predictive churn forecasting</li>
+                                <li>Automated generation of key SaaS metrics (MRR, CLV, churn rate) using Python and SQL</li>
+                                <li>Predicted future churn and revenue trends using Prophet and ARIMA time-series models</li>
+                                <li>Used clustering to segment users for targeted retention campaigns aimed at high-risk cohorts</li>
+                                <li>Implemented real-time metric alert system for proactive decision-making</li>
+                            </ul>
+                        </div>
+                        <div class="project-right">
+                            <h4>Scope & Impact</h4>
+                            <div class="impact-box">
+                                <div class="impact-highlight">
+                                    <strong>20% simulated churn reduction achieved</strong>
+                                </div>
+                                <p>Provided automated view of business health with actionable churn forecasts. Proactive alerts and user segmentation strategies demonstrated direct positive impact on revenue and customer retention.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -275,17 +383,23 @@
             <div class="education-timeline">
                 <!-- Education 1 -->
                 <div class="education-item fade-in">
-                    <div class="education-date">01/2022 - 04/2023</div>
+                    <div class="education-date">Jan 2022 - Apr 2023</div>
                     <div class="education-content">
                         <div class="education-logo">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d8/University_of_Exeter_logo.svg/220px-University_of_Exeter_logo.svg.png" alt="University of Exeter Logo">
+                            <!-- UPDATED LOGO PATH -->
+                            <img src="static/images/University of Exeter.jpg" alt="University of Exeter Logo">
                         </div>
                         <div>
                             <div class="education-degree">MSc Business Analytics</div>
                             <div class="education-university">University of Exeter</div>
                             <div class="education-location">United Kingdom</div>
                             <div class="education-details">
-                                <p><strong>Relevant Coursework:</strong> Statistics & Programming, Data Visualization, Business Intelligence, Machine Learning, Database Management. Ranked top 5% in Statistics & Probability.</p>
+                                <h4>Relevant Coursework & Achievements</h4>
+                                <ul>
+                                    <li><strong>Relevant Coursework:</strong> Statistics & Programming, Data Visualization, Business Intelligence, Machine Learning, Database Management</li>
+                                    <li><strong>Ranked top 5% in Statistics & Probability,</strong> demonstrating strong analytical and quantitative skills</li>
+                                    <li>Gained project management experience via Smartphone Case Production using Digital Twin in Tecnomatix at Cyber-Physical Lab</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -293,17 +407,22 @@
 
                 <!-- Education 2 -->
                 <div class="education-item fade-in">
-                    <div class="education-date">06/2015 - 08/2019</div>
+                    <div class="education-date">Jun 2015 - Aug 2019</div>
                     <div class="education-content">
                         <div class="education-logo">
-                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Mumbai_University_logo.svg/220px-Mumbai_University_logo.svg.png" alt="Mumbai University Logo">
+                            <!-- UPDATED LOGO PATH -->
+                            <img src="static/images/University of Mumbai.jpg" alt="Mumbai University Logo">
                         </div>
                         <div>
                             <div class="education-degree">Bachelor of Engineering</div>
                             <div class="education-university">Mumbai University</div>
                             <div class="education-location">India</div>
                             <div class="education-details">
-                               <p><strong>Relevant Coursework:</strong> Object-Oriented Programming, Cloud Computing, Digital & Business Communications, Embedded Systems. Published and presented an IoT-Based Televoting System project.</p>
+                                <h4>Relevant Coursework & Achievements</h4>
+                                <ul>
+                                    <li><strong>Relevant Coursework:</strong> Object-Oriented Programming, Cloud Computing, Digital & Business Communications, Embedded Systems</li>
+                                    <li><strong>Published and presented</strong> a project on an IoT-Based Televoting System at the International Conference on Advanced System Technologies</li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -318,39 +437,43 @@
             <h2 class="section-title">Professional Experience</h2>
             
             <div class="experience-timeline">
-                <!-- Experience 1 - DATES UPDATED -->
+                <!-- Experience 1 -->
                 <div class="experience-item fade-in">
-                    <div class="experience-date">12/2024 - 06/2025</div>
+                    <!-- UPDATED DATE -->
+                    <div class="experience-date">12/2024 - 6/2025</div>
                     <div class="experience-content">
                         <div class="experience-company">Vani Research Labs, Remote</div>
                         <div class="experience-position">Data Analyst (contract)</div>
                         <ul class="experience-details">
                             <li>Analyzed AI agent performance logs and core KPIs (e.g., transcription accuracy, sentiment analysis precision) to identify and diagnose patterns in model errors, providing data-driven recommendations that guided algorithm refinement.</li>
-                            <li>Conducted competitive intelligence and market research on voice AI applications across diverse industries to identify feature gaps and benchmark product performance against top competitors.</li>
-                            <li>Authored a detailed enhancement proposal by synthesizing market research and performance data to improve the AI agent's capabilities and align the product roadmap with industry trends.</li>
+                            <li>Conducted competitive intelligence and market research on voice AI applications across diverse industries (including BFSI and healthcare) to identify feature gaps and benchmark product performance against top competitors.</li>
+                            <li>Authored a detailed enhancement proposal by synthesizing market research and performance data, outlining actionable strategies to improve the AI agent's capabilities and align the product roadmap with emerging industry trends.</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Experience 2 - DATES UPDATED -->
+                <!-- Experience 2 -->
                 <div class="experience-item fade-in">
+                    <!-- UPDATED DATE -->
                     <div class="experience-date">10/2024 - 12/2025</div>
                     <div class="experience-content">
                         <div class="experience-company">Vishwa Vision Marketing, Mumbai</div>
                         <div class="experience-position">Data Analyst (contract)</div>
                         <ul class="experience-details">
-                            <li>Conducted comprehensive market and competitor analysis to identify high-potential B2B sectors, leading to a refocused marketing strategy that increased qualified inbound leads by over 25%.</li>
-                            <li>Developed data-driven customer segmentation models by analyzing past sales data, creating detailed B2B personas that guided targeted marketing campaigns and boosted client engagement.</li>
-                            <li>Designed and implemented a KPI framework to track the sales funnel and marketing ROI, creating standardized reports that enabled informed decisions on budget allocation.</li>
+                            <li>Conducted comprehensive market and competitor analysis to identify high-potential B2B sectors (hospitality, aviation), leading to a refocused marketing strategy that increased qualified inbound leads by over 25%.</li>
+                            <li>Developed data-driven customer segmentation models by analyzing past sales data and client specifications, creating detailed B2B personas that guided the launch of targeted marketing campaigns and boosted client engagement rates.</li>
+                            <li>Designed and implemented a KPI framework to track the sales funnel and marketing ROI, creating standardized reports in Excel that enabled leadership to make informed decisions on budget allocation and channel strategy.</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Experience 3 - DATES UPDATED -->
+                <!-- Experience 3 -->
                 <div class="experience-item fade-in">
-                    <div class="experience-date">05/2023 - 09/2024</div>
+                    <!-- UPDATED DATE -->
+                    <div class="experience-date">05/2023 - 9/2024</div>
                     <div class="experience-content">
                         <div class="experience-company">British Telecom, Exeter, United Kingdom</div>
+                        <!-- UPDATED POSITION -->
                         <div class="experience-position">Customer Operations Analyst</div>
                         <ul class="experience-details">
                             <li>Analyzed customer query data using Excel to identify trends, patterns, and root causes of common issues, contributing to a 15% reduction in repeat inquiries.</li>
@@ -360,14 +483,14 @@
                     </div>
                 </div>
 
-                <!-- Experience 4 - DATES UPDATED -->
+                <!-- Experience 4 -->
                 <div class="experience-item fade-in">
                     <div class="experience-date">08/2020 - 12/2021</div>
                     <div class="experience-content">
                         <div class="experience-company">Knowlettwoods LLP, Noida, India</div>
                         <div class="experience-position">Data Analyst</div>
                         <ul class="experience-details">
-                            <li>Collaborated closely with sales and product teams to translate complex business requirements into analytics solutions.</li>
+                            <li>Collaborated closely with sales team and product teams to translate complex business requirements into analytics solutions.</li>
                             <li>Leveraged Google Analytics to analyze website traffic and user behavior, contributing to a 15% increase in conversion rates.</li>
                             <li>Cleaned and transformed large datasets using Python and SQL, ensuring high data quality and reliability for accurate analysis.</li>
                             <li>Utilized SQL for data extraction and built Power BI dashboards to visualize KPIs, campaign ROI, CAC, and conversion funnel metrics.</li>
@@ -375,7 +498,7 @@
                     </div>
                 </div>
 
-                <!-- Experience 5 - DATES UPDATED -->
+                <!-- Experience 5 -->
                 <div class="experience-item fade-in">
                     <div class="experience-date">07/2019 - 01/2020</div>
                     <div class="experience-content">
@@ -385,11 +508,12 @@
                             <li>Evaluated sales, revenue, and digital campaign performance using Excel and Power BI to identify trends and optimize spending.</li>
                             <li>Contributed to a 15% increase in sales and 20% boost in repeat purchases through data-driven marketing insights.</li>
                             <li>Supported customer segmentation & persona development to enable targeted messaging, increasing campaign relevance & engagement.</li>
+                            <li>Collaborated with cross-functional teams to translate customer data into actionable insights driving business growth & strategy.</li>
                         </ul>
                     </div>
                 </div>
                 
-                <!-- Experience 6 - DATES UPDATED -->
+                <!-- Experience 6 -->
                 <div class="experience-item fade-in">
                     <div class="experience-date">08/2018 - 03/2019</div>
                     <div class="experience-content">
@@ -398,7 +522,7 @@
                         <ul class="experience-details">
                             <li>Executed network performance analysis to optimize bandwidth efficiency and ensure seamless user connectivity.</li>
                             <li>Analyzed network configurations and performance logs to deliver actionable system improvements.</li>
-                            <li>Assisted in troubleshooting network failures, improving system uptime and reducing connectivity issues.</li>
+                            <li>Performed site surveys and assisted in troubleshooting network failures, improving system uptime and reducing connectivity issues.</li>
                         </ul>
                     </div>
                 </div>
@@ -429,50 +553,200 @@
                 </div>
             </div>
             
+            <div class="skills-section fade-in">
+                <h3>Technical Skills & Expertise</h3>
+                <div class="skills-list">
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fab fa-python"></i>
+                            <span class="skill-name">Python</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="9"></div>
+                            </div>
+                            <span class="skill-rating">9/10</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-database"></i>
+                            <span class="skill-name">SQL</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="9"></div>
+                            </div>
+                            <span class="skill-rating">9/10</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-chart-bar"></i>
+                            <span class="skill-name">Power BI</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="8"></div>
+                            </div>
+                            <span class="skill-rating">8/10</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-chart-line"></i>
+                            <span class="skill-name">Tableau</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="8"></div>
+                            </div>
+                            <span class="skill-rating">8/10</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-brain"></i>
+                            <span class="skill-name">Machine Learning</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="7"></div>
+                            </div>
+                            <span class="skill-rating">7/10</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-business-time"></i>
+                            <span class="skill-name">Business Analysis</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="9"></div>
+                            </div>
+                            <span class="skill-rating">9/10</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fab fa-google"></i>
+                            <span class="skill-name">Google Analytics</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="8"></div>
+                            </div>
+                            <span class="skill-rating">8/10</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-exchange-alt"></i>
+                            <span class="skill-name">ETL Processes</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="8"></div>
+                            </div>
+                            <span class="skill-rating">8/10</span>
+                        </div>
+                    </div>
+                    <div class="skill-row">
+                        <div class="skill-info">
+                            <i class="fas fa-tasks"></i>
+                            <span class="skill-name">Requirements Gathering</span>
+                        </div>
+                        <div class="skill-level">
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-level="9"></div>
+                            </div>
+                            <span class="skill-rating">9/10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <div class="certifications-section fade-in">
                 <h3>Professional Certifications & Courses</h3>
                 <div class="certifications-grid">
-                    <!-- ECBA Certification with LOGO -->
+                    <!-- ECBA Certification -->
                     <div class="certification-card">
                         <div class="cert-logo">
-                            <img src="https://www.iiba.org/content/iiba/corporate/logos/iiba-logo-2021.png" alt="IIBA Logo">
+                            <!-- UPDATED LOGO PATH -->
+                            <img src="static/images/ECBA CERTIFIED IIBA.jpg" alt="IIBA ECBA Logo">
                         </div>
-                        <div class="cert-content">
-                            <h4>ECBA™ Certification</h4>
-                            <p class="cert-issuer">International Institute of Business Analyst (IIBA)</p>
+                        <div class="cert-content-wrapper">
+                            <div class="cert-content">
+                                <h4>ECBA™ Certification</h4>
+                                <p class="cert-issuer">International Institute of Business Analyst (IIBA)</p>
+                                <div class="cert-skills">
+                                    <span class="cert-skill">Requirement Management</span>
+                                    <span class="cert-skill">Business Analysis Planning</span>
+                                    <span class="cert-skill">Stakeholder Elicitation</span>
+                                    <span class="cert-skill">Process Design & Analysis</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Agile Business Analyst with LOGO -->
+                    <!-- Google Analytics Certification -->
                     <div class="certification-card">
                         <div class="cert-logo">
-                            <img src="https://media.licdn.com/dms/image/C4D0BAQG0Yw-2hA4k-A/company-logo_200_200/0/1630652038734?e=2147483647&v=beta&t=9xV2d_4-jYmO0Z6j_Gc6lY_kF_x8hZ7q_X_vE6E9j_Q" alt="Imarticus Learning Logo">
+                            <!-- UPDATED LOGO PATH -->
+                            <img src="static/images/Google Analytics.jpg" alt="Google Analytics Logo">
                         </div>
-                        <div class="cert-content">
-                            <h4>Agile Business Analyst & Scrum</h4>
-                            <p class="cert-issuer">Imarticus Learning</p>
+                        <div class="cert-content-wrapper">
+                            <div class="cert-content">
+                                <h4>Advanced Google Analytics</h4>
+                                <p class="cert-issuer">Google Analytics Academy</p>
+                                <div class="cert-skills">
+                                    <span class="cert-skill">Power User Techniques</span>
+                                    <span class="cert-skill">Google Analytics 360</span>
+                                    <span class="cert-skill">User Behavior Analysis</span>
+                                    <span class="cert-skill">Custom Reporting</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Python Programming with LOGO -->
+                    <!-- Python Programming -->
                     <div class="certification-card">
                         <div class="cert-logo">
-                           <img src="https://www.itvedant.com/images/logo-2.png" alt="IT vedant Education Logo">
+                           <!-- UPDATED LOGO PATH -->
+                           <img src="static/images/I.T.VEDANT.jpg" alt="I.T. Vedant Logo">
                         </div>
-                        <div class="cert-content">
-                            <h4>Python Programming</h4>
-                            <p class="cert-issuer">IT vedant Education Pvt. Ltd</p>
+                        <div class="cert-content-wrapper">
+                            <div class="cert-content">
+                                <h4>Python Programming</h4>
+                                <p class="cert-issuer">IT vedant Education Pvt. Ltd</p>
+                                <div class="cert-skills">
+                                    <span class="cert-skill">Core Python Syntax</span>
+                                    <span class="cert-skill">Algorithms & Functions</span>
+                                    <span class="cert-skill">SDLC & Agile Methodologies</span>
+                                    <span class="cert-skill">Data Structures</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Google Analytics Certification with LOGO -->
+                    <!-- Agile Business Analyst -->
                     <div class="certification-card">
                         <div class="cert-logo">
-                            <img src="https://www.gstatic.com/analytics-suite/header/suite/v2/ic_analytics.svg" alt="Google Analytics Logo">
+                            <!-- UPDATED LOGO PATH -->
+                            <img src="static/images/IMARTICUS LEARNING.jpg" alt="Imarticus Learning Logo">
                         </div>
-                        <div class="cert-content">
-                            <h4>Advanced Google Analytics</h4>
-                            <p class="cert-issuer">Google Analytics Academy</p>
+                        <div class="cert-content-wrapper">
+                            <div class="cert-content">
+                                <h4>Agile Business Analyst & Scrum</h4>
+                                <p class="cert-issuer">Imarticus Learning</p>
+                                <div class="cert-skills">
+                                    <span class="cert-skill">Business Workflow Mapping</span>
+                                    <span class="cert-skill">Process Automation</span>
+                                    <span class="cert-skill">End-to-End Process Design</span>
+                                    <span class="cert-skill">Aris & Lucidchart</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
