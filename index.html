@@ -6,27 +6,25 @@
     <title>Vedant Kulkarni - Business & Data Analyst Portfolio</title>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
-    <!-- Custom CSS -->
-    <!-- Note: The original static/css/style.css is not used here, as all styles are embedded for this redesign. -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
 
     <!-- ====================================================== -->
-    <!-- == NEW STYLES FOR PROFESSIONAL REDESIGN == -->
+    <!-- == STYLES FOR ULTRA-MODERN REDESIGN == -->
     <!-- ====================================================== -->
     <style>
         /* === 1. ROOT VARIABLES & GLOBAL STYLES === */
         :root {
-            --bg-color: #0a192f;
-            --card-bg-color: #112240;
-            --primary-color: #64ffda;
-            --text-primary: #ccd6f6;
-            --text-secondary: #8892b0;
-            --border-color: #233554;
-            --shadow-color: rgba(2, 12, 27, 0.7);
+            --bg-color: #f5f5f7;
+            --text-primary: #1d1d1f;
+            --text-secondary: #515154;
+            --accent-color: #0071e3;
+            --accent-color-light: rgba(0, 113, 227, 0.1);
+            --card-bg-color: rgba(255, 255, 255, 0.6);
+            --border-color: #d2d2d7;
+            --shadow-color: rgba(0, 0, 0, 0.05);
             --font-sans: 'Inter', sans-serif;
         }
 
@@ -38,38 +36,34 @@
             background-color: var(--bg-color);
             color: var(--text-primary);
             font-family: var(--font-sans);
-            line-height: 1.6;
+            line-height: 1.65;
             margin: 0;
             padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 25px;
         }
 
         section {
-            padding: 100px 0;
+            padding: 70px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+        section:last-of-type {
+            border-bottom: none;
         }
 
         .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
             color: var(--text-primary);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             text-align: center;
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: var(--primary-color);
-            margin: 10px auto 0;
-            border-radius: 2px;
         }
         
         /* === 2. NAVIGATION BAR === */
@@ -78,111 +72,110 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            background-color: rgba(10, 25, 47, 0.85);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 10px 30px -10px var(--shadow-color);
-            transition: top 0.3s;
+            background-color: rgba(245, 245, 247, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            transition: box-shadow 0.3s ease;
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 25px;
-            max-width: 1200px;
-            margin: 0 auto;
+            padding: 16px 25px;
         }
         
         .nav-brand a {
-            color: var(--primary-color);
+            color: var(--text-primary);
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             text-decoration: none;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
 
         .nav-menu {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 30px;
         }
 
         .nav-link {
-            color: var(--text-primary);
+            color: var(--text-secondary);
             text-decoration: none;
             font-size: 0.9rem;
+            font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .nav-link:hover, .nav-link.active {
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
         
         .resume-btn {
-            color: var(--primary-color);
-            background-color: transparent;
-            border: 1px solid var(--primary-color);
-            border-radius: 4px;
-            padding: 10px 18px;
+            color: var(--accent-color);
+            background-color: var(--accent-color-light);
+            border: 1px solid transparent;
+            border-radius: 20px;
+            padding: 8px 18px;
             text-decoration: none;
             font-size: 0.9rem;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 500;
+            transition: all 0.3s ease;
         }
 
         .resume-btn:hover {
-            background-color: rgba(100, 255, 218, 0.1);
+            background-color: var(--accent-color);
+            color: #fff;
+            transform: scale(1.05);
         }
         
-        .mobile-menu-toggle { display: none; } /* Simplified for this example */
+        .mobile-menu-toggle { display: none; }
 
         /* === 3. HERO SECTION === */
         .hero {
             display: flex;
             align-items: center;
-            min-height: 100vh;
-            padding-top: 80px; /* Offset for navbar */
+            min-height: calc(100vh - 70px); /* Adjust for navbar height */
             position: relative;
             overflow: hidden;
+            border-bottom: 1px solid var(--border-color);
         }
 
-        .hero-background {
+        #aurora-background {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(135deg, #0a192f 0%, #112240 50%, #233554 100%);
-            background-size: 200% 200%;
-            animation: gradient-animation 15s ease infinite;
+            top: 0; left: 0; width: 100%; height: 100%;
             z-index: -1;
+            --aurora-color1: rgba(0, 113, 227, 0.2);
+            --aurora-color2: rgba(175, 82, 222, 0.2);
+            --aurora-color3: rgba(255, 149, 0, 0.2);
+            background:
+                radial-gradient(ellipse at 20% 80%, var(--aurora-color1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 10%, var(--aurora-color2) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, var(--aurora-color3) 0%, transparent 50%);
+            animation: aurora-animation 20s linear infinite alternate;
         }
-
-        @keyframes gradient-animation {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        .hero-content {
-            width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px;
+        
+        @keyframes aurora-animation {
+            0% { transform: rotate(0deg) scale(1.5); opacity: 0.6; }
+            100% { transform: rotate(360deg) scale(2.0); opacity: 0.8; }
         }
 
         .hero-flex-container {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 50px;
+            gap: 60px;
         }
         
-        .hero-text { flex-basis: 65%; }
-        .hero-image { flex-basis: 35%; }
+        .hero-text { flex: 1.5; }
+        .hero-image { flex: 1; text-align: center; }
         
         .hero-title {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.1;
             margin-bottom: 20px;
             color: var(--text-primary);
         }
@@ -190,48 +183,42 @@
         .hero-subtitle {
             font-size: 1.1rem;
             color: var(--text-secondary);
-            max-width: 600px;
-            margin-bottom: 30px;
+            max-width: 550px;
+            margin-bottom: 35px;
         }
         
-        .hero-buttons {
-            display: flex;
-            gap: 20px;
-        }
+        .hero-buttons { display: flex; gap: 15px; }
         
         .btn {
-            padding: 12px 24px;
-            border-radius: 4px;
+            padding: 12px 28px;
+            border-radius: 30px;
             text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             display: inline-flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
 
         .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--bg-color);
-            border: 1px solid var(--primary-color);
+            background-color: var(--accent-color);
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(0, 113, 227, 0.2);
         }
-
         .btn-primary:hover {
-            background-color: transparent;
-            color: var(--primary-color);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 113, 227, 0.3);
         }
 
         .btn-secondary {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 1px solid var(--primary-color);
+            background-color: #fff;
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
         }
-
         .btn-secondary:hover {
-            background-color: rgba(100, 255, 218, 0.1);
             transform: translateY(-3px);
+            border-color: var(--text-primary);
         }
 
         .profile-image img {
@@ -239,227 +226,180 @@
             height: 280px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid var(--primary-color);
-            box-shadow: 0 0 30px rgba(100, 255, 218, 0.3);
-        }
-        
-        /* === 4. PROJECTS & EXPERIENCE TIMELINE === */
-        .project-timeline-item, .experience-item, .education-item {
-            display: flex;
-            margin-bottom: 50px;
-            position: relative;
+            border: 6px solid #fff;
+            box-shadow: 0 10px 40px var(--shadow-color);
         }
 
-        .project-number, .experience-date, .education-date {
-            color: var(--primary-color);
-            font-weight: 600;
-            padding-right: 30px;
-            flex-shrink: 0;
-            width: 150px; /* Consistent width */
-            text-align: right;
-        }
-        .project-number { font-size: 2.5rem; }
-
-        .project-content, .experience-content, .education-content {
-            border-left: 2px solid var(--border-color);
-            padding-left: 30px;
-            width: 100%;
-        }
-        
-        .project-content, .experience-content, .education-content, .certification-card {
-             background: var(--card-bg-color);
-             padding: 25px;
-             border-radius: 8px;
-             border: 1px solid var(--border-color);
-             transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .project-content:hover, .experience-content:hover, .education-content:hover, .certification-card:hover {
-             transform: translateY(-5px);
-             box-shadow: 0 10px 30px -15px var(--shadow-color);
+        /* === 4. MODERN GRID LAYOUT FOR PROJECTS & EXPERIENCE === */
+        .projects-grid, .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 25px;
         }
 
-        .project-header h3, .experience-position, .education-degree {
+        .project-card, .experience-card {
+            background: var(--card-bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .project-card:hover, .experience-card:hover {
+             transform: translateY(-8px);
+             box-shadow: 0 20px 40px -10px var(--shadow-color);
+             border-color: rgba(0, 113, 227, 0.3);
+        }
+
+        .project-card h3, .experience-position {
             color: var(--text-primary);
-            font-size: 1.4rem;
-            margin: 0 0 10px 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 0 5px 0;
         }
-        .experience-company, .education-university {
-            color: var(--primary-color);
+        .experience-company {
+            color: var(--accent-color);
+            font-weight: 600;
             margin-bottom: 15px;
+            display: block;
         }
 
-        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0; }
         .tag {
-            background-color: rgba(100, 255, 218, 0.1);
-            color: var(--primary-color);
-            padding: 5px 12px;
+            background-color: var(--accent-color-light);
+            color: var(--accent-color);
+            padding: 5px 15px;
             border-radius: 15px;
             font-size: 0.8rem;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .project-details { display: flex; gap: 30px; margin-top: 20px; }
         .project-left, .project-right { flex: 1; }
+        .project-left h4, .project-right h4 { font-size: 1rem; color: var(--text-primary); margin-bottom: 10px; }
         
         ul { list-style-type: none; padding-left: 0; }
         ul li {
             position: relative;
-            padding-left: 20px;
+            padding-left: 22px;
             margin-bottom: 10px;
             color: var(--text-secondary);
+            font-size: 0.95rem;
         }
         ul li::before {
-            content: '▹';
+            content: '✓';
             position: absolute;
             left: 0;
-            color: var(--primary-color);
+            color: var(--accent-color);
+            font-weight: 700;
         }
-        
-        .impact-box {
-            background-color: rgba(10, 25, 47, 0.5);
-            border-left: 3px solid var(--primary-color);
-            padding: 15px;
-            border-radius: 4px;
-        }
-        .impact-highlight { margin-bottom: 10px; }
 
-        /* === 5. ABOUT SECTION (SKILLS & CERTIFICATIONS) === */
-        .skills-section, .certifications-section {
-            margin-bottom: 80px;
+        /* === 5. EDUCATION & ABOUT (SKILLS/CERTS) === */
+        .education-timeline { position: relative; }
+        .education-item {
+            padding: 20px;
+            margin-left: 30px;
+            border-left: 3px solid var(--accent-color);
+            margin-bottom: 30px;
+        }
+        .education-date { font-weight: 600; color: var(--text-secondary); margin-bottom: 5px; }
+        .education-degree { font-size: 1.4rem; font-weight: 700; color: var(--text-primary); }
+        .education-university { font-size: 1.1rem; color: var(--accent-color); }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
         }
         .skills-section h3, .certifications-section h3 {
-            text-align: center;
             font-size: 1.8rem;
-            margin-bottom: 40px;
+            font-weight: 700;
+            margin-bottom: 30px;
             color: var(--text-primary);
         }
 
-        .skills-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        .skill-row {
-            background: var(--card-bg-color);
-            padding: 15px 20px;
-            border-radius: 6px;
-        }
-        .skill-info { display: flex; align-items: center; gap: 15px; margin-bottom: 10px; }
-        .skill-bar {
-            width: 100%;
-            height: 8px;
-            background-color: var(--border-color);
-            border-radius: 4px;
-            overflow: hidden;
-        }
+        .skills-list { display: grid; gap: 15px; }
+        .skill-row { background: #fff; padding: 12px 18px; border-radius: 12px; border: 1px solid var(--border-color); }
+        .skill-info { display: flex; justify-content: space-between; align-items: center; font-weight: 600; margin-bottom: 8px; }
+        .skill-info i { color: var(--accent-color); }
+        .skill-bar { width: 100%; height: 6px; background-color: #e9ecef; border-radius: 3px; overflow: hidden; }
         .skill-progress {
-            height: 100%;
-            width: 0; /* Animated with JS */
-            background: linear-gradient(90deg, var(--primary-color) 0%, #4dd2ff 100%);
-            border-radius: 4px;
+            height: 100%; width: 0;
+            background: var(--accent-color);
+            border-radius: 3px;
             transition: width 1.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        .skill-level { display: flex; align-items: center; gap: 10px; }
-        .skill-rating { font-size: 0.9rem; color: var(--text-secondary); }
 
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 25px;
+        .certifications-list { display: grid; gap: 15px; }
+        .certification-card {
+            display: flex; align-items: center; gap: 20px;
+            background: #fff; padding: 20px; border-radius: 12px; border: 1px solid var(--border-color);
         }
-
-        .cert-content-wrapper { display: flex; }
-        .cert-logo { margin-right: 20px; }
-        .cert-logo img { width: 60px; height: 60px; object-fit: contain; }
-        .cert-issuer { color: var(--primary-color); font-size: 0.9rem; }
-        .cert-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
-        .cert-skill {
-            background-color: var(--border-color);
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 4px;
-        }
+        .cert-logo img { width: 50px; height: 50px; object-fit: contain; }
+        .cert-issuer { color: var(--accent-color); font-weight: 600; font-size: 0.9rem; }
         
-        /* === 6. CONTACT SECTION === */
+        /* === 6. CONTACT & FOOTER === */
         .contact { text-align: center; }
-        .contact h2 { font-size: 2.5rem; color: var(--text-primary); }
-        .contact p { font-size: 1.1rem; color: var(--text-secondary); max-width: 500px; margin: 20px auto 40px; }
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
+        .contact p { font-size: 1.1rem; max-width: 550px; margin: 0 auto 30px; color: var(--text-secondary); }
+        .contact-info a {
+            display: inline-block;
+            background: #fff; border: 1px solid var(--border-color);
+            padding: 12px 20px; border-radius: 25px;
+            text-decoration: none; color: var(--text-primary);
+            margin: 5px; font-weight: 500;
+            transition: all 0.3s ease;
         }
-        .contact-item {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: transform 0.3s ease;
+        .contact-info a:hover {
+            background: var(--accent-color);
+            color: #fff;
+            border-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 113, 227, 0.2);
         }
-        .contact-item:hover { transform: translateY(-3px); }
-        .contact-item i { margin-right: 10px; }
 
-        /* === 7. FOOTER === */
-        .footer {
-            padding: 30px 0;
-            text-align: center;
-            border-top: 1px solid var(--border-color);
-        }
-        .footer-content p { color: var(--text-secondary); margin: 0 0 15px 0; }
+        .footer { padding: 40px 0; text-align: center; }
+        .footer p { color: var(--text-secondary); margin-bottom: 20px; }
         .footer-links a {
             color: var(--text-secondary);
-            font-size: 1.5rem;
-            margin: 0 15px;
-            transition: color 0.3s ease;
+            font-size: 1.5rem; margin: 0 12px;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
-        .footer-links a:hover { color: var(--primary-color); }
+        .footer-links a:hover { color: var(--accent-color); transform: scale(1.2); }
 
-        /* === 8. ANIMATIONS & RESPONSIVENESS === */
-        /* Scroll-triggered fade-in animation */
-        .fade-in {
+        /* === 7. ANIMATIONS & RESPONSIVENESS === */
+        .animate-on-scroll {
             opacity: 0;
-            transform: translateY(20px);
+            transform: translateY(30px);
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-
-        .fade-in.visible {
+        .animate-on-scroll.visible {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* Responsive Design */
         @media (max-width: 992px) {
             .hero-flex-container { flex-direction: column-reverse; text-align: center; }
             .hero-text { align-items: center; }
-            .hero-image { margin-bottom: 40px; }
-            .hero-title { font-size: 2.5rem; }
-            .hero-subtitle { max-width: 100%; }
+            .hero-subtitle { margin-left: auto; margin-right: auto; }
             .hero-buttons { justify-content: center; }
-            .project-details { flex-direction: column; }
-            .certifications-grid { grid-template-columns: 1fr; }
+            .hero-image { margin-bottom: 40px; }
+            .about-grid { grid-template-columns: 1fr; }
+            .skills-section { margin-bottom: 50px; }
         }
         
         @media (max-width: 768px) {
-            /* Mobile Nav would go here */
             .nav-menu { display: none; }
-            
-            .project-timeline-item, .experience-item, .education-item { flex-direction: column; }
-            .project-number, .experience-date, .education-date {
-                text-align: left;
-                width: auto;
-                padding-right: 0;
-                margin-bottom: 10px;
-            }
-            .project-content, .experience-content, .education-content {
-                border-left: none;
-                padding-left: 0;
-            }
+            .section-title { font-size: 2.2rem; }
+            .hero-title { font-size: 2.5rem; }
+            .project-details { flex-direction: column; }
+            .education-item { margin-left: 20px; }
         }
-
     </style>
 </head>
 <body>
+    <div id="aurora-background"></div>
+
     <!-- Fixed Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -469,8 +409,8 @@
             <div class="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#projects" class="nav-link">Projects</a>
-                <a href="#education" class="nav-link">Education</a>
                 <a href="#experience" class="nav-link">Experience</a>
+                <a href="#education" class="nav-link">Education</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#contact" class="nav-link">Contact</a>
                 <a href="static/resume/Vedant_Kulkarni_Resume.pdf" class="resume-btn" download>
@@ -485,13 +425,12 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <div class="hero-background"></div>
-        <div class="hero-content">
+        <div class="hero-content container">
             <div class="hero-flex-container">
-                <div class="hero-text fade-in">
+                <div class="hero-text animate-on-scroll">
                     <h1 class="hero-title">Analytics-Driven: Transforming Data into Business Success</h1>
                     <p class="hero-subtitle">
-                     Hi, I’m Vedant Kulkarni, a certified Business Analyst with an MSc in Business Analytics and a Bachelor in Engineering. I specialize in turning data into actionable insights that drive business growth. Proficient in Python, SQL, and Power BI, I have delivered dashboards, predictive models, and analytics solutions across market, customer, and AI data. I excel at translating business requirements into solutions that deliver sustainable and measurable value. With expertise in advanced analytics, stakeholder management, and marketing insight, I help organizations optimize decision-making, enhance customer experience, and achieve measurable results                        
+                     Hi, I’m Vedant Kulkarni, a certified Business Analyst with an MSc in Business Analytics and a Bachelor in Engineering. I specialize in turning data into actionable insights that drive business growth. Proficient in Python, SQL, and Power BI, I have delivered dashboards, predictive models, and analytics solutions across market, customer, and AI data. I excel at translating business requirements into solutions that deliver sustainable and measurable value. With expertise in advanced analytics, stakeholder management, and marketing insight, I help organizations optimize decision-making, enhance customer experience, and achieve measurable results.
                     </p>
                     <div class="hero-buttons">
                         <a href="#projects" class="btn btn-primary">View My Work</a>
@@ -500,7 +439,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="hero-image fade-in">
+                <div class="hero-image animate-on-scroll">
                     <div class="profile-image">
                         <img src="static/images/profile.jpg" alt="Vedant Kulkarni">
                     </div>
@@ -512,224 +451,90 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <h2 class="section-title">My Work & Case Studies</h2>
-
-            <!-- Project 1 -->
-            <div class="project-timeline-item fade-in">
-                <div class="project-number">01</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>C-Suite Financial & Marketing Dashboards</h3>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tag">Power BI</span> <span class="tag">Tableau</span> <span class="tag">SQL</span> <span class="tag">BI</span>
-                    </div>
+            <h2 class="section-title animate-on-scroll">My Work & Case Studies</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card animate-on-scroll">
+                    <h3>C-Suite Financial & Marketing Dashboards</h3>
+                    <div class="tech-tags"><span class="tag">Power BI</span> <span class="tag">Tableau</span> <span class="tag">SQL</span> <span class="tag">BI</span></div>
                     <div class="project-details">
-                        <div class="project-left">
-                            <h4>Objective & Key Actions</h4>
-                            <ul>
-                                <li><strong>Objective:</strong> Design and deploy BI dashboards for executive leadership with real-time company performance view</li>
-                                <li>Stakeholder collaboration with C-suite executives to define KPIs</li>
-                                <li>Developed complex SQL queries for data extraction and transformation</li>
-                                <li>Implemented user-centric design principles in Power BI/Tableau</li>
-                                <li>Created automated data refresh schedules and alert systems</li>
-                            </ul>
-                        </div>
-                        <div class="project-right">
-                            <h4>Scope & Impact</h4>
-                            <div class="impact-box">
-                                <div class="impact-highlight"><strong>Replaced static monthly reports with dynamic analytics solution</strong></div>
-                                <p>Enabled real-time decision making for executive team, reducing reporting cycle from 30 days to instant access. Dashboard adoption rate reached 95% among leadership within first quarter.</p>
-                            </div>
-                        </div>
+                        <div class="project-left"><h4>Objective & Key Actions</h4><ul><li><strong>Objective:</strong> Design and deploy BI dashboards for executive leadership with real-time company performance view</li><li>Stakeholder collaboration with C-suite executives to define KPIs</li><li>Developed complex SQL queries for data extraction and transformation</li><li>Implemented user-centric design principles in Power BI/Tableau</li><li>Created automated data refresh schedules and alert systems</li></ul></div>
+                        <div class="project-right"><h4>Scope & Impact</h4><ul><li>Enabled real-time decision making for executive team, reducing reporting cycle from 30 days to instant access. Dashboard adoption rate reached 95% among leadership within first quarter.</li></ul></div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Project 2 to 7 follow the same structure... -->
-            <div class="project-timeline-item fade-in">
-                 <div class="project-number">02</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>Automated Invoice Processing & Data Quality Control</h3>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tag">Python</span> <span class="tag">SQL</span> <span class="tag">Automation</span> <span class="tag">ETL</span>
-                    </div>
+                <div class="project-card animate-on-scroll">
+                    <h3>Automated Invoice Processing & Data Quality Control</h3>
+                    <div class="tech-tags"><span class="tag">Python</span> <span class="tag">SQL</span> <span class="tag">Automation</span> <span class="tag">ETL</span></div>
                     <div class="project-details">
-                        <div class="project-left">
-                            <h4>Objective & Key Actions</h4>
-                            <ul>
-                                <li><strong>Objective:</strong> Reduce manual effort in processing 500+ monthly invoices by 40%</li>
-                                <li>Built Python/Pandas automation scripts for invoice data extraction</li>
-                                <li>Designed SQL workflows for data validation and quality control</li>
-                                <li>Implemented email alert system for exception handling</li>
-                                <li>Created comprehensive data validation rules and error reporting</li>
-                            </ul>
-                        </div>
-                        <div class="project-right">
-                            <h4>Scope & Impact</h4>
-                            <div class="impact-box">
-                                <div class="impact-highlight"><strong>40% reduction in manual processing time</strong></div>
-                                <p>Automated processing of 500+ monthly invoices, improved vendor relationships through faster payment cycles, and eliminated 95% of data entry errors.</p>
-                            </div>
-                        </div>
+                        <div class="project-left"><h4>Objective & Key Actions</h4><ul><li><strong>Objective:</strong> Reduce manual effort in processing 500+ monthly invoices by 40%</li><li>Built Python/Pandas automation scripts for invoice data extraction</li><li>Designed SQL workflows for data validation and quality control</li><li>Implemented email alert system for exception handling</li><li>Created comprehensive data validation rules and error reporting</li></ul></div>
+                        <div class="project-right"><h4>Scope & Impact</h4><ul><li>Achieved a 40% reduction in manual processing time. Automated 500+ monthly invoices, improved vendor relationships, and eliminated 95% of data entry errors.</li></ul></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="project-timeline-item fade-in">
-                 <div class="project-number">03</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>Machine Learning for Fraud Detection</h3>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tag">Machine Learning</span> <span class="tag">Scikit-learn</span> <span class="tag">Python</span> <span class="tag">SMOTE</span>
-                    </div>
+                <div class="project-card animate-on-scroll">
+                    <h3>Machine Learning for Fraud Detection</h3>
+                    <div class="tech-tags"><span class="tag">Machine Learning</span> <span class="tag">Scikit-learn</span> <span class="tag">Python</span> <span class="tag">SMOTE</span></div>
                     <div class="project-details">
-                        <div class="project-left">
-                            <h4>Objective & Key Actions</h4>
-                            <ul>
-                                <li><strong>Objective:</strong> Build high-accuracy ML model for real-time fraud detection</li>
-                                <li>Preprocessed imbalanced dataset using SMOTE techniques</li>
-                                <li>Trained Random Forest and Logistic Regression models</li>
-                                <li>Conducted comprehensive performance evaluation and model comparison</li>
-                                <li>Implemented real-time scoring pipeline for production deployment</li>
-                            </ul>
-                        </div>
-                        <div class="project-right">
-                            <h4>Scope & Impact</h4>
-                            <div class="impact-box">
-                                <div class="impact-highlight"><strong>25% improvement in fraud detection accuracy</strong></div>
-                                <p>Enhanced fraud detection capabilities over baseline models, reduced false positives by 30%, and enabled real-time transaction monitoring for enhanced security.</p>
-                            </div>
-                        </div>
+                        <div class="project-left"><h4>Objective & Key Actions</h4><ul><li><strong>Objective:</strong> Build high-accuracy ML model for real-time fraud detection</li><li>Preprocessed imbalanced dataset using SMOTE techniques</li><li>Trained Random Forest and Logistic Regression models</li><li>Conducted comprehensive performance evaluation and model comparison</li><li>Implemented real-time scoring pipeline for production deployment</li></ul></div>
+                        <div class="project-right"><h4>Scope & Impact</h4><ul><li>Delivered a 25% improvement in fraud detection accuracy over baseline models, reduced false positives by 30%, and enabled real-time transaction monitoring.</li></ul></div>
                     </div>
                 </div>
-            </div>
 
-             <div class="project-timeline-item fade-in">
-                <div class="project-number">04</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>Hospital Patient Admission & Billing Process Optimization</h3>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tag">Business Analysis</span> <span class="tag">Process Improvement</span> <span class="tag">Power BI</span> <span class="tag">Requirements Gathering</span> <span class="tag">Healthcare Analytics</span>
-                    </div>
+                 <div class="project-card animate-on-scroll">
+                    <h3>Hospital Patient Admission & Billing Process Optimization</h3>
+                    <div class="tech-tags"><span class="tag">Business Analysis</span><span class="tag">Process Improvement</span><span class="tag">Power BI</span><span class="tag">Requirements Gathering</span></div>
                     <div class="project-details">
-                        <div class="project-left">
-                            <h4>Objective & Key Actions</h4>
-                            <ul>
-                                <li><strong>Objective:</strong> Re-engineer hospital's patient onboarding and billing workflow to reduce administrative errors and accelerate insurance claim lifecycle</li>
-                                <li>Mapped complete patient journey using Lucidchart to identify bottlenecks and redundant steps</li>
-                                <li>Conducted root cause analysis on claim rejections using Fishbone Diagram and 5 Whys technique</li>
-                                <li>Authored comprehensive Business Requirements Document (BRD) and Functional Specification Document (FSD)</li>
-                                <li>Developed Power BI dashboard to monitor process KPIs and claim approval rates</li>
-                            </ul>
-                        </div>
-                        <div class="project-right">
-                            <h4>Scope & Impact</h4>
-                            <div class="impact-box">
-                                <div class="impact-highlight"><strong>Strategic roadmap for process automation delivered</strong></div>
-                                <p>Provided clear path to reduce costly claim errors and significantly improve administrative efficiency. Created dashboard system for ongoing performance monitoring of patient wait times and billing turnaround.</p>
-                            </div>
-                        </div>
+                        <div class="project-left"><h4>Objective & Key Actions</h4><ul><li><strong>Objective:</strong> Re-engineer hospital's patient onboarding and billing workflow to reduce administrative errors</li><li>Mapped complete patient journey using Lucidchart to identify bottlenecks</li><li>Conducted root cause analysis on claim rejections using Fishbone & 5 Whys</li><li>Authored comprehensive BRD and FSD documents</li><li>Developed Power BI dashboard to monitor process KPIs</li></ul></div>
+                        <div class="project-right"><h4>Scope & Impact</h4><ul><li>Delivered a strategic roadmap for process automation, providing a clear path to reduce costly claim errors and improve administrative efficiency.</li></ul></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="project-timeline-item fade-in">
-                <div class="project-number">05</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>E-commerce Conversion Prediction & Pricing Strategy</h3>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tag">Machine Learning</span> <span class="tag">Python</span> <span class="tag">Logistic Regression</span> <span class="tag">Clustering</span> <span class="tag">E-commerce</span>
-                    </div>
+                <div class="project-card animate-on-scroll">
+                    <h3>E-commerce Conversion Prediction & Pricing Strategy</h3>
+                    <div class="tech-tags"><span class="tag">Machine Learning</span><span class="tag">Python</span><span class="tag">Logistic Regression</span><span class="tag">Clustering</span></div>
                     <div class="project-details">
-                        <div class="project-left">
-                            <h4>Objective & Key Actions</h4>
-                            <ul>
-                                <li><strong>Objective:</strong> Leverage machine learning for predicting customer conversion and design data-driven pricing strategy</li>
-                                <li>Utilized Python (Pandas, NumPy) for statistical analysis of customer transaction data</li>
-                                <li>Built highly accurate Logistic Regression model with 90% F1-score for conversion prediction</li>
-                                <li>Employed clustering algorithms for customer segmentation based on purchasing behavior</li>
-                                <li>Developed dynamic pricing strategy evaluating impact on sales volume and profitability</li>
-                            </ul>
-                        </div>
-                        <div class="project-right">
-                            <h4>Scope & Impact</h4>
-                            <div class="impact-box">
-                                <div class="impact-highlight"><strong>90% F1-score conversion prediction model</strong></div>
-                                <p>Successfully demonstrated machine learning power in e-commerce context. Predictive model provided accurate conversion insights and segmentation analysis laid groundwork for targeted marketing strategies.</p>
-                            </div>
-                        </div>
+                        <div class="project-left"><h4>Objective & Key Actions</h4><ul><li><strong>Objective:</strong> Leverage ML for predicting customer conversion and design data-driven pricing</li><li>Utilized Python (Pandas, NumPy) for statistical analysis of transaction data</li><li>Built highly accurate Logistic Regression model with 90% F1-score</li><li>Employed clustering algorithms for customer segmentation</li><li>Developed dynamic pricing strategy evaluating impact on sales</li></ul></div>
+                        <div class="project-right"><h4>Scope & Impact</h4><ul><li>Successfully demonstrated machine learning power with a 90% F1-score predictive model, providing accurate conversion insights for targeted marketing strategies.</li></ul></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="project-timeline-item fade-in">
-                <div class="project-number">06</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>Customer Feedback Sentiment & Automated Response Analysis</h3>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tag">NLP</span> <span class="tag">Sentiment Analysis</span> <span class="tag">Python</span> <span class="tag">Machine Learning</span> <span class="tag">Automation</span>
-                    </div>
-                    <div class="project-details">
-                        <div class="project-left">
-                            <h4>Objective & Key Actions</h4>
-                            <ul>
-                                <li><strong>Objective:</strong> Build intelligent system for automatic sentiment analysis and complaint classification with automated responses</li>
-                                <li>Extracted and cleaned customer feedback data using SQL and Python</li>
-                                <li>Performed sentiment analysis using VADER library and built Logistic Regression classifier with 85% accuracy</li>
-                                <li>Developed content-based response system using TF-IDF and text similarity</li>
-                                <li>Tracked support KPIs including Average Handle Time and First Contact Resolution</li>
-                            </ul>
-                        </div>
-                        <div class="project-right">
-                            <h4>Scope & Impact</h4>
-                            <div class="impact-box">
-                                <div class="impact-highlight"><strong>40% reduction in manual reply time</strong></div>
-                                <p>Successfully automated significant portion of customer support workflow. Improved prioritization accuracy by 30% and allowed support team to focus on complex issues requiring human intervention.</p>
-                            </div>
-                        </div>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Professional Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card animate-on-scroll">
+                    <span class="experience-date">12/2024 - 6/2025</span>
+                    <div class="experience-position">Data Analyst (contract)</div>
+                    <div class="experience-company">Vani Research Labs, Remote</div>
+                    <ul>
+                        <li>Analyzed AI agent performance logs and core KPIs (e.g., transcription accuracy, sentiment analysis precision) to identify and diagnose patterns in model errors, providing data-driven recommendations that guided algorithm refinement.</li>
+                        <li>Conducted competitive intelligence and market research on voice AI applications across diverse industries (including BFSI and healthcare) to identify feature gaps and benchmark product performance against top competitors.</li>
+                        <li>Authored a detailed enhancement proposal by synthesizing market research and performance data, outlining actionable strategies to improve the AI agent's capabilities and align the product roadmap with emerging industry trends.</li>
+                    </ul>
                 </div>
-            </div>
-
-            <div class="project-timeline-item fade-in">
-                <div class="project-number">07</div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3>SaaS Business Intelligence & Churn Forecasting System</h3>
-                    </div>
-                    <div class="tech-tags">
-                        <span class="tag">Business Intelligence</span> <span class="tag">Churn Prediction</span> <span class="tag">Python</span> <span class="tag">SQL</span> <span class="tag">Time-Series Forecasting</span>
-                    </div>
-                    <div class="project-details">
-                        <div class="project-left">
-                            <h4>Objective & Key Actions</h4>
-                            <ul>
-                                <li><strong>Objective:</strong> Create robust BI system for SaaS company with automated reporting and predictive churn forecasting</li>
-                                <li>Automated generation of key SaaS metrics (MRR, CLV, churn rate) using Python and SQL</li>
-                                <li>Predicted future churn and revenue trends using Prophet and ARIMA time-series models</li>
-                                <li>Used clustering to segment users for targeted retention campaigns aimed at high-risk cohorts</li>
-                                <li>Implemented real-time metric alert system for proactive decision-making</li>
-                            </ul>
-                        </div>
-                        <div class="project-right">
-                            <h4>Scope & Impact</h4>
-                            <div class="impact-box">
-                                <div class="impact-highlight"><strong>20% simulated churn reduction achieved</strong></div>
-                                <p>Provided automated view of business health with actionable churn forecasts. Proactive alerts and user segmentation strategies demonstrated direct positive impact on revenue and customer retention.</p>
-                            </div>
-                        </div>
-                    </div>
+                 <div class="experience-card animate-on-scroll">
+                    <span class="experience-date">10/2024 - 12/2024</span>
+                    <div class="experience-position">Data Analyst (contract)</div>
+                    <div class="experience-company">Vishwa Vision Marketing, Mumbai</div>
+                    <ul>
+                        <li>Conducted comprehensive market and competitor analysis to identify high-potential B2B sectors (hospitality, aviation), leading to a refocused marketing strategy that increased qualified inbound leads by over 25%.</li>
+                        <li>Developed data-driven customer segmentation models by analyzing past sales data and client specifications, creating detailed B2B personas that guided the launch of targeted marketing campaigns and boosted client engagement rates.</li>
+                    </ul>
+                </div>
+                 <div class="experience-card animate-on-scroll">
+                    <span class="experience-date">05/2023 - 9/2024</span>
+                    <div class="experience-position">Customer Operations Analyst</div>
+                    <div class="experience-company">British Telecom, Exeter, United Kingdom</div>
+                    <ul>
+                        <li>Analyzed customer query data using Excel to identify trends, patterns, and root causes of common issues, contributing to a 15% reduction in repeat inquiries.</li>
+                        <li>Collaborated with cross-functional teams by providing data-driven reports that highlighted recurring technical issues, leading to more efficient process improvements and bug fixes.</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -738,147 +543,54 @@
     <!-- Education Section -->
     <section id="education" class="education">
         <div class="container">
-            <h2 class="section-title">Education</h2>
+            <h2 class="section-title animate-on-scroll">Education</h2>
             <div class="education-timeline">
-                <div class="education-item fade-in">
+                <div class="education-item animate-on-scroll">
                     <div class="education-date">Jan 2022 - Apr 2023</div>
-                    <div class="education-content">
-                        <div class="education-degree">MSc Business Analytics</div>
-                        <div class="education-university">University of Exeter</div>
-                        <div class="education-location">United Kingdom</div>
-                        <ul>
-                            <li><strong>Relevant Coursework:</strong> Statistics & Programming, Data Visualization, Business Intelligence, Machine Learning, Database Management</li>
-                            <li><strong>Ranked top 5% in Statistics & Probability,</strong> demonstrating strong analytical and quantitative skills</li>
-                            <li>Gained project management experience via Smartphone Case Production using Digital Twin in Tecnomatix at Cyber-Physical Lab</li>
-                        </ul>
-                    </div>
+                    <div class="education-degree">MSc Business Analytics</div>
+                    <div class="education-university">University of Exeter, United Kingdom</div>
+                    <ul>
+                        <li><strong>Relevant Coursework:</strong> Statistics & Programming, Data Visualization, Business Intelligence, Machine Learning, Database Management</li>
+                        <li><strong>Ranked top 5% in Statistics & Probability,</strong> demonstrating strong analytical and quantitative skills</li>
+                    </ul>
                 </div>
-
-                <div class="education-item fade-in">
+                <div class="education-item animate-on-scroll">
                     <div class="education-date">Jun 2015 - Aug 2019</div>
-                    <div class="education-content">
-                        <div class="education-degree">Bachelor of Engineering</div>
-                        <div class="education-university">Mumbai University</div>
-                        <div class="education-location">India</div>
-                        <ul>
-                            <li><strong>Relevant Coursework:</strong> Object-Oriented Programming, Cloud Computing, Digital & Business Communications, Embedded Systems</li>
-                            <li><strong>Published and presented</strong> a project on an IoT-Based Televoting System at the International Conference on Advanced System Technologies</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="experience-timeline">
-                <div class="experience-item fade-in">
-                    <div class="experience-date">12/2024 - 6/2025</div>
-                    <div class="experience-content">
-                        <div class="experience-position">Data Analyst (contract)</div>
-                        <div class="experience-company">Vani Research Labs, Remote</div>
-                        <ul>
-                            <li>Analyzed AI agent performance logs and core KPIs (e.g., transcription accuracy, sentiment analysis precision) to identify and diagnose patterns in model errors, providing data-driven recommendations that guided algorithm refinement.</li>
-                            <li>Conducted competitive intelligence and market research on voice AI applications across diverse industries (including BFSI and healthcare) to identify feature gaps and benchmark product performance against top competitors.</li>
-                            <li>Authored a detailed enhancement proposal by synthesizing market research and performance data, outlining actionable strategies to improve the AI agent's capabilities and align the product roadmap with emerging industry trends.</li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Other experience items -->
-                 <div class="experience-item fade-in">
-                    <div class="experience-date">10/2024 - 12/2024</div>
-                    <div class="experience-content">
-                        <div class="experience-position">Data Analyst (contract)</div>
-                        <div class="experience-company">Vishwa Vision Marketing, Mumbai</div>
-                        <ul>
-                            <li>Conducted comprehensive market and competitor analysis to identify high-potential B2B sectors (hospitality, aviation), leading to a refocused marketing strategy that increased qualified inbound leads by over 25%.</li>
-                            <li>Developed data-driven customer segmentation models by analyzing past sales data and client specifications, creating detailed B2B personas that guided the launch of targeted marketing campaigns and boosted client engagement rates.</li>
-                            <li>Designed and implemented a KPI framework to track the sales funnel and marketing ROI, creating standardized reports in Excel that enabled leadership to make informed decisions on budget allocation and channel strategy.</li>
-                        </ul>
-                    </div>
-                </div>
-                 <div class="experience-item fade-in">
-                    <div class="experience-date">05/2023 - 9/2024</div>
-                    <div class="experience-content">
-                        <div class="experience-position">Customer Operations Analyst</div>
-                        <div class="experience-company">British Telecom, Exeter, United Kingdom</div>
-                        <ul>
-                            <li>Analyzed customer query data using Excel to identify trends, patterns, and root causes of common issues, contributing to a 15% reduction in repeat inquiries.</li>
-                            <li>Translated qualitative customer feedback into quantitative data, performing sentiment analysis to inform product and service enhancement strategies.</li>
-                            <li>Collaborated with cross-functional teams by providing data-driven reports that highlighted recurring technical issues, leading to more efficient process improvements and bug fixes.</li>
-                        </ul>
-                    </div>
-                </div>
-                 <div class="experience-item fade-in">
-                    <div class="experience-date">08/2020 - 12/2021</div>
-                    <div class="experience-content">
-                        <div class="experience-position">Data Analyst</div>
-                        <div class="experience-company">Knowlettwoods LLP, Noida, India</div>
-                        <ul>
-                            <li>Collaborated closely with sales team and product teams to translate complex business requirements into analytics solutions.</li>
-                            <li>Leveraged Google Analytics to analyze website traffic and user behavior, contributing to a 15% increase in conversion rates.</li>
-                            <li>Cleaned and transformed large datasets using Python and SQL, ensuring high data quality and reliability for accurate analysis.</li>
-                            <li>Utilized SQL for data extraction and built Power BI dashboards to visualize KPIs, campaign ROI, CAC, and conversion funnel metrics.</li>
-                        </ul>
-                    </div>
-                </div>
-                 <div class="experience-item fade-in">
-                    <div class="experience-date">07/2019 - 01/2020</div>
-                    <div class="experience-content">
-                        <div class="experience-position">Digital Market Analyst</div>
-                        <div class="experience-company">Intermarket Private Limited, Mumbai, India</div>
-                        <ul>
-                            <li>Evaluated sales, revenue, and digital campaign performance using Excel and Power BI to identify trends and optimize spending.</li>
-                            <li>Contributed to a 15% increase in sales and 20% boost in repeat purchases through data-driven marketing insights.</li>
-                            <li>Supported customer segmentation & persona development to enable targeted messaging, increasing campaign relevance & engagement.</li>
-                            <li>Collaborated with cross-functional teams to translate customer data into actionable insights driving business growth & strategy.</li>
-                        </ul>
-                    </div>
-                </div>
-                 <div class="experience-item fade-in">
-                    <div class="experience-date">08/2018 - 03/2019</div>
-                    <div class="experience-content">
-                        <div class="experience-position">Project Engineer Intern</div>
-                        <div class="experience-company">Bharat Sanchar Nigam Limited, Mumbai, India</div>
-                        <ul>
-                            <li>Executed network performance analysis to optimize bandwidth efficiency and ensure seamless user connectivity.</li>
-                            <li>Analyzed network configurations and performance logs to deliver actionable system improvements.</li>
-                            <li>Performed site surveys and assisted in troubleshooting network failures, improving system uptime and reducing connectivity issues.</li>
-                        </ul>
-                    </div>
+                    <div class="education-degree">Bachelor of Engineering</div>
+                    <div class="education-university">Mumbai University, India</div>
+                    <ul>
+                        <li><strong>Relevant Coursework:</strong> Object-Oriented Programming, Cloud Computing, Digital & Business Communications, Embedded Systems</li>
+                        <li><strong>Published and presented</strong> a project on an IoT-Based Televoting System at the International Conference on Advanced System Technologies</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
     
-    <!-- About Section - Skills and Certifications -->
+    <!-- About Section (Skills and Certifications) -->
     <section id="about" class="about">
         <div class="container">
-            <div class="skills-section">
-                <h3 class="fade-in">Technical Skills & Expertise</h3>
-                <div class="skills-list">
-                    <div class="skill-row fade-in"><div class="skill-info"><i class="fab fa-python"></i><span class="skill-name">Python</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="7"></div></div><span class="skill-rating">7/10</span></div></div>
-                    <div class="skill-row fade-in"><div class="skill-info"><i class="fas fa-database"></i><span class="skill-name">SQL</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div><span class="skill-rating">9/10</span></div></div>
-                    <div class="skill-row fade-in"><div class="skill-info"><i class="fas fa-chart-bar"></i><span class="skill-name">Power BI</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div><span class="skill-rating">9/10</span></div></div>
-                    <div class="skill-row fade-in"><div class="skill-info"><i class="fas fa-chart-line"></i><span class="skill-name">Tableau</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div><span class="skill-rating">9/10</span></div></div>
-                    <div class="skill-row fade-in"><div class="skill-info"><i class="fas fa-brain"></i><span class="skill-name">Machine Learning</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="6"></div></div><span class="skill-rating">6/10</span></div></div>
-                    <div class="skill-row fade-in"><div class="skill-info"><i class="fas fa-business-time"></i><span class="skill-name">Business Analysis</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div><span class="skill-rating">9/10</span></div></div>
-                    <div class="skill-row fade-in"><div class="skill-info"><i class="fab fa-google"></i><span class="skill-name">Google Analytics</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="8"></div></div><span class="skill-rating">8/10</span></div></div>
-                    <div class="skill-row fade-in"><div class="skill-info"><i class="fas fa-exchange-alt"></i><span class="skill-name">ETL Processes</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="8"></div></div><span class="skill-rating">8/10</span></div></div>
-                    <div class="skill-row fade-in"><div class="skill-info"><i class="fas fa-tasks"></i><span class="skill-name">Requirements Gathering</span></div><div class="skill-level"><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div><span class="skill-rating">9/10</span></div></div>
+            <div class="about-grid">
+                <div class="skills-section animate-on-scroll">
+                    <h3>Technical Skills & Expertise</h3>
+                    <div class="skills-list">
+                        <div class="skill-row"><div class="skill-info"><span><i class="fas fa-database"></i> SQL</span> <span>9/10</span></div><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div></div>
+                        <div class="skill-row"><div class="skill-info"><span><i class="fas fa-chart-bar"></i> Power BI</span> <span>9/10</span></div><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div></div>
+                        <div class="skill-row"><div class="skill-info"><span><i class="fas fa-chart-line"></i> Tableau</span> <span>9/10</span></div><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div></div>
+                        <div class="skill-row"><div class="skill-info"><span><i class="fas fa-business-time"></i> Business Analysis</span> <span>9/10</span></div><div class="skill-bar"><div class="skill-progress" data-level="9"></div></div></div>
+                        <div class="skill-row"><div class="skill-info"><span><i class="fab fa-python"></i> Python</span> <span>7/10</span></div><div class="skill-bar"><div class="skill-progress" data-level="7"></div></div></div>
+                        <div class="skill-row"><div class="skill-info"><span><i class="fab fa-google"></i> Google Analytics</span> <span>8/10</span></div><div class="skill-bar"><div class="skill-progress" data-level="8"></div></div></div>
+                    </div>
                 </div>
-            </div>
 
-            <div class="certifications-section">
-                <h3 class="fade-in">Professional Certifications & Courses</h3>
-                <div class="certifications-grid">
-                    <div class="certification-card fade-in"><div class="cert-content-wrapper"><div class="cert-logo"><img src="static/images/iiba.jpg" alt="IIBA ECBA Logo"></div><div class="cert-content"><h4>ECBA™ Certification</h4><p class="cert-issuer">International Institute of Business Analyst (IIBA)</p><div class="cert-skills"><span class="cert-skill">Requirement Management</span><span class="cert-skill">Business Analysis Planning</span><span class="cert-skill">Stakeholder Elicitation</span><span class="cert-skill">Process Design & Analysis</span></div></div></div></div>
-                    <div class="certification-card fade-in"><div class="cert-content-wrapper"><div class="cert-logo"><img src="static/images/google_analytics.png" alt="Google Analytics Logo"></div><div class="cert-content"><h4>Advanced Google Analytics</h4><p class="cert-issuer">Google Analytics Academy</p><div class="cert-skills"><span class="cert-skill">Power User Techniques</span><span class="cert-skill">Google Analytics 360</span><span class="cert-skill">User Behavior Analysis</span><span class="cert-skill">Custom Reporting</span></div></div></div></div>
-                    <div class="certification-card fade-in"><div class="cert-content-wrapper"><div class="cert-logo"><img src="static/images/ITvedant.png" alt="I.T. Vedant Logo"></div><div class="cert-content"><h4>Python Programming</h4><p class="cert-issuer">IT vedant Education Pvt. Ltd</p><div class="cert-skills"><span class="cert-skill">Core Python Syntax</span><span class="cert-skill">Algorithms & Functions</span><span class="cert-skill">SDLC & Agile Methodologies</span><span class="cert-skill">Data Structures</span></div></div></div></div>
-                    <div class="certification-card fade-in"><div class="cert-content-wrapper"><div class="cert-logo"><img src="static/images/ima.jpg" alt="Imarticus Learning Logo"></div><div class="cert-content"><h4>Agile Business Analyst & Scrum</h4><p class="cert-issuer">Imarticus Learning</p><div class="cert-skills"><span class="cert-skill">Business Workflow Mapping</span><span class="cert-skill">Process Automation</span><span class="cert-skill">End-to-End Process Design</span><span class="cert-skill">Aris & Lucidchart</span></div></div></div></div>
+                <div class="certifications-section animate-on-scroll">
+                    <h3>Professional Certifications</h3>
+                    <div class="certifications-list">
+                        <div class="certification-card"><div class="cert-logo"><img src="static/images/iiba.jpg" alt="IIBA Logo"></div><div class="cert-content"><h4>ECBA™ Certification</h4><p class="cert-issuer">International Institute of Business Analyst (IIBA)</p></div></div>
+                        <div class="certification-card"><div class="cert-logo"><img src="static/images/google_analytics.png" alt="Google Logo"></div><div class="cert-content"><h4>Advanced Google Analytics</h4><p class="cert-issuer">Google Analytics Academy</p></div></div>
+                        <div class="certification-card"><div class="cert-logo"><img src="static/images/ITvedant.png" alt="IT Vedant Logo"></div><div class="cert-content"><h4>Python Programming</h4><p class="cert-issuer">IT vedant Education Pvt. Ltd</p></div></div>
+                        <div class="certification-card"><div class="cert-logo"><img src="static/images/ima.jpg" alt="Imarticus Logo"></div><div class="cert-content"><h4>Agile Business Analyst & Scrum</h4><p class="cert-issuer">Imarticus Learning</p></div></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -886,15 +598,13 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-content fade-in">
-                <h2>Let's Connect</h2>
-                <p>Ready to discuss how data-driven insights can transform your business? Let's start a conversation.</p>
-                <div class="contact-info">
-                    <a href="mailto:vedantak070@gmail.com" class="contact-item"><i class="fas fa-envelope"></i><span>vedantak070@gmail.com</span></a>
-                    <a href="tel:+919702379544" class="contact-item"><i class="fas fa-phone"></i><span>+91 9702379544</span></a>
-                    <a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i><span>LinkedIn Profile</span></a>
-                </div>
+        <div class="container animate-on-scroll">
+            <h2 class="section-title">Let's Connect</h2>
+            <p>Ready to discuss how data-driven insights can transform your business? Let's start a conversation.</p>
+            <div class="contact-info">
+                <a href="mailto:vedantak070@gmail.com"><i class="fas fa-envelope"></i> vedantak070@gmail.com</a>
+                <a href="tel:+919702379544"><i class="fas fa-phone"></i> +91 9702379544</a>
+                <a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
             </div>
         </div>
     </section>
@@ -902,12 +612,10 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <p>&copy; 2025 Vedant Kulkarni</p>
-                <div class="footer-links">
-                    <a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/vedant-kulkarni" target="_blank"><i class="fab fa-github"></i></a>
-                </div>
+            <p>&copy; 2025 Vedant Kulkarni</p>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/vedant-kulkarni" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </footer>
@@ -916,37 +624,35 @@
     <script>
     document.addEventListener('DOMContentLoaded', () => {
 
-        // 1. Intersection Observer for fade-in animations
-        const fadeObserver = new IntersectionObserver((entries) => {
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    fadeObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            fadeObserver.observe(el);
-        });
-
-        // 2. Intersection Observer for skill bar animations
-        const skillObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const skillProgress = entry.target.querySelector('.skill-progress');
-                    const level = skillProgress.getAttribute('data-level');
-                    skillProgress.style.width = level * 10 + '%';
+                    
+                    if (entry.target.classList.contains('skill-row')) {
+                        const skillProgress = entry.target.querySelector('.skill-progress');
+                        const level = skillProgress.getAttribute('data-level');
+                        setTimeout(() => {
+                           skillProgress.style.width = level * 10 + '%';
+                        }, 200);
+                    }
+                    
                     observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.5 });
+        }, observerOptions);
 
-        document.querySelectorAll('.skill-row').forEach(skill => {
-            skillObserver.observe(skill);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
         });
-
-        // 3. Active Nav Link on Scroll
+        
+        // Active Nav Link on Scroll
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
         
@@ -961,7 +667,7 @@
                     });
                 }
             });
-        }, { rootMargin: '-30% 0px -70% 0px' }); // Activates when section is in the middle 40% of the screen
+        }, { rootMargin: '-40% 0px -60% 0px' });
 
         sections.forEach(section => {
             navObserver.observe(section);
