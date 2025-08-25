@@ -14,7 +14,7 @@
     <!-- Custom CSS -->
     <link rel="stylesheet" href="static/css/style.css">
 
-    <!-- == CUSTOM STYLES FOR PROFILE IMAGE == -->
+    <!-- == CUSTOM STYLES FOR PROFILE IMAGE AND LOGOS == -->
     <style>
         .profile-image img {
             width: 280px;  /* Adjust size as needed */
@@ -23,6 +23,27 @@
             object-fit: cover; /* Ensures the image covers the area without stretching */
             border: 5px solid #fff; /* Optional: Adds a white border */
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+        }
+        .education-item .education-logo,
+        .certification-card .cert-logo {
+            width: 60px; /* Adjust logo width */
+            height: 60px; /* Adjust logo height */
+            margin-right: 20px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .education-item .education-logo img,
+        .certification-card .cert-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
+        .education-content,
+        .cert-content-wrapper {
+            display: flex;
+            align-items: flex-start;
         }
     </style>
     <!-- ==================================== -->
@@ -62,10 +83,23 @@
                 </p>
                 <div class="hero-buttons fade-in">
                     <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <!-- ## CHANGE 1: LINKEDIN URL FIXED ## -->
                     <a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" class="btn btn-secondary">
                         <i class="fab fa-linkedin"></i> LinkedIn Profile
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Summary Section -->
+    <section id="summary" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>Summary</h2>
+                    <p>
+                        Data Analyst with an MSc in Business Analytics and expertise in the end-to-end data lifecycle. Proficient in leveraging Python, SQL, and Power BI to perform data extraction, cleansing, predictive modeling, and visualization. Proven success in analyzing market, customer, and AI data to build performance dashboards and deliver actionable insights.
+                    </p>
                 </div>
             </div>
         </div>
@@ -346,22 +380,26 @@
         <div class="container">
             <h2 class="section-title">Education</h2>
             
-            <!-- Education Timeline -->
             <div class="education-timeline">
                 <!-- Education 1 -->
                 <div class="education-item fade-in">
                     <div class="education-date">Jan 2022 - Apr 2023</div>
                     <div class="education-content">
-                        <div class="education-degree">MSc Business Analytics</div>
-                        <div class="education-university">University of Exeter</div>
-                        <div class="education-location">United Kingdom</div>
-                        <div class="education-details">
-                            <h4>Relevant Coursework & Achievements</h4>
-                            <ul>
-                                <li><strong>Relevant Coursework:</strong> Statistics & Programming, Data Visualization, Business Intelligence, Machine Learning, Database Management</li>
-                                <li><strong>Ranked top 5% in Statistics & Probability,</strong> demonstrating strong analytical and quantitative skills</li>
-                                <li>Gained project management experience via Smartphone Case Production using Digital Twin in Tecnomatix at Cyber-Physical Lab</li>
-                            </ul>
+                        <div class="education-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d8/University_of_Exeter_logo.svg/220px-University_of_Exeter_logo.svg.png" alt="University of Exeter Logo">
+                        </div>
+                        <div>
+                            <div class="education-degree">MSc Business Analytics</div>
+                            <div class="education-university">University of Exeter</div>
+                            <div class="education-location">United Kingdom</div>
+                            <div class="education-details">
+                                <h4>Relevant Coursework & Achievements</h4>
+                                <ul>
+                                    <li><strong>Relevant Coursework:</strong> Statistics & Programming, Data Visualization, Business Intelligence, Machine Learning, Database Management</li>
+                                    <li><strong>Ranked top 5% in Statistics & Probability,</strong> demonstrating strong analytical and quantitative skills</li>
+                                    <li>Gained project management experience via Smartphone Case Production using Digital Twin in Tecnomatix at Cyber-Physical Lab</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -370,15 +408,20 @@
                 <div class="education-item fade-in">
                     <div class="education-date">Jun 2015 - Aug 2019</div>
                     <div class="education-content">
-                        <div class="education-degree">Bachelor of Engineering</div>
-                        <div class="education-university">Mumbai University</div>
-                        <div class="education-location">India</div>
-                        <div class="education-details">
-                            <h4>Relevant Coursework & Achievements</h4>
-                            <ul>
-                                <li><strong>Relevant Coursework:</strong> Object-Oriented Programming, Cloud Computing, Digital & Business Communications, Embedded Systems</li>
-                                <li><strong>Published and presented</strong> a project on an IoT-Based Televoting System at the International Conference on Advanced System Technologies</li>
-                            </ul>
+                        <div class="education-logo">
+                            <img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a7/Mumbai_University_logo.svg/220px-Mumbai_University_logo.svg.png" alt="Mumbai University Logo">
+                        </div>
+                        <div>
+                            <div class="education-degree">Bachelor of Engineering</div>
+                            <div class="education-university">Mumbai University</div>
+                            <div class="education-location">India</div>
+                            <div class="education-details">
+                                <h4>Relevant Coursework & Achievements</h4>
+                                <ul>
+                                    <li><strong>Relevant Coursework:</strong> Object-Oriented Programming, Cloud Computing, Digital & Business Communications, Embedded Systems</li>
+                                    <li><strong>Published and presented</strong> a project on an IoT-Based Televoting System at the International Conference on Advanced System Technologies</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -391,82 +434,89 @@
         <div class="container">
             <h2 class="section-title">Professional Experience</h2>
             
-            <!-- Experience Timeline -->
             <div class="experience-timeline">
                 <!-- Experience 1 -->
                 <div class="experience-item fade-in">
-                    <div class="experience-date">Sep 2020 - Dec 2021</div>
+                    <div class="experience-date">1/2025 - 6/2025</div>
                     <div class="experience-content">
-                        <div class="experience-company">Knowlettwoods LLP</div>
-                        <div class="experience-position">Data Analyst</div>
-                        <div class="experience-location">Noida, India</div>
+                        <div class="experience-company">Vani Research Labs, Remote</div>
+                        <div class="experience-position">Data Analyst (contract)</div>
                         <ul class="experience-details">
-                            <li>Cleaned and transformed large datasets using Python and SQL, ensuring high data quality and reliability for accurate analysis</li>
-                            <li>Utilized SQL for data extraction and built Power BI dashboards to visualize KPIs, campaign ROI, CAC, and conversion funnel metrics</li>
-                            <li>Collaborated closely with sales team and product teams to translate complex business requirements into analytics solutions</li>
-                            <li>Leveraged Google Analytics to analyze website traffic and user behavior, contributing to a <strong>15% increase in conversion rates</strong></li>
-                            <li>Performed analysis to uncover customer behavior trends, channel performance and campaign impact, enabling more targeted strategies and improved ROI</li>
+                            <li>Analyzed AI agent performance logs and core KPIs (e.g., transcription accuracy, sentiment analysis precision) to identify and diagnose patterns in model errors, providing data-driven recommendations that guided algorithm refinement.</li>
+                            <li>Conducted competitive intelligence and market research on voice AI applications across diverse industries (including BFSI and healthcare) to identify feature gaps and benchmark product performance against top competitors.</li>
+                            <li>Authored a detailed enhancement proposal by synthesizing market research and performance data, outlining actionable strategies to improve the AI agent's capabilities and align the product roadmap with emerging industry trends.</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Experience 2 -->
                 <div class="experience-item fade-in">
-                    <div class="experience-date">Aug 2019 - Jan 2020</div>
+                    <div class="experience-date">11/2024 - 1/2025</div>
                     <div class="experience-content">
-                        <div class="experience-company">Intermarket Private Limited</div>
-                        <div class="experience-position">Digital Market Analyst</div>
-                        <div class="experience-location">Mumbai, India</div>
+                        <div class="experience-company">Vishwa Vision Marketing, Mumbai</div>
+                        <div class="experience-position">Data Analyst (contract)</div>
                         <ul class="experience-details">
-                            <li>Evaluated sales, revenue, and digital campaign performance using Excel and Power BI to identify trends and optimize spending</li>
-                            <li>Contributed to a <strong>15% increase in sales and 20% boost in repeat purchases</strong> through data-driven marketing insights</li>
-                            <li>Supported customer segmentation & persona development to enable targeted messaging, increasing campaign relevance & engagement</li>
-                            <li>Partnered with product and marketing teams to translate analytics into initiatives that improved customer retention and loyalty</li>
-                            <li>Prepared marketing performance reports and financial summaries for leadership, linking campaign performance to key metrics</li>
+                            <li>Conducted comprehensive market and competitor analysis to identify high-potential B2B sectors (hospitality, aviation), leading to a refocused marketing strategy that increased qualified inbound leads by over 25%.</li>
+                            <li>Developed data-driven customer segmentation models by analyzing past sales data and client specifications, creating detailed B2B personas that guided the launch of targeted marketing campaigns and boosted client engagement rates.</li>
+                            <li>Designed and implemented a KPI framework to track the sales funnel and marketing ROI, creating standardized reports in Excel that enabled leadership to make informed decisions on budget allocation and channel strategy.</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Experience 3 -->
                 <div class="experience-item fade-in">
-                    <div class="experience-date">Sep 2018 - Mar 2019</div>
+                    <div class="experience-date">05/2023 - 10/2024</div>
                     <div class="experience-content">
-                        <div class="experience-company">Bharat Sanchar Nigam Limited</div>
-                        <div class="experience-position">Project Engineer Intern</div>
-                        <div class="experience-location">Mumbai, India</div>
+                        <div class="experience-company">British Telecom, Exeter, United Kingdom</div>
+                        <div class="experience-position">Data Analyst, Customer Operations</div>
                         <ul class="experience-details">
-                            <li>Executed network performance analysis to optimize bandwidth efficiency and ensure seamless user connectivity</li>
-                            <li>Analyzed network configurations and performance logs to deliver actionable system improvements</li>
-                            <li>Performed site surveys and assisted in troubleshooting network failures, improving system uptime and reducing connectivity issues</li>
+                            <li>Analyzed customer query data using Excel to identify trends, patterns, and root causes of common issues, contributing to a 15% reduction in repeat inquiries.</li>
+                            <li>Translated qualitative customer feedback into quantitative data, performing sentiment analysis to inform product and service enhancement strategies.</li>
+                            <li>Collaborated with cross-functional teams by providing data-driven reports that highlighted recurring technical issues, leading to more efficient process improvements and bug fixes.</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Experience 4 -->
                 <div class="experience-item fade-in">
-                    <div class="experience-date">Jun 2018 - Aug 2018</div>
+                    <div class="experience-date">08/2020 - 12/2021</div>
                     <div class="experience-content">
-                        <div class="experience-company">Indian Telephone Industries Limited</div>
-                        <div class="experience-position">Implant Trainee</div>
-                        <div class="experience-location">Bangalore, India</div>
+                        <div class="experience-company">Knowlettwoods LLP, Noida, India</div>
+                        <div class="experience-position">Data Analyst</div>
                         <ul class="experience-details">
-                            <li>Supported R&D and QA teams in software testing, design processes, and product development process</li>
-                            <li>Assessed test results, identified issues, and provided feedback to enhance product performance and functionality</li>
+                            <li>Collaborated closely with sales team and product teams to translate complex business requirements into analytics solutions.</li>
+                            <li>Leveraged Google Analytics to analyze website traffic and user behavior, contributing to a 15% increase in conversion rates.</li>
+                            <li>Cleaned and transformed large datasets using Python and SQL, ensuring high data quality and reliability for accurate analysis.</li>
+                            <li>Utilized SQL for data extraction and built Power BI dashboards to visualize KPIs, campaign ROI, CAC, and conversion funnel metrics.</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Experience 5 -->
                 <div class="experience-item fade-in">
-                    <div class="experience-date">Jul 2017 - Aug 2017</div>
+                    <div class="experience-date">07/2019 - 01/2020</div>
                     <div class="experience-content">
-                        <div class="experience-company">British Telecom</div>
-                        <div class="experience-position">Implant Trainee</div>
-                        <div class="experience-location">London, United Kingdom</div>
+                        <div class="experience-company">Intermarket Private Limited, Mumbai, India</div>
+                        <div class="experience-position">Digital Market Analyst</div>
                         <ul class="experience-details">
-                            <li>Shadowed experienced engineers in network design and maintenance</li>
-                            <li>Assisted in the testing and troubleshooting of telecommunications equipment</li>
-                            <li>Gained exposure to project management methodologies in a large-scale organization</li>
+                            <li>Evaluated sales, revenue, and digital campaign performance using Excel and Power BI to identify trends and optimize spending.</li>
+                            <li>Contributed to a 15% increase in sales and 20% boost in repeat purchases through data-driven marketing insights.</li>
+                            <li>Supported customer segmentation & persona development to enable targeted messaging, increasing campaign relevance & engagement.</li>
+                            <li>Collaborated with cross-functional teams to translate customer data into actionable insights driving business growth & strategy.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Experience 6 -->
+                <div class="experience-item fade-in">
+                    <div class="experience-date">08/2018 - 03/2019</div>
+                    <div class="experience-content">
+                        <div class="experience-company">Bharat Sanchar Nigam Limited, Mumbai, India</div>
+                        <div class="experience-position">Project Engineer Intern</div>
+                        <ul class="experience-details">
+                            <li>Executed network performance analysis to optimize bandwidth efficiency and ensure seamless user connectivity.</li>
+                            <li>Analyzed network configurations and performance logs to deliver actionable system improvements.</li>
+                            <li>Performed site surveys and assisted in troubleshooting network failures, improving system uptime and reducing connectivity issues.</li>
                         </ul>
                     </div>
                 </div>
@@ -480,7 +530,6 @@
             <div class="about-content">
                 <div class="about-text fade-in">
                     <h2>About Me</h2>
-                    <!-- ## CHANGE 2: "ABOUT ME" TEXT UPDATED ## -->
                     <p>
                         As a certified Business Analyst with an <strong>MSc in Business Analytics</strong> from the University of Exeter and a <strong>Bachelor of Engineering</strong>, I bring a robust analytical foundation to every challenge. My academic excellence is highlighted by ranking in the <strong>top 5% of my cohort in Statistics & Probability</strong>.
                     </p>
@@ -618,16 +667,18 @@
                     <!-- ECBA Certification -->
                     <div class="certification-card">
                         <div class="cert-logo">
-                            <i class="fas fa-certificate"></i>
+                            <img src="https://www.iiba.org/content/iiba/corporate/logos/iiba-logo-2021.png" alt="IIBA Logo">
                         </div>
-                        <div class="cert-content">
-                            <h4>ECBA™ Certification</h4>
-                            <p class="cert-issuer">International Institute of Business Analyst (IIBA)</p>
-                            <div class="cert-skills">
-                                <span class="cert-skill">Requirement Management</span>
-                                <span class="cert-skill">Business Analysis Planning</span>
-                                <span class="cert-skill">Stakeholder Elicitation</span>
-                                <span class="cert-skill">Process Design & Analysis</span>
+                        <div class="cert-content-wrapper">
+                            <div class="cert-content">
+                                <h4>ECBA™ Certification</h4>
+                                <p class="cert-issuer">International Institute of Business Analyst (IIBA)</p>
+                                <div class="cert-skills">
+                                    <span class="cert-skill">Requirement Management</span>
+                                    <span class="cert-skill">Business Analysis Planning</span>
+                                    <span class="cert-skill">Stakeholder Elicitation</span>
+                                    <span class="cert-skill">Process Design & Analysis</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -635,16 +686,18 @@
                     <!-- Google Analytics Certification -->
                     <div class="certification-card">
                         <div class="cert-logo">
-                            <i class="fab fa-google"></i>
+                            <img src="https://www.gstatic.com/analytics-suite/header/suite/v2/ic_analytics.svg" alt="Google Analytics Logo">
                         </div>
-                        <div class="cert-content">
-                            <h4>Advanced Google Analytics</h4>
-                            <p class="cert-issuer">Google Analytics Academy</p>
-                            <div class="cert-skills">
-                                <span class="cert-skill">Power User Techniques</span>
-                                <span class="cert-skill">Google Analytics 360</span>
-                                <span class="cert-skill">User Behavior Analysis</span>
-                                <span class="cert-skill">Custom Reporting</span>
+                        <div class="cert-content-wrapper">
+                            <div class="cert-content">
+                                <h4>Advanced Google Analytics</h4>
+                                <p class="cert-issuer">Google Analytics Academy</p>
+                                <div class="cert-skills">
+                                    <span class="cert-skill">Power User Techniques</span>
+                                    <span class="cert-skill">Google Analytics 360</span>
+                                    <span class="cert-skill">User Behavior Analysis</span>
+                                    <span class="cert-skill">Custom Reporting</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -652,16 +705,18 @@
                     <!-- Python Programming -->
                     <div class="certification-card">
                         <div class="cert-logo">
-                            <i class="fab fa-python"></i>
+                           <img src="https://www.itvedant.com/images/logo-2.png" alt="IT vedant Education Logo">
                         </div>
-                        <div class="cert-content">
-                            <h4>Python Programming</h4>
-                            <p class="cert-issuer">IT vedant Education Pvt. Ltd</p>
-                            <div class="cert-skills">
-                                <span class="cert-skill">Core Python Syntax</span>
-                                <span class="cert-skill">Algorithms & Functions</span>
-                                <span class="cert-skill">SDLC & Agile Methodologies</span>
-                                <span class="cert-skill">Data Structures</span>
+                        <div class="cert-content-wrapper">
+                            <div class="cert-content">
+                                <h4>Python Programming</h4>
+                                <p class="cert-issuer">IT vedant Education Pvt. Ltd</p>
+                                <div class="cert-skills">
+                                    <span class="cert-skill">Core Python Syntax</span>
+                                    <span class="cert-skill">Algorithms & Functions</span>
+                                    <span class="cert-skill">SDLC & Agile Methodologies</span>
+                                    <span class="cert-skill">Data Structures</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -669,16 +724,18 @@
                     <!-- Agile Business Analyst -->
                     <div class="certification-card">
                         <div class="cert-logo">
-                            <i class="fas fa-tasks"></i>
+                            <img src="https://media.licdn.com/dms/image/C4D0BAQG0Yw-2hA4k-A/company-logo_200_200/0/1630652038734?e=2147483647&v=beta&t=9xV2d_4-jYmO0Z6j_Gc6lY_kF_x8hZ7q_X_vE6E9j_Q" alt="Imarticus Learning Logo">
                         </div>
-                        <div class="cert-content">
-                            <h4>Agile Business Analyst & Scrum</h4>
-                            <p class="cert-issuer">Imarticus Learning</p>
-                            <div class="cert-skills">
-                                <span class="cert-skill">Business Workflow Mapping</span>
-                                <span class="cert-skill">Process Automation</span>
-                                <span class="cert-skill">End-to-End Process Design</span>
-                                <span class="cert-skill">Aris & Lucidchart</span>
+                        <div class="cert-content-wrapper">
+                            <div class="cert-content">
+                                <h4>Agile Business Analyst & Scrum</h4>
+                                <p class="cert-issuer">Imarticus Learning</p>
+                                <div class="cert-skills">
+                                    <span class="cert-skill">Business Workflow Mapping</span>
+                                    <span class="cert-skill">Process Automation</span>
+                                    <span class="cert-skill">End-to-End Process Design</span>
+                                    <span class="cert-skill">Aris & Lucidchart</span>
+                                </div>
                             </div>
                         </div>
                     </div>
