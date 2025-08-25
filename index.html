@@ -34,18 +34,63 @@
         }
 
         body {
-            background-color: var(--bg-light);
-            /* NEW: Gradient + subtle glowing particle effect */
+            /* UPDATED: Replaced flat color with a layered gradient and wave SVG */
+            background-color: var(--bg-dark); /* Fallback */
             background-image: 
-                radial-gradient(circle at 25% 30%, rgba(100, 255, 218, 0.06) 0%, transparent 40%),
-                radial-gradient(circle at 75% 80%, rgba(100, 255, 218, 0.05) 0%, transparent 35%),
-                linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%230a192f' fill-opacity='1' d='M0,256L48,245.3C96,235,192,213,288,202.7C384,192,480,192,576,186.7C672,181,768,171,864,181.3C960,192,1056,224,1152,245.3C1248,267,1344,277,1392,282.7L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E"),
+                linear-gradient(170deg, var(--bg-dark) 0%, var(--bg-light) 100%);
+            background-repeat: no-repeat;
+            background-position: bottom, center;
+            background-size: 100% auto, 100% 100%;
             color: var(--text-primary);
             font-family: var(--font-sans);
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Prevents horizontal scroll from glowing effects */
+            position: relative; /* Needed for pseudo-elements */
+            isolation: isolate; /* Creates a new stacking context for z-index */
+            overflow-x: hidden;
+        }
+        
+        /* NEW: Animated background blobs */
+        body::before,
+        body::after {
+            content: '';
+            position: fixed; /* Use fixed to stay in viewport during scroll */
+            z-index: -1;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.7;
+            pointer-events: none; /* Prevent blobs from interfering with mouse events */
+        }
+
+        body::before {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.08), transparent 70%);
+            top: -100px;
+            left: -150px;
+            animation: moveBlob1 25s infinite alternate ease-in-out;
+        }
+
+        body::after {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.06), transparent 70%);
+            bottom: -150px;
+            right: -200px;
+            animation: moveBlob2 30s infinite alternate ease-in-out;
+            animation-delay: -5s; /* Stagger the animations */
+        }
+
+        @keyframes moveBlob1 {
+            from { transform: translate(0, 0) scale(1) rotate(0deg); }
+            to { transform: translate(100px, 150px) scale(1.2) rotate(45deg); }
+        }
+
+        @keyframes moveBlob2 {
+            from { transform: translate(0, 0) scale(1) rotate(0deg); }
+            to { transform: translate(-150px, -100px) scale(0.8) rotate(-30deg); }
         }
 
         .container {
@@ -174,10 +219,7 @@
             overflow: hidden;
         }
 
-        /* ... [Rest of the existing styles are unchanged] ... */
-
         /* === 4. TIMELINE SECTIONS (Projects, Experience, Education) === */
-        /* ... [Styles for timelines are unchanged] ... */
         .project-timeline-item, .experience-item, .education-item {
             display: flex;
             margin-bottom: 50px;
@@ -212,9 +254,8 @@
              overflow: hidden;
         }
         
-        /* NEW: Updated hover animation for cards */
         .card:hover {
-             transform: translateY(-5px) scale(1.02); /* Softer lift with scale */
+             transform: translateY(-5px) scale(1.02);
              box-shadow: 0 10px 30px -15px var(--shadow-color);
              border-color: var(--primary-color);
         }
@@ -229,22 +270,19 @@
             margin-bottom: 15px;
             display: flex;
             align-items: center;
-            gap: 15px; /* Increased gap for logo */
+            gap: 12px;
         }
         
-        /* NEW: Styles for University Logos */
+        /* UPDATED: Styles for University Logos */
         .university-logo {
             height: 30px;
             width: auto;
-            /* Makes logos match the light text color scheme */
-            filter: brightness(0) invert(1) opacity(0.85);
-            transition: filter 0.3s ease;
+            transition: transform 0.3s ease, filter 0.3s ease;
         }
-        .education-item:hover .university-logo {
-            filter: none; /* Show original colors on hover */
+        .education-item .card:hover .university-logo {
+            transform: scale(1.15);
+            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
         }
-
-        /* ... [Rest of the existing styles are unchanged] ... */
 
         /* === 5. ABOUT SECTION (SKILLS & CERTIFICATIONS) === */
         .skills-section h3, .certifications-section h3 {
@@ -260,7 +298,6 @@
             gap: 20px;
         }
 
-        /* NEW: Styles for Skill Cards with Bar Graphs */
         .skill-row {
             display: flex;
             flex-direction: column;
@@ -297,17 +334,14 @@
         .skill-bar-fill {
             height: 100%;
             border-radius: 4px;
-            /* Modern gradient for the bar */
             background: linear-gradient(90deg, #00c6ff, var(--primary-color));
             transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s;
-            width: 0; /* Initial state for animation */
+            width: 0; 
         }
-        /* Animate bar fill when it becomes visible on scroll */
         .animate-on-scroll.visible .skill-bar-fill {
             width: var(--skill-level);
         }
         
-        /* --- [Unchanged styles for certifications] --- */
         .certifications-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
@@ -327,8 +361,7 @@
             border-radius: 4px;
         }
 
-        /* === [ALL OTHER STYLES (Hero, Contact, Footer, Responsive) ARE UNCHANGED] === */
-        /* ... [Paste the remaining original CSS here] ... */
+        /* === REMAINING STYLES (Unchanged) === */
         .hero-content { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         .hero-flex-container { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
         .hero-text { flex-basis: 65%; } .hero-image { flex-basis: 35%; }
@@ -367,7 +400,7 @@
         .slide-right { transform: translateX(40px); }
         .animate-on-scroll.visible { opacity: 1; transform: translateY(0) translateX(0); }
         @media (max-width: 992px) { .hero-flex-container { flex-direction: column-reverse; text-align: center; } .hero-text { align-items: center; } .hero-image { margin-bottom: 40px; } .hero-title { font-size: 2.8rem; } .hero-subtitle { max-width: 100%; } .hero-buttons { justify-content: center; } .project-details { flex-direction: column; gap: 15px; } .certifications-grid { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { .nav-menu { display: none; } .mobile-menu-toggle { display: block; color: var(--primary-color); font-size: 1.5rem; cursor: pointer; } .project-timeline-item, .experience-item, .education-item { flex-direction: column; } .project-timeline-item .project-number, .experience-item .experience-date, .education-item .education-date { text-align: left; width: auto; padding-right: 0; margin-bottom: 15px; padding-top: 0; border-bottom: 2px solid var(--primary-color); display: inline-block; } .project-content, .experience-content, .education-content { border-left: none; padding-left: 0; } }
+        @media (max-width: 768px) { body::before, body::after { display: none; } /* Hide blobs on mobile to save performance */ .nav-menu { display: none; } .mobile-menu-toggle { display: block; color: var(--primary-color); font-size: 1.5rem; cursor: pointer; } .project-timeline-item, .experience-item, .education-item { flex-direction: column; } .project-timeline-item .project-number, .experience-item .experience-date, .education-item .education-date { text-align: left; width: auto; padding-right: 0; margin-bottom: 15px; padding-top: 0; border-bottom: 2px solid var(--primary-color); display: inline-block; } .project-content, .experience-content, .education-content { border-left: none; padding-left: 0; } }
     </style>
 </head>
 <body>
@@ -390,7 +423,6 @@
 
     <!-- Projects Section (Unchanged) -->
     <section id="projects" class="projects">
-        <!-- ... [Content of projects section remains unchanged] ... -->
         <div class="container">
             <h2 class="section-title animate-on-scroll slide-up">My Work & Case Studies</h2>
             <div class="project-timeline-item"><div class="project-number animate-on-scroll slide-right">01</div><div class="project-content card animate-on-scroll slide-left"><div class="project-header"><h3>C-Suite Financial & Marketing Dashboards</h3></div><div class="tech-tags"><span class="tag">Power BI</span> <span class="tag">Tableau</span> <span class="tag">SQL</span> <span class="tag">BI</span></div><div class="project-details"><div class="project-left"><h4>Objective & Key Actions</h4><ul><li><strong>Objective:</strong> Design and deploy BI dashboards for executive leadership with real-time company performance view</li><li>Stakeholder collaboration with C-suite executives to define KPIs</li><li>Developed complex SQL queries for data extraction and transformation</li><li>Implemented user-centric design principles in Power BI/Tableau</li><li>Created automated data refresh schedules and alert systems</li></ul></div><div class="project-right"><h4>Scope & Impact</h4><div class="impact-box"><p><strong>Replaced static monthly reports with dynamic analytics solution.</strong> Enabled real-time decision making for executive team, reducing reporting cycle from 30 days to instant access. Dashboard adoption rate reached 95% among leadership within first quarter.</p></div></div></div></div></div>
@@ -403,7 +435,7 @@
         </div>
     </section>
 
-    <!-- Education Section (UPDATED) -->
+    <!-- Education Section (UPDATED with logos) -->
     <section id="education" class="education">
         <div class="container">
             <h2 class="section-title animate-on-scroll slide-up">Education</h2>
@@ -412,8 +444,8 @@
                     <div class="education-date animate-on-scroll slide-right">Jan 2022 - Apr 2023</div>
                     <div class="education-content card animate-on-scroll slide-left">
                         <div class="education-degree">MSc Business Analytics</div>
-                        <!-- UPDATED: Added university logo -->
                         <div class="education-university">
+                            <!-- UPDATED: Added university logo -->
                             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d8/University_of_Exeter_logo.svg/320px-University_of_Exeter_logo.svg.png" alt="University of Exeter Logo" class="university-logo">
                             <span>University of Exeter</span>
                         </div>
@@ -430,8 +462,8 @@
                     <div class="education-date animate-on-scroll slide-right">Jun 2015 - Aug 2019</div>
                     <div class="education-content card animate-on-scroll slide-left">
                         <div class="education-degree">Bachelor of Engineering</div>
-                        <!-- UPDATED: Added university logo -->
                         <div class="education-university">
+                            <!-- UPDATED: Added university logo -->
                             <img src="https://upload.wikimedia.org/wikipedia/en/thumb/e/ee/Mumbai_University_logo.svg/320px-Mumbai_University_logo.svg.png" alt="University of Mumbai Logo" class="university-logo">
                             <span>University of Mumbai</span>
                         </div>
@@ -448,7 +480,6 @@
 
     <!-- Experience Section (Unchanged) -->
     <section id="experience" class="experience">
-        <!-- ... [Content of experience section remains unchanged] ... -->
         <div class="container">
             <h2 class="section-title animate-on-scroll slide-up">Professional Experience</h2>
             <div class="experience-timeline">
@@ -462,13 +493,12 @@
         </div>
     </section>
     
-    <!-- About Section (UPDATED) -->
+    <!-- About Section (Unchanged) -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title animate-on-scroll slide-up">About Me</h2>
             <div class="skills-section">
                 <h3 class="animate-on-scroll slide-up">Technical Skills & Expertise</h3>
-                <!-- UPDATED: Skills now have bar graphs -->
                 <div class="skills-list">
                     <div class="skill-row card animate-on-scroll slide-up">
                         <div class="skill-header"><div class="skill-info"><i class="fab fa-python" style="color:#3776AB;"></i><span class="skill-name">Python</span></div><span class="skill-rating">7/10</span></div>
@@ -510,7 +540,6 @@
             </div>
 
             <div class="certifications-section">
-                <!-- ... [Certifications content remains unchanged] ... -->
                 <h3 class="animate-on-scroll slide-up">Professional Certifications & Courses</h3>
                 <div class="certifications-grid">
                     <div class="certification-card card animate-on-scroll slide-up"><div class="cert-content-wrapper"><div class="cert-logo"><img src="static/images/iiba.jpg" alt="IIBA ECBA Logo"></div><div class="cert-content"><h4>ECBA™ Certification</h4><p class="cert-issuer">International Institute of Business Analyst (IIBA)</p><div class="cert-skills"><span class="cert-skill">Requirement Management</span><span class="cert-skill">Business Analysis Planning</span><span class="cert-skill">Stakeholder Elicitation</span><span class="cert-skill">Process Design & Analysis</span></div></div></div></div>
