@@ -34,14 +34,15 @@
         }
 
         body {
-            /* UPDATED: Replaced flat color with a layered gradient and wave SVG */
+            /* UPDATED: Replaced static SVG wave with a dynamic gradient and animated layers */
             background-color: var(--bg-dark); /* Fallback */
-            background-image: 
-                url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%230a192f' fill-opacity='1' d='M0,256L48,245.3C96,235,192,213,288,202.7C384,192,480,192,576,186.7C672,181,768,171,864,181.3C960,192,1056,224,1152,245.3C1248,267,1344,277,1392,282.7L1440,288L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E"),
-                linear-gradient(170deg, var(--bg-dark) 0%, var(--bg-light) 100%);
-            background-repeat: no-repeat;
-            background-position: bottom, center;
-            background-size: 100% auto, 100% 100%;
+            background-image: linear-gradient(
+                180deg, 
+                #010611 0%, /* Midnight Blue/Subtle Black Shadow at top */
+                var(--bg-dark) 15%, 
+                var(--bg-light) 70%, 
+                #0E2A47 100% /* Faint Lighter Blue hue at bottom */
+            );
             color: var(--text-primary);
             font-family: var(--font-sans);
             line-height: 1.6;
@@ -52,16 +53,65 @@
             overflow-x: hidden;
         }
         
-        /* NEW: Animated background blobs */
+        /* NEW: INTERACTIVE WAVE BACKGROUND */
+        .background-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2; /* Behind the blobs */
+            overflow: hidden;
+        }
+        
+        .background-animation div {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%; /* Wider than screen to allow for smooth horizontal animation */
+            height: 250px;
+            background-repeat: repeat-x;
+            background-size: 50% 100%;
+        }
+
+        #wave1 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(100, 255, 218, 0.08)' d='M0,160L48,181.3C96,203,192,245,288,256C384,267,480,245,576,213.3C672,181,768,139,864,138.7C960,139,1056,181,1152,192C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            z-index: 3;
+            animation: wave-move 25s linear infinite;
+            opacity: 0.7;
+        }
+
+        #wave2 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(10, 25, 47, 0.3)' d='M0,224L48,208C96,192,192,160,288,170.7C384,181,480,235,576,234.7C672,235,768,181,864,176C960,171,1056,213,1152,208C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            z-index: 2;
+            animation: wave-move 35s linear infinite reverse;
+            height: 300px;
+            opacity: 0.8;
+        }
+
+        #wave3 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(2, 12, 27, 0.4)' d='M0,96L48,122.7C96,149,192,203,288,208C384,213,480,171,576,149.3C672,128,768,128,864,149.3C960,171,1056,213,1152,229.3C1248,245,1344,235,1392,229.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            z-index: 1;
+            animation: wave-move 45s linear infinite;
+            height: 350px;
+            opacity: 0.9;
+        }
+        
+        @keyframes wave-move {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Moves one full wave pattern to the left */
+        }
+
+        /* Animated background blobs (Existing) */
         body::before,
         body::after {
             content: '';
-            position: fixed; /* Use fixed to stay in viewport during scroll */
+            position: fixed;
             z-index: -1;
             border-radius: 50%;
             filter: blur(100px);
             opacity: 0.7;
-            pointer-events: none; /* Prevent blobs from interfering with mouse events */
+            pointer-events: none;
         }
 
         body::before {
@@ -80,7 +130,7 @@
             bottom: -150px;
             right: -200px;
             animation: moveBlob2 30s infinite alternate ease-in-out;
-            animation-delay: -5s; /* Stagger the animations */
+            animation-delay: -5s;
         }
 
         @keyframes moveBlob1 {
@@ -100,7 +150,8 @@
         }
 
         section {
-            padding: 90px 0;
+            /* UPDATED: Reduced padding for tighter layout */
+            padding: 70px 0;
             border-top: 1px solid var(--border-color);
         }
         #home { border-top: none; }
@@ -109,7 +160,8 @@
             font-size: 2.8rem;
             font-weight: 700;
             color: var(--text-primary);
-            margin-bottom: 50px;
+            /* UPDATED: Reduced margin for tighter layout */
+            margin-bottom: 40px;
             text-align: center;
             position: relative;
         }
@@ -218,11 +270,19 @@
             position: relative;
             overflow: hidden;
         }
+        .hero-subtitle { 
+            font-size: 1.1rem; 
+            color: var(--text-secondary); 
+            max-width: 600px; 
+            /* UPDATED: Reduced margin for tighter layout */
+            margin-bottom: 30px; 
+        }
 
         /* === 4. TIMELINE SECTIONS (Projects, Experience, Education) === */
         .project-timeline-item, .experience-item, .education-item {
             display: flex;
-            margin-bottom: 50px;
+            /* UPDATED: Reduced margin for tighter layout */
+            margin-bottom: 35px;
             position: relative;
         }
         .project-timeline-item .project-number, 
@@ -273,7 +333,6 @@
             gap: 12px;
         }
         
-        /* UPDATED: Styles for University Logos */
         .university-logo {
             height: 40px;
             width: auto;
@@ -288,7 +347,8 @@
         .skills-section h3, .certifications-section h3 {
             text-align: center;
             font-size: 1.8rem;
-            margin-bottom: 40px;
+            /* UPDATED: Reduced margin for tighter layout */
+            margin-bottom: 35px;
             color: var(--text-primary);
         }
 
@@ -297,84 +357,44 @@
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
         }
+        .contact p { 
+            font-size: 1.1rem; 
+            color: var(--text-secondary); 
+            max-width: 500px; 
+            /* UPDATED: Reduced margin for tighter layout */
+            margin: 15px auto 30px; 
+        }
+        .contact-info { 
+            display: flex; 
+            justify-content: center; 
+            gap: 40px; 
+            flex-wrap: wrap; 
+            /* UPDATED: Reduced margin for tighter layout */
+            margin-top: 40px; 
+        }
 
-        .skill-row {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .skill-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-        }
-        .skill-info {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 600;
-        }
-        .skill-info .skill-name {
-            color: var(--text-primary);
-        }
-        .skill-rating {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            font-weight: 500;
-        }
-        .skill-bar-container {
-            width: 100%;
-            height: 8px;
-            background-color: var(--border-color);
-            border-radius: 4px;
-            overflow: hidden;
-            margin-top: 5px;
-        }
-        .skill-bar-fill {
-            height: 100%;
-            border-radius: 4px;
-            background: linear-gradient(90deg, #00c6ff, var(--primary-color));
-            transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s;
-            width: 0; 
-        }
-        .animate-on-scroll.visible .skill-bar-fill {
-            width: var(--skill-level);
-        }
-        
-        .certifications-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 25px;
-        }
+        /* === REMAINING STYLES (Largely Unchanged) === */
+        .skill-row { display: flex; flex-direction: column; gap: 8px; }
+        .skill-header { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .skill-info { display: flex; align-items: center; gap: 12px; font-weight: 600; }
+        .skill-info .skill-name { color: var(--text-primary); }
+        .skill-rating { font-size: 0.9rem; color: var(--text-secondary); font-weight: 500; }
+        .skill-bar-container { width: 100%; height: 8px; background-color: var(--border-color); border-radius: 4px; overflow: hidden; margin-top: 5px; }
+        .skill-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #00c6ff, var(--primary-color)); transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s; width: 0; }
+        .animate-on-scroll.visible .skill-bar-fill { width: var(--skill-level); }
+        .certifications-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 25px; }
         .certification-card { margin-top: 20px; }
         .cert-content-wrapper { display: flex; align-items: center; }
         .cert-logo { margin-right: 20px; flex-shrink: 0; }
         .cert-logo img { width: 60px; height: 60px; object-fit: contain; }
         .cert-issuer { color: var(--primary-color); font-size: 0.9rem; }
         .cert-skills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 15px; }
-        .cert-skill {
-            background-color: var(--border-color);
-            color: var(--text-secondary);
-            font-size: 0.8rem;
-            padding: 4px 10px;
-            border-radius: 4px;
-        }
-
-        /* === REMAINING STYLES (Unchanged) === */
+        .cert-skill { background-color: var(--border-color); color: var(--text-secondary); font-size: 0.8rem; padding: 4px 10px; border-radius: 4px; }
         .hero-content { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         .hero-flex-container { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
         .hero-text { flex-basis: 65%; } .hero-image { flex-basis: 35%; }
-        /* NEW STYLE FOR HERO PRE-TITLE */
-        .hero-pre-title {
-            color: var(--primary-color);
-            font-weight: 500;
-            font-size: 1rem;
-            letter-spacing: 1.5px;
-            margin-bottom: 15px;
-        }
+        .hero-pre-title { color: var(--primary-color); font-weight: 500; font-size: 1rem; letter-spacing: 1.5px; margin-bottom: 15px; }
         .hero-title { font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; color: white; text-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
-        .hero-subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 40px; }
         .hero-buttons { display: flex; gap: 20px; }
         .btn { padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; }
         .btn-primary { background-color: var(--primary-color); color: var(--bg-dark); border: 1px solid var(--primary-color); box-shadow: 0 0 20px rgba(100, 255, 218, 0.3); }
@@ -393,8 +413,6 @@
         .impact-box { background-color: rgba(10, 25, 47, 0.5); border-left: 3px solid var(--primary-color); padding: 15px; border-radius: 4px; margin-top: 10px; }
         .contact { text-align: center; }
         .contact h2 { font-size: 3rem; color: white; }
-        .contact p { font-size: 1.1rem; color: var(--text-secondary); max-width: 500px; margin: 20px auto 40px; }
-        .contact-info { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 50px; }
         .contact-item { color: var(--text-primary); text-decoration: none; font-size: 1.1rem; transition: all 0.3s ease; }
         .contact-item:hover { transform: translateY(-5px); color: var(--primary-color); }
         .contact-item i { margin-right: 10px; font-size: 1.2rem; }
@@ -408,10 +426,17 @@
         .slide-right { transform: translateX(40px); }
         .animate-on-scroll.visible { opacity: 1; transform: translateY(0) translateX(0); }
         @media (max-width: 992px) { .hero-flex-container { flex-direction: column-reverse; text-align: center; } .hero-text { align-items: center; } .hero-image { margin-bottom: 40px; } .hero-title { font-size: 2.8rem; } .hero-subtitle { max-width: 100%; } .hero-buttons { justify-content: center; } .project-details { flex-direction: column; gap: 15px; } .certifications-grid { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) { body::before, body::after { display: none; } /* Hide blobs on mobile to save performance */ .nav-menu { display: none; } .mobile-menu-toggle { display: block; color: var(--primary-color); font-size: 1.5rem; cursor: pointer; } .project-timeline-item, .experience-item, .education-item { flex-direction: column; } .project-timeline-item .project-number, .experience-item .experience-date, .education-item .education-date { text-align: left; width: auto; padding-right: 0; margin-bottom: 15px; padding-top: 0; border-bottom: 2px solid var(--primary-color); display: inline-block; } .project-content, .experience-content, .education-content { border-left: none; padding-left: 0; } }
+        @media (max-width: 768px) { body::before, body::after { display: none; } .nav-menu { display: none; } .mobile-menu-toggle { display: block; color: var(--primary-color); font-size: 1.5rem; cursor: pointer; } .project-timeline-item, .experience-item, .education-item { flex-direction: column; } .project-timeline-item .project-number, .experience-item .experience-date, .education-item .education-date { text-align: left; width: auto; padding-right: 0; margin-bottom: 15px; padding-top: 0; border-bottom: 2px solid var(--primary-color); display: inline-block; } .project-content, .experience-content, .education-content { border-left: none; padding-left: 0; } }
     </style>
 </head>
 <body>
+    <!-- NEW: Animated Wave Background Container -->
+    <div class="background-animation">
+        <div id="wave1"></div>
+        <div id="wave2"></div>
+        <div id="wave3"></div>
+    </div>
+
     <!-- Navigation (Unchanged) -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -424,10 +449,9 @@
         </div>
     </nav>
 
-    <!-- Hero Section (UPDATED) -->
+    <!-- Hero Section (Unchanged) -->
     <section id="home" class="hero">
         <div class="hero-content"><div class="hero-flex-container"><div class="hero-text animate-on-scroll slide-up">
-            <!-- CHANGE 1: "About Me" heading added here -->
             <p class="hero-pre-title">About Me</p>
             <h1 class="hero-title">Analytics-Driven: Transforming Data into Business Success</h1>
             <p class="hero-subtitle">Hi, I’m Vedant Kulkarni, a certified Business Analyst with an MSc in Business Analytics and a Bachelor in Engineering. I specialize in turning data into actionable insights that drive business growth. Proficient in Python, SQL, and Power BI, I have delivered dashboards, predictive models, and analytics solutions across market, customer, and AI data. I excel at translating business requirements into solutions that deliver sustainable and measurable value. With expertise in advanced analytics, stakeholder management, and marketing insight, I help organizations optimize decision-making, enhance customer experience, and achieve measurable results</p><div class="hero-buttons"><a href="#projects" class="btn btn-primary">View My Work</a><a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></div></div><div class="hero-image animate-on-scroll slide-up" style="transition-delay: 100ms;"><div class="profile-image"><img src="static/images/profile.jpg" alt="Vedant Kulkarni"></div></div></div></div>
@@ -468,7 +492,6 @@
                         </ul>
                     </div>
                 </div>
-
                 <div class="education-item">
                     <div class="education-date animate-on-scroll slide-right">Jun 2015 - Aug 2019</div>
                     <div class="education-content card animate-on-scroll slide-left">
@@ -503,52 +526,23 @@
         </div>
     </section>
     
-    <!-- About Section (UPDATED) -->
+    <!-- About Section (Unchanged) -->
     <section id="about" class="about">
         <div class="container">
-            <!-- CHANGE 2: "About Me" h2 is removed, and "Technical Skills" is promoted to h2.section-title -->
             <div class="skills-section">
                 <h2 class="section-title animate-on-scroll slide-up">Technical Skills & Expertise</h2>
                 <div class="skills-list">
-                    <div class="skill-row card animate-on-scroll slide-up">
-                        <div class="skill-header"><div class="skill-info"><i class="fab fa-python" style="color:#3776AB;"></i><span class="skill-name">Python</span></div><span class="skill-rating">7/10</span></div>
-                        <div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 70%;"></div></div>
-                    </div>
-                    <div class="skill-row card animate-on-scroll slide-up">
-                        <div class="skill-header"><div class="skill-info"><i class="fas fa-database" style="color:#4479A1;"></i><span class="skill-name">SQL</span></div><span class="skill-rating">9/10</span></div>
-                        <div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 90%;"></div></div>
-                    </div>
-                    <div class="skill-row card animate-on-scroll slide-up">
-                        <div class="skill-header"><div class="skill-info"><i class="fas fa-chart-bar" style="color:#F2C811;"></i><span class="skill-name">Power BI</span></div><span class="skill-rating">9/10</span></div>
-                        <div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 90%;"></div></div>
-                    </div>
-                    <div class="skill-row card animate-on-scroll slide-up">
-                        <div class="skill-header"><div class="skill-info"><i class="fas fa-chart-line" style="color:#E2725B;"></i><span class="skill-name">Tableau</span></div><span class="skill-rating">9/10</span></div>
-                        <div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 90%;"></div></div>
-                    </div>
-                    <div class="skill-row card animate-on-scroll slide-up">
-                        <div class="skill-header"><div class="skill-info"><i class="fas fa-brain" style="color:#FFC0CB;"></i><span class="skill-name">Machine Learning</span></div><span class="skill-rating">6/10</span></div>
-                        <div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 60%;"></div></div>
-                    </div>
-                    <div class="skill-row card animate-on-scroll slide-up">
-                        <div class="skill-header"><div class="skill-info"><i class="fas fa-business-time" style="color:#78C1F3;"></i><span class="skill-name">Business Analysis</span></div><span class="skill-rating">9/10</span></div>
-                        <div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 90%;"></div></div>
-                    </div>
-                    <div class="skill-row card animate-on-scroll slide-up">
-                        <div class="skill-header"><div class="skill-info"><i class="fab fa-google" style="color:#4285F4;"></i><span class="skill-name">Google Analytics</span></div><span class="skill-rating">8/10</span></div>
-                        <div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 80%;"></div></div>
-                    </div>
-                    <div class="skill-row card animate-on-scroll slide-up">
-                        <div class="skill-header"><div class="skill-info"><i class="fas fa-exchange-alt" style="color:#4CAF50;"></i><span class="skill-name">ETL Processes</span></div><span class="skill-rating">8/10</span></div>
-                        <div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 80%;"></div></div>
-                    </div>
-                    <div class="skill-row card animate-on-scroll slide-up">
-                        <div class="skill-header"><div class="skill-info"><i class="fas fa-tasks" style="color:#FF9800;"></i><span class="skill-name">Requirements Gathering</span></div><span class="skill-rating">9/10</span></div>
-                        <div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 90%;"></div></div>
-                    </div>
+                    <div class="skill-row card animate-on-scroll slide-up"><div class="skill-header"><div class="skill-info"><i class="fab fa-python" style="color:#3776AB;"></i><span class="skill-name">Python</span></div><span class="skill-rating">7/10</span></div><div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 70%;"></div></div></div>
+                    <div class="skill-row card animate-on-scroll slide-up"><div class="skill-header"><div class="skill-info"><i class="fas fa-database" style="color:#4479A1;"></i><span class="skill-name">SQL</span></div><span class="skill-rating">9/10</span></div><div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 90%;"></div></div></div>
+                    <div class="skill-row card animate-on-scroll slide-up"><div class="skill-header"><div class="skill-info"><i class="fas fa-chart-bar" style="color:#F2C811;"></i><span class="skill-name">Power BI</span></div><span class="skill-rating">9/10</span></div><div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 90%;"></div></div></div>
+                    <div class="skill-row card animate-on-scroll slide-up"><div class="skill-header"><div class="skill-info"><i class="fas fa-chart-line" style="color:#E2725B;"></i><span class="skill-name">Tableau</span></div><span class="skill-rating">9/10</span></div><div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 90%;"></div></div></div>
+                    <div class="skill-row card animate-on-scroll slide-up"><div class="skill-header"><div class="skill-info"><i class="fas fa-brain" style="color:#FFC0CB;"></i><span class="skill-name">Machine Learning</span></div><span class="skill-rating">6/10</span></div><div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 60%;"></div></div></div>
+                    <div class="skill-row card animate-on-scroll slide-up"><div class="skill-header"><div class="skill-info"><i class="fas fa-business-time" style="color:#78C1F3;"></i><span class="skill-name">Business Analysis</span></div><span class="skill-rating">9/10</span></div><div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 90%;"></div></div></div>
+                    <div class="skill-row card animate-on-scroll slide-up"><div class="skill-header"><div class="skill-info"><i class="fab fa-google" style="color:#4285F4;"></i><span class="skill-name">Google Analytics</span></div><span class="skill-rating">8/10</span></div><div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 80%;"></div></div></div>
+                    <div class="skill-row card animate-on-scroll slide-up"><div class="skill-header"><div class="skill-info"><i class="fas fa-exchange-alt" style="color:#4CAF50;"></i><span class="skill-name">ETL Processes</span></div><span class="skill-rating">8/10</span></div><div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 80%;"></div></div></div>
+                    <div class="skill-row card animate-on-scroll slide-up"><div class="skill-header"><div class="skill-info"><i class="fas fa-tasks" style="color:#FF9800;"></i><span class="skill-name">Requirements Gathering</span></div><span class="skill-rating">9/10</span></div><div class="skill-bar-container"><div class="skill-bar-fill" style="--skill-level: 90%;"></div></div></div>
                 </div>
             </div>
-
             <div class="certifications-section">
                 <h3 class="animate-on-scroll slide-up">Professional Certifications & Courses</h3>
                 <div class="certifications-grid">
