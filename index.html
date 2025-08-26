@@ -365,6 +365,14 @@
         .hero-content { width: 100%; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         .hero-flex-container { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
         .hero-text { flex-basis: 65%; } .hero-image { flex-basis: 35%; }
+        /* NEW STYLE FOR HERO PRE-TITLE */
+        .hero-pre-title {
+            color: var(--primary-color);
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 15px;
+        }
         .hero-title { font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; color: white; text-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
         .hero-subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 40px; }
         .hero-buttons { display: flex; gap: 20px; }
@@ -416,9 +424,13 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Unchanged) -->
+    <!-- Hero Section (UPDATED) -->
     <section id="home" class="hero">
-        <div class="hero-content"><div class="hero-flex-container"><div class="hero-text animate-on-scroll slide-up"><h1 class="hero-title">Analytics-Driven: Transforming Data into Business Success</h1><p class="hero-subtitle">Hi, I’m Vedant Kulkarni, a certified Business Analyst with an MSc in Business Analytics and a Bachelor in Engineering. I specialize in turning data into actionable insights that drive business growth. Proficient in Python, SQL, and Power BI, I have delivered dashboards, predictive models, and analytics solutions across market, customer, and AI data. I excel at translating business requirements into solutions that deliver sustainable and measurable value. With expertise in advanced analytics, stakeholder management, and marketing insight, I help organizations optimize decision-making, enhance customer experience, and achieve measurable results</p><div class="hero-buttons"><a href="#projects" class="btn btn-primary">View My Work</a><a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></div></div><div class="hero-image animate-on-scroll slide-up" style="transition-delay: 100ms;"><div class="profile-image"><img src="static/images/profile.jpg" alt="Vedant Kulkarni"></div></div></div></div>
+        <div class="hero-content"><div class="hero-flex-container"><div class="hero-text animate-on-scroll slide-up">
+            <!-- CHANGE 1: "About Me" heading added here -->
+            <p class="hero-pre-title">About Me</p>
+            <h1 class="hero-title">Analytics-Driven: Transforming Data into Business Success</h1>
+            <p class="hero-subtitle">Hi, I’m Vedant Kulkarni, a certified Business Analyst with an MSc in Business Analytics and a Bachelor in Engineering. I specialize in turning data into actionable insights that drive business growth. Proficient in Python, SQL, and Power BI, I have delivered dashboards, predictive models, and analytics solutions across market, customer, and AI data. I excel at translating business requirements into solutions that deliver sustainable and measurable value. With expertise in advanced analytics, stakeholder management, and marketing insight, I help organizations optimize decision-making, enhance customer experience, and achieve measurable results</p><div class="hero-buttons"><a href="#projects" class="btn btn-primary">View My Work</a><a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></div></div><div class="hero-image animate-on-scroll slide-up" style="transition-delay: 100ms;"><div class="profile-image"><img src="static/images/profile.jpg" alt="Vedant Kulkarni"></div></div></div></div>
     </section>
 
     <!-- Projects Section (Unchanged) -->
@@ -435,7 +447,7 @@
         </div>
     </section>
 
-    <!-- Education Section (UPDATED with logos) -->
+    <!-- Education Section (Unchanged) -->
     <section id="education" class="education">
         <div class="container">
             <h2 class="section-title animate-on-scroll slide-up">Education</h2>
@@ -445,7 +457,6 @@
                     <div class="education-content card animate-on-scroll slide-left">
                         <div class="education-degree">MSc Business Analytics</div>
                         <div class="education-university">
-                            <!-- UPDATED: Added university logo -->
                             <img src="static/images/exeter.jpg" alt="University of Exeter Logo" class="university-logo"
                             <span>University of Exeter</span>
                         </div>
@@ -463,7 +474,6 @@
                     <div class="education-content card animate-on-scroll slide-left">
                         <div class="education-degree">Bachelor of Engineering</div>
                         <div class="education-university">
-                            <!-- UPDATED: Added university logo -->
                             <img src="static/images/Mumbai_university_logo.jpg" alt="University of Mumbai Logo" class="university-logo">
                             <span>University of Mumbai</span>
                         </div>
@@ -493,12 +503,12 @@
         </div>
     </section>
     
-    <!-- About Section (Unchanged) -->
+    <!-- About Section (UPDATED) -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title animate-on-scroll slide-up">About Me</h2>
+            <!-- CHANGE 2: "About Me" h2 is removed, and "Technical Skills" is promoted to h2.section-title -->
             <div class="skills-section">
-                <h3 class="animate-on-scroll slide-up">Technical Skills & Expertise</h3>
+                <h2 class="section-title animate-on-scroll slide-up">Technical Skills & Expertise</h2>
                 <div class="skills-list">
                     <div class="skill-row card animate-on-scroll slide-up">
                         <div class="skill-header"><div class="skill-info"><i class="fab fa-python" style="color:#3776AB;"></i><span class="skill-name">Python</span></div><span class="skill-rating">7/10</span></div>
