@@ -20,11 +20,12 @@
             --bg-dark: #020c1b; /* Dark Navy */
             --bg-light: #0a192f; /* Deep Blue */
             /* UPDATED: Increased card background opacity for better text readability */
-            --card-bg-color: rgba(17, 34, 64, 0.85);
+            --card-bg-color: rgba(17, 34, 64, 0.95); /* Increased opacity from 0.85 */
             --primary-color: #64ffda; /* Cyan highlight */
             --primary-color-dim: rgba(100, 255, 218, 0.1);
-            --text-primary: #ccd6f6;
-            --text-secondary: #8892b0;
+            /* UPDATED: Brighter text colors for improved contrast and readability */
+            --text-primary: #e6f1ff; /* Was #ccd6f6 */
+            --text-secondary: #a8b2d1; /* Was #8892b0 */
             --border-color: #233554;
             --shadow-color: rgba(2, 12, 27, 0.7);
             --font-sans: 'Inter', sans-serif;
@@ -50,8 +51,8 @@
             position: relative;
             isolation: isolate;
             overflow-x: hidden;
-            /* NEW: Added subtle text-shadow globally for improved readability */
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            /* UPDATED: Added strong, global text-shadow for readability */
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.7);
         }
         
         /* === NEW: SUBTLE PAGE PRELOADER === */
@@ -108,25 +109,25 @@
             100% { transform: translateX(-50%) translateY(var(--parallax-y, 0px)); }
         }
 
-        /* UPDATED: Wave speeds reduced by ~45% (duration increased) for a more subtle effect */
+        /* NOTE: Wave speeds are unchanged as requested */
         #wave1 {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(10, 157, 133, 0.4)' fill-opacity='1' d='M0,192L40,181.3C80,171,160,149,240,149.3C320,149,400,171,480,197.3C560,224,640,256,720,240C800,224,880,160,960,133.3C1040,107,1120,117,1200,144C1280,171,1360,213,1400,234.7L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
             z-index: 3;
-            animation: wave-move 32s linear infinite; /* Was 18s */
+            animation: wave-move 32s linear infinite;
             filter: drop-shadow(0 -2px 4px rgba(0,0,0,0.7)) drop-shadow(0 -1px 3px rgba(100, 255, 218, 0.15));
         }
 
         #wave2 {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(28, 79, 132, 0.5)' fill-opacity='1' d='M0,256L48,245.3C96,235,192,213,288,202.7C384,192,480,192,576,186.7C672,181,768,171,864,186.7C960,203,1056,245,1152,261.3C1248,277,1344,267,1392,261.3L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
             z-index: 2;
-            animation: wave-move 44s linear infinite reverse; /* Was 25s */
+            animation: wave-move 44s linear infinite reverse;
              filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.5)) drop-shadow(0 0 10px rgba(2, 35, 59, 0.7));
         }
 
         #wave3 {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(2, 12, 27, 0.6)' fill-opacity='1' d='M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,208C960,235,1056,245,1152,229.3C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
             z-index: 1;
-            animation: wave-move 56s linear infinite; /* Was 32s */
+            animation: wave-move 56s linear infinite;
         }
 
         body::before,
@@ -141,7 +142,9 @@
         #home { border-top: none; }
 
         .section-title { font-size: 2.8rem; font-weight: 700; color: var(--text-primary); margin-bottom: 40px; text-align: center; position: relative; }
-        .section-title::after { content: ''; display: block; width: 80px; height: 4px; background: var(--primary-color); margin: 15px auto 0; border-radius: 2px; /* ENHANCED: Stronger glow effect for depth */ box-shadow: 0 0 15px var(--primary-color), 0 0 25px var(--primary-color-dim); }
+        /* UPDATED: Added stronger shadow for headings */
+        h1, h2, .section-title { text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8); }
+        .section-title::after { content: ''; display: block; width: 80px; height: 4px; background: var(--primary-color); margin: 15px auto 0; border-radius: 2px; box-shadow: 0 0 15px var(--primary-color), 0 0 25px var(--primary-color-dim); }
         
         /* === 2. NAVIGATION BAR === */
         .navbar { position: sticky; top: 0; width: 100%; z-index: 1000; background-color: rgba(10, 25, 47, 0.85); backdrop-filter: blur(10px); box-shadow: 0 10px 30px -10px var(--shadow-color); transition: top 0.3s; border-bottom: 1px solid var(--border-color); }
@@ -158,16 +161,16 @@
 
         /* === 3. HERO SECTION === */
         .hero { display: flex; align-items: center; min-height: 100vh; padding-top: 0; position: relative; overflow: hidden; }
-        /* NEW: Dark gradient overlay for hero section to improve text readability */
+        /* UPDATED: Enhanced dark gradient overlay for better text readability */
         .hero::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse at 50% 60%, transparent 20%, var(--bg-dark) 85%);
+            background: radial-gradient(ellipse at 50% 60%, rgba(2,12,27,0.2) 0%, var(--bg-dark) 80%);
             z-index: 0;
             pointer-events: none;
         }
-        .hero-content { position: relative; z-index: 1; } /* Ensure content is above the overlay */
+        .hero-content { position: relative; z-index: 1; }
         .hero-subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin-bottom: 30px; }
 
         /* === 4. TIMELINE SECTIONS (Projects, Experience, Education) === */
@@ -181,16 +184,16 @@
              padding: 25px;
              border-radius: 8px;
              border: 1px solid var(--border-color);
-             /* NEW: Added base shadow for more depth */
              box-shadow: 0 4px 15px -8px var(--shadow-color);
              transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
              position: relative;
              overflow: hidden;
         }
         
+        /* UPDATED: Added professional glow/lift effect on hover */
         .card:hover {
-             transform: translateY(-5px) scale(1.02);
-             box-shadow: 0 10px 30px -15px var(--shadow-color);
+             transform: translateY(-8px) scale(1.02);
+             box-shadow: 0 10px 30px -15px var(--shadow-color), 0 0 20px var(--primary-color-dim);
              border-color: var(--primary-color);
         }
 
@@ -226,13 +229,23 @@
         .hero-flex-container { display: flex; align-items: center; justify-content: space-between; gap: 50px; }
         .hero-text { flex-basis: 65%; } .hero-image { flex-basis: 35%; }
         .hero-pre-title { color: var(--primary-color); font-weight: 500; font-size: 1rem; letter-spacing: 1.5px; margin-bottom: 15px; }
-        .hero-title { font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; color: white; text-shadow: 0 0 15px rgba(255, 255, 255, 0.2); }
+        .hero-title { font-size: 3.5rem; font-weight: 700; margin-bottom: 20px; color: white; }
         .hero-buttons { display: flex; gap: 20px; }
         .btn { padding: 12px 24px; border-radius: 4px; text-decoration: none; font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 8px; }
         .btn-primary { background-color: var(--primary-color); color: var(--bg-dark); border: 1px solid var(--primary-color); box-shadow: 0 0 20px rgba(100, 255, 218, 0.3); }
-        .btn-primary:hover { background-color: transparent; color: var(--primary-color); transform: translateY(-4px); box-shadow: 0 5px 25px rgba(100, 255, 218, 0.4); }
+        /* UPDATED: Enhanced button hover with scale and stronger glow */
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 5px 25px rgba(100, 255, 218, 0.5);
+        }
         .btn-secondary { background-color: transparent; color: var(--primary-color); border: 1px solid var(--primary-color); }
-        .btn-secondary:hover { background-color: var(--primary-color-dim); transform: translateY(-4px); }
+        /* UPDATED: Enhanced button hover with scale */
+        .btn-secondary:hover {
+            background-color: var(--primary-color-dim);
+            transform: translateY(-4px) scale(1.05);
+        }
         .profile-image img { width: 280px; height: 280px; border-radius: 50%; object-fit: cover; border: 5px solid var(--primary-color); box-shadow: 0 0 40px rgba(100, 255, 218, 0.4); transition: all 0.3s ease; }
         .profile-image img:hover { transform: scale(1.05); box-shadow: 0 0 60px rgba(100, 255, 218, 0.6); }
         .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 15px; }
@@ -265,19 +278,19 @@
     </style>
 </head>
 <body>
-    <!-- NEW: Preloader Element -->
+    <!-- Preloader Element -->
     <div id="preloader">
         <div class="spinner"></div>
     </div>
 
-    <!-- ENHANCED: Animated Wave Background Container -->
+    <!-- Animated Wave Background Container -->
     <div class="background-animation">
         <div id="wave1"></div>
         <div id="wave2"></div>
         <div id="wave3"></div>
     </div>
 
-    <!-- Navigation (Unchanged) -->
+    <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="nav-brand"><a href="#home">VEDANT KULKARNI</a></div>
@@ -289,7 +302,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section (Structurally unchanged, but readability improved by CSS) -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content"><div class="hero-flex-container"><div class="hero-text animate-on-scroll slide-up">
             <p class="hero-pre-title">About Me</p>
@@ -297,7 +310,7 @@
             <p class="hero-subtitle">Hi, I’m Vedant Kulkarni, a certified Business Analyst with an MSc in Business Analytics and a Bachelor in Engineering. I specialize in turning data into actionable insights that drive business growth. Proficient in Python, SQL, and Power BI, I have delivered dashboards, predictive models, and analytics solutions across market, customer, and AI data. I excel at translating business requirements into solutions that deliver sustainable and measurable value. With expertise in advanced analytics, stakeholder management, and marketing insight, I help organizations optimize decision-making, enhance customer experience, and achieve measurable results</p><div class="hero-buttons"><a href="#projects" class="btn btn-primary">View My Work</a><a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" class="btn btn-secondary"><i class="fab fa-linkedin"></i> LinkedIn Profile</a></div></div><div class="hero-image animate-on-scroll slide-up" style="transition-delay: 100ms;"><div class="profile-image"><img src="static/images/profile.jpg" alt="Vedant Kulkarni"></div></div></div></div>
     </section>
 
-    <!-- Projects Section (Unchanged) -->
+    <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title animate-on-scroll slide-up">My Work & Case Studies</h2>
@@ -311,7 +324,7 @@
         </div>
     </section>
 
-    <!-- Education Section (Unchanged) -->
+    <!-- Education Section -->
     <section id="education" class="education">
         <div class="container">
             <h2 class="section-title animate-on-scroll slide-up">Education</h2>
@@ -321,7 +334,7 @@
                     <div class="education-content card animate-on-scroll slide-left">
                         <div class="education-degree">MSc Business Analytics</div>
                         <div class="education-university">
-                            <img src="static/images/exeter.jpg" alt="University of Exeter Logo" class="university-logo"
+                            <img src="static/images/exeter.jpg" alt="University of Exeter Logo" class="university-logo">
                             <span>University of Exeter</span>
                         </div>
                         <div class="education-location">United Kingdom</div>
@@ -351,7 +364,7 @@
         </div>
     </section>
 
-    <!-- Experience Section (Unchanged) -->
+    <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title animate-on-scroll slide-up">Professional Experience</h2>
@@ -366,7 +379,7 @@
         </div>
     </section>
     
-    <!-- About Section (Unchanged) -->
+    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <div class="skills-section">
@@ -395,33 +408,31 @@
         </div>
     </section>
 
-    <!-- Contact Section (Unchanged) -->
+    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container"><div class="contact-content animate-on-scroll slide-up"><h2>Let's Connect</h2><p>Ready to discuss how data-driven insights can transform your business? Let's start a conversation.</p><div class="contact-info"><a href="mailto:vedantak070@gmail.com" class="contact-item"><i class="fas fa-envelope"></i><span>vedantak070@gmail.com</span></a><a href="tel:+919702379544" class="contact-item"><i class="fas fa-phone"></i><span>+91 9702379544</span></a><a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" class="contact-item"><i class="fab fa-linkedin"></i><span>LinkedIn Profile</span></a></div></div></div>
     </section>
 
-    <!-- Footer (Unchanged) -->
+    <!-- Footer -->
     <footer class="footer">
         <div class="container"><div class="footer-content"><div class="footer-links"><a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a><a href="https://github.com/vedant-kulkarni" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></div><p>&copy; 2025 Vedant Kulkarni</p></div></div>
     </footer>
 
-    <!-- JavaScript for Animations (Updated) -->
+    <!-- JavaScript for Animations -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // === NEW: Preloader Logic ===
+        // Preloader Logic
         const preloader = document.getElementById('preloader');
         window.addEventListener('load', () => {
             preloader.style.opacity = '0';
-            // Hide preloader from DOM after transition to prevent interaction issues
             preloader.addEventListener('transitionend', () => preloader.style.display = 'none');
         });
 
-        // --- Existing logic for scroll animations ---
+        // Scroll Animation Logic
         const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Optional: unobserve after animating to save resources
                     scrollObserver.unobserve(entry.target);
                 }
             });
@@ -431,7 +442,7 @@
             scrollObserver.observe(el);
         });
 
-        // --- Existing logic for active nav link highlighting ---
+        // Active Nav Link Highlighting
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
         
@@ -452,7 +463,7 @@
             navObserver.observe(section);
         });
 
-        // === Interactive Parallax Effect for Waves (Unchanged logic) ===
+        // Interactive Parallax Effect for Waves
         const wave1 = document.getElementById('wave1');
         const wave2 = document.getElementById('wave2');
         const wave3 = document.getElementById('wave3');
@@ -466,7 +477,6 @@
             const x = (clientX / innerWidth) - 0.5;
             const y = (clientY / innerHeight) - 0.5;
 
-            // Using requestAnimationFrame ensures this runs smoothly without performance hits
             wave1.style.setProperty('--parallax-y', `${y * 20}px`);
             wave2.style.setProperty('--parallax-y', `${y * 12}px`);
             wave3.style.setProperty('--parallax-y', `${y * 6}px`);
