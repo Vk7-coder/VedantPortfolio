@@ -34,72 +34,78 @@
         }
 
         body {
-            /* UPDATED: Replaced static SVG wave with a dynamic gradient and animated layers */
-            background-color: var(--bg-dark); /* Fallback */
+            /* UPDATED: Deepened gradient background for more depth */
+            background-color: #010308; /* Fallback */
             background-image: linear-gradient(
                 180deg, 
-                #010611 0%, /* Midnight Blue/Subtle Black Shadow at top */
-                var(--bg-dark) 15%, 
-                var(--bg-light) 70%, 
-                #0E2A47 100% /* Faint Lighter Blue hue at bottom */
+                #010308 0%,    /* Near-black at the very top */
+                var(--bg-dark) 30%, 
+                var(--bg-light) 100% /* Transition to deep blue */
             );
             color: var(--text-primary);
             font-family: var(--font-sans);
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            position: relative; /* Needed for pseudo-elements */
-            isolation: isolate; /* Creates a new stacking context for z-index */
+            position: relative;
+            isolation: isolate;
             overflow-x: hidden;
         }
         
-        /* NEW: INTERACTIVE WAVE BACKGROUND */
+        /* === NEW & ENHANCED: INTERACTIVE WAVE BACKGROUND === */
         .background-animation {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2; /* Behind the blobs */
+            z-index: -2; /* Behind everything */
             overflow: hidden;
         }
         
         .background-animation div {
             position: absolute;
             bottom: 0;
-            left: 0;
-            width: 200%; /* Wider than screen to allow for smooth horizontal animation */
-            height: 250px;
-            background-repeat: repeat-x;
-            background-size: 50% 100%;
-        }
-
-        #wave1 {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(100, 255, 218, 0.08)' d='M0,160L48,181.3C96,203,192,245,288,256C384,267,480,245,576,213.3C672,181,768,139,864,138.7C960,139,1056,181,1152,192C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-            z-index: 3;
-            animation: wave-move 25s linear infinite;
-            opacity: 0.7;
-        }
-
-        #wave2 {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(10, 25, 47, 0.3)' d='M0,224L48,208C96,192,192,160,288,170.7C384,181,480,235,576,234.7C672,235,768,181,864,176C960,171,1056,213,1152,208C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-            z-index: 2;
-            animation: wave-move 35s linear infinite reverse;
+            left: -50%; /* Start off-screen to handle parallax movement */
+            width: 200%;
             height: 300px;
-            opacity: 0.8;
-        }
-
-        #wave3 {
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(2, 12, 27, 0.4)' d='M0,96L48,122.7C96,149,192,203,288,208C384,213,480,171,576,149.3C672,128,768,128,864,149.3C960,171,1056,213,1152,229.3C1248,245,1344,235,1392,229.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
-            z-index: 1;
-            animation: wave-move 45s linear infinite;
-            height: 350px;
-            opacity: 0.9;
+            background-repeat: repeat-x;
+            background-size: 50% 100%; /* Repeat pattern twice */
+            will-change: transform; /* Performance optimization */
         }
         
+        /* Keyframe for wave movement with parallax integration */
         @keyframes wave-move {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); } /* Moves one full wave pattern to the left */
+            0% { 
+                transform: translateX(0) translateY(var(--parallax-y, 0px)); 
+            }
+            100% { 
+                transform: translateX(-50%) translateY(var(--parallax-y, 0px)); 
+            }
+        }
+
+        /* Wave 1: Front layer - most vibrant, fastest, strongest parallax */
+        #wave1 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(10, 157, 133, 0.4)' fill-opacity='1' d='M0,192L40,181.3C80,171,160,149,240,149.3C320,149,400,171,480,197.3C560,224,640,256,720,240C800,224,880,160,960,133.3C1040,107,1120,117,1200,144C1280,171,1360,213,1400,234.7L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            z-index: 3;
+            animation: wave-move 18s linear infinite;
+            /* Luminous glow effect */
+            filter: drop-shadow(0 -2px 4px rgba(0,0,0,0.7)) drop-shadow(0 -1px 3px rgba(100, 255, 218, 0.15));
+        }
+
+        /* Wave 2: Middle layer - deeper color, medium speed, reverse direction */
+        #wave2 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(28, 79, 132, 0.5)' fill-opacity='1' d='M0,256L48,245.3C96,235,192,213,288,202.7C384,192,480,192,576,186.7C672,181,768,171,864,186.7C960,203,1056,245,1152,261.3C1248,277,1344,267,1392,261.3L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            z-index: 2;
+            animation: wave-move 25s linear infinite reverse;
+             filter: drop-shadow(0 -2px 5px rgba(0,0,0,0.5)) drop-shadow(0 0 10px rgba(2, 35, 59, 0.7));
+        }
+
+        /* Wave 3: Back layer - darkest, slowest, subtle depth */
+        #wave3 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='rgba(2, 12, 27, 0.6)' fill-opacity='1' d='M0,128L48,144C96,160,192,192,288,186.7C384,181,480,139,576,138.7C672,139,768,181,864,208C960,235,1056,245,1152,229.3C1248,213,1344,171,1392,149.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
+            z-index: 1;
+            animation: wave-move 32s linear infinite;
         }
 
         /* Animated background blobs (Existing) */
@@ -150,7 +156,6 @@
         }
 
         section {
-            /* UPDATED: Reduced padding for tighter layout */
             padding: 70px 0;
             border-top: 1px solid var(--border-color);
         }
@@ -160,7 +165,6 @@
             font-size: 2.8rem;
             font-weight: 700;
             color: var(--text-primary);
-            /* UPDATED: Reduced margin for tighter layout */
             margin-bottom: 40px;
             text-align: center;
             position: relative;
@@ -274,14 +278,12 @@
             font-size: 1.1rem; 
             color: var(--text-secondary); 
             max-width: 600px; 
-            /* UPDATED: Reduced margin for tighter layout */
             margin-bottom: 30px; 
         }
 
         /* === 4. TIMELINE SECTIONS (Projects, Experience, Education) === */
         .project-timeline-item, .experience-item, .education-item {
             display: flex;
-            /* UPDATED: Reduced margin for tighter layout */
             margin-bottom: 35px;
             position: relative;
         }
@@ -347,7 +349,6 @@
         .skills-section h3, .certifications-section h3 {
             text-align: center;
             font-size: 1.8rem;
-            /* UPDATED: Reduced margin for tighter layout */
             margin-bottom: 35px;
             color: var(--text-primary);
         }
@@ -361,7 +362,6 @@
             font-size: 1.1rem; 
             color: var(--text-secondary); 
             max-width: 500px; 
-            /* UPDATED: Reduced margin for tighter layout */
             margin: 15px auto 30px; 
         }
         .contact-info { 
@@ -369,7 +369,6 @@
             justify-content: center; 
             gap: 40px; 
             flex-wrap: wrap; 
-            /* UPDATED: Reduced margin for tighter layout */
             margin-top: 40px; 
         }
 
@@ -430,7 +429,7 @@
     </style>
 </head>
 <body>
-    <!-- NEW: Animated Wave Background Container -->
+    <!-- ENHANCED: Animated Wave Background Container -->
     <div class="background-animation">
         <div id="wave1"></div>
         <div id="wave2"></div>
@@ -565,9 +564,10 @@
         <div class="container"><div class="footer-content"><div class="footer-links"><a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a><a href="https://github.com/vedant-kulkarni" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></div><p>&copy; 2025 Vedant Kulkarni</p></div></div>
     </footer>
 
-    <!-- JavaScript for Animations (Unchanged) -->
+    <!-- JavaScript for Animations (Updated) -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
+        // --- Existing logic for scroll animations ---
         const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -581,6 +581,7 @@
             scrollObserver.observe(el);
         });
 
+        // --- Existing logic for active nav link highlighting ---
         const sections = document.querySelectorAll('section');
         const navLinks = document.querySelectorAll('.nav-link');
         
@@ -599,6 +600,39 @@
 
         sections.forEach(section => {
             navObserver.observe(section);
+        });
+
+        // === NEW: Interactive Parallax Effect for Waves ===
+        const wave1 = document.getElementById('wave1');
+        const wave2 = document.getElementById('wave2');
+        const wave3 = document.getElementById('wave3');
+
+        // Use requestAnimationFrame for smooth, performant animations
+        let ticking = false;
+        
+        function handleMouseMove(e) {
+            const { clientX, clientY } = e;
+            const { innerWidth, innerHeight } = window;
+            
+            // Calculate movement ratio from -0.5 to 0.5
+            const x = (clientX / innerWidth) - 0.5;
+            const y = (clientY / innerHeight) - 0.5;
+
+            // Update CSS variables with different strengths for depth
+            // The wave "closest" to the viewer (wave1) moves the most
+            wave1.style.setProperty('--parallax-y', `${y * 20}px`);
+            wave2.style.setProperty('--parallax-y', `${y * 12}px`);
+            wave3.style.setProperty('--parallax-y', `${y * 6}px`);
+        }
+
+        document.addEventListener('mousemove', (e) => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    handleMouseMove(e);
+                    ticking = false;
+                });
+                ticking = true;
+            }
         });
     });
     </script>
