@@ -85,7 +85,7 @@
         @keyframes moveBlob1 { from { transform: translate(0, 0) scale(1) rotate(0deg); } to { transform: translate(100px, 150px) scale(1.2) rotate(45deg); } }
         @keyframes moveBlob2 { from { transform: translate(0, 0) scale(1) rotate(0deg); } to { transform: translate(-150px, -100px) scale(0.8) rotate(-30deg); } }
 
-        /* Scroll Animations */
+        /* Scroll Animations (Unchanged - Fade/slide effect is already implemented here) */
         .animate-on-scroll { opacity: 0; transition: opacity 0.6s cubic-bezier(0.645, 0.045, 0.355, 1), transform 0.6s cubic-bezier(0.645, 0.045, 0.355, 1); }
         .slide-up { transform: translateY(40px) scale(0.98); }
         .slide-left { transform: translateX(-40px) scale(0.98); }
@@ -94,7 +94,6 @@
 
         /* === 3. LAYOUT & TYPOGRAPHY (MOBILE-FIRST) === */
         
-        /* UPDATED: Container uses relative padding for fluid spacing. */
         .container { 
             width: 100%;
             max-width: 1100px; 
@@ -104,13 +103,11 @@
         }
         
         section { 
-            /* UPDATED: Relative padding for sections */
             padding: 4rem 0; /* 64px */
             border-top: 1px solid var(--border-color); 
         }
         #home { border-top: none; }
 
-        /* UPDATED: Fluid typography for headings using clamp() */
         h1, h2, h3, .section-title { text-shadow: 0 3px 6px rgba(0, 0, 0, 0.8); }
         .section-title {
             font-size: clamp(2.25rem, 6vw, 2.8rem); /* Scales from ~36px to 45px */
@@ -134,20 +131,18 @@
             transition: top 0.3s; 
             border-bottom: 1px solid var(--border-color);
         }
-        /* NEW: Added feature query for graceful degradation on older browsers. */
         @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
             .navbar {
                 -webkit-backdrop-filter: blur(10px);
                 backdrop-filter: blur(10px);
             }
         }
-        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; max-width: 1200px; margin: 0 auto; }
+        /* UPDATED: Increased vertical padding for more breathing room on mobile */
+        .nav-container { display: flex; justify-content: space-between; align-items: center; padding: 1.25rem 1.5rem; max-width: 1200px; margin: 0 auto; }
         .nav-brand a { color: var(--primary-color); font-weight: 700; font-size: 1.1rem; text-decoration: none; letter-spacing: 1px; }
         
-        /* Mobile menu is hidden by default on larger screens */
         .mobile-menu-toggle { display: none; color: var(--primary-color); font-size: 1.5rem; cursor: pointer; background: none; border: none; padding: 0; }
         
-        /* Desktop menu styles */
         .nav-menu { display: flex; align-items: center; gap: 1.5rem; }
         .nav-link { color: var(--text-secondary); text-decoration: none; font-size: var(--font-size-sm); transition: color 0.3s ease; padding: 0.25rem 0; position: relative; }
         .nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background-color: var(--primary-color); transform: scaleX(0); transform-origin: bottom right; transition: transform 0.25s ease-out; }
@@ -158,8 +153,7 @@
             color: var(--primary-color); background-color: transparent; border: 1px solid var(--primary-color); border-radius: 4px; 
             padding: 0.625rem 1.125rem; text-decoration: none; font-size: var(--font-size-sm); 
             transition: background-color 0.3s ease, color 0.3s ease;
-            gap: 0.5rem; /* ADJUSTMENT: Added gap between icon and text */
-            /* UPDATED: Increased tappable area */
+            gap: 0.5rem; 
             display: inline-flex;
             align-items: center;
             justify-content: center;
@@ -170,23 +164,22 @@
         /* === 5. HERO SECTION (MOBILE-FIRST) === */
         .hero { display: flex; align-items: center; min-height: 100vh; padding: 5rem 0 3rem 0; position: relative; overflow: hidden; }
         .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 60%, rgba(2,12,27,0.2) 0%, var(--bg-dark) 80%); z-index: 0; pointer-events: none; }
-        .hero-content { position: relative; z-index: 1; width: 100%; }
+        /* UPDATED: Added horizontal padding to prevent content touching screen edges on mobile. */
+        .hero-content { position: relative; z-index: 1; width: 100%; padding: 0 1.5rem; box-sizing: border-box; }
         
         /* Base styles for mobile (stacked layout) */
         .hero-flex-container { display: flex; flex-direction: column-reverse; align-items: center; text-align: center; gap: 2.5rem; }
-        /* ADJUSTMENT: Removed redundant margin-bottom from hero-image */
         .hero-pre-title { color: var(--primary-color); font-weight: 500; font-size: var(--font-size-base); letter-spacing: 1.5px; margin-bottom: 1rem; }
         .hero-title { 
             font-size: clamp(2.5rem, 8vw, 3.5rem); /* Scales from ~40px to 56px */
             font-weight: 700; margin: 0 0 1.25rem 0; color: white; 
         }
-        .hero-subtitle { font-size: var(--font-size-md); color: var(--text-secondary); max-width: 650px; margin: 0 auto 2rem auto; }
-        /* ADJUSTMENT: Increased gap between hero buttons */
+        /* UPDATED: Changed color to primary text for higher contrast and better readability */
+        .hero-subtitle { font-size: var(--font-size-md); color: var(--text-primary); max-width: 650px; margin: 0 auto 2rem auto; }
         .hero-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
         .btn { 
             padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none; font-weight: 600; 
             transition: all 0.3s ease; display: inline-flex; align-items: center; gap: 0.5rem;
-            /* UPDATED: Increased tappable area */
             min-height: 44px; 
             min-width: 44px;
             justify-content: center;
@@ -197,14 +190,18 @@
         .btn-secondary:hover, .btn-secondary:active { background-color: var(--primary-color-dim); transform: translateY(-4px) scale(1.05); }
 
         .profile-image img { 
-            /* UPDATED: Relative size for mobile */
             width: 240px; 
             height: 240px; 
             border-radius: 50%; object-fit: cover; border: 5px solid var(--primary-color); 
-            box-shadow: 0 0 40px rgba(100, 255, 218, 0.4); 
+            /* UPDATED: New subtle gradient shadow for depth as requested */
+            box-shadow: 0 10px 25px var(--shadow-color), 0 0 45px rgba(100, 255, 218, 0.25);
             transition: all 0.3s ease; 
         }
-        .profile-image img:hover { transform: scale(1.05); box-shadow: 0 0 60px rgba(100, 255, 218, 0.6); }
+        .profile-image img:hover { 
+            transform: scale(1.05); 
+            /* UPDATED: Enhanced hover shadow */
+            box-shadow: 0 15px 35px var(--shadow-color), 0 0 60px rgba(100, 255, 218, 0.4);
+        }
 
         /* === 6. CARDS & TIMELINE (MOBILE-FIRST) === */
         .card {
@@ -227,7 +224,6 @@
         .university-logo { height: 40px; width: auto; transition: transform 0.3s ease, filter 0.3s ease; }
         .education-item .card:hover .university-logo { transform: scale(1.15); filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2)); }
 
-        /* Base styles for mobile (stacked timeline) */
         .project-timeline-item, .experience-item, .education-item { display: flex; flex-direction: column; margin-bottom: 2.5rem; }
         .project-timeline-item .project-number, .experience-item .experience-date, .education-item .education-date {
             color: var(--primary-color);
@@ -240,7 +236,6 @@
         }
         .project-timeline-item .project-number { font-size: 2.5rem; font-weight: 700; line-height: 1; border: none; padding-bottom: 0; }
         
-        /* Project-specific styles */
         .tech-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
         .tag { background-color: var(--primary-color-dim); color: var(--primary-color); padding: 0.25rem 0.75rem; border-radius: 15px; font-size: var(--font-size-sm); font-weight: 500; }
         .project-details { display: flex; flex-direction: column; gap: 1.5rem; margin-top: 1.25rem; }
@@ -250,7 +245,6 @@
         .skills-section, .certifications-section { margin-bottom: 4rem; }
         .skills-section h3, .certifications-section h3 { text-align: center; font-size: var(--font-size-xl); margin-top: 4rem; margin-bottom: 2rem; color: var(--text-primary); }
         
-        /* UPDATED: Adaptive skill grid */
         .skills-list { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
         .skill-row { display: flex; flex-direction: column; gap: 0.5rem; padding: 1.25rem; } /* Override default card padding */
         .skill-header { display: flex; justify-content: space-between; align-items: center; width: 100%; }
@@ -260,7 +254,6 @@
         .skill-bar-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, #00c6ff, var(--primary-color)); transition: width 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s; width: 0; }
         .animate-on-scroll.visible .skill-bar-fill { width: var(--skill-level); }
 
-        /* UPDATED: Certifications are a flex column on mobile */
         .certifications-grid { display: flex; flex-direction: column; gap: 1.5rem; }
         .certification-card { margin-top: 0; }
         .cert-content-wrapper { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 1rem; }
@@ -283,7 +276,6 @@
         .footer-links a { 
             color: var(--text-secondary); font-size: 1.5rem; margin: 0 0.75rem;
             transition: color 0.3s ease, transform 0.3s ease;
-            /* UPDATED: Increased tappable area */
             display: inline-flex;
             justify-content: center;
             align-items: center;
@@ -296,13 +288,10 @@
         /* ============================================================= */
         /* == MEDIA QUERIES FOR RESPONSIVE DESIGN (MOBILE-FIRST) == */
         /* ============================================================= */
-
-        /* QA Testing: Check on small devices like iPhone SE (375px) to ensure no overflow. */
         
         /* Small devices (e.g., landscape phones) */
         @media (min-width: 480px) {
             .skills-list {
-                /* Start showing two columns if space allows */
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             }
             .contact-info {
@@ -312,18 +301,14 @@
                 gap: 2.5rem;
             }
         }
-        
-        /* QA Testing: Verify layout on tablets (e.g., iPad, 768px width). Check nav menu and timeline layouts. */
 
         /* Tablets and small desktops */
         @media (min-width: 768px) {
-            body { font-size: 1.05rem; } /* Slightly increase base font size */
+            body { font-size: 1.05rem; }
 
-            /* Show desktop nav menu, hide mobile toggle */
             .nav-menu { display: flex; }
             .mobile-menu-toggle { display: none; }
             
-            /* Switch timeline to side-by-side layout */
             .project-timeline-item, .experience-item, .education-item { flex-direction: row; align-items: flex-start; gap: 2rem; }
             .project-timeline-item .project-number, .experience-item .experience-date, .education-item .education-date {
                 text-align: right;
@@ -340,7 +325,6 @@
                 width: 100%;
             }
 
-            /* ADJUSTMENT: Convert project details to equal-width two-column layout */
             .project-details { 
                 flex-direction: row; 
                 gap: 2rem;
@@ -349,7 +333,6 @@
                 flex: 1;
             }
             
-            /* Adjust certification card layout */
             .certifications-grid {
                 grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
                 display: grid;
@@ -363,55 +346,61 @@
             .cert-logo { margin-right: 0; }
         }
 
-        /* QA Testing: Check hero layout on standard desktops (e.g., 1024px, 1280px). */
-
         /* Standard desktops */
         @media (min-width: 1024px) {
-            /* ADJUSTMENT: Add horizontal padding to main content container */
             .container {
                 padding-left: 3rem;
                 padding-right: 3rem;
             }
             
-            /* ADJUSTMENT: Increase spacing between nav links */
             .nav-menu {
                 gap: 2rem;
             }
 
-            /* Switch hero layout back to side-by-side */
-            .hero-flex-container { flex-direction: row; text-align: left; align-items: center; gap: 3rem; }
-            .hero-text { flex-basis: 65%; max-width: 750px; }
-            .hero-image { flex-basis: 35%; margin-bottom: 0; }
-            /* ADJUSTMENT: Removed margin override to allow hero subtitle to center properly */
+            /* MODIFIED: Updated hero section for balanced desktop layout */
+            .hero-flex-container { 
+                flex-direction: row; 
+                text-align: left; 
+                align-items: center; 
+                gap: 3rem; /* This provides the 48px space between text and image */
+                /* NEW: Center the entire content block horizontally */
+                justify-content: center;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+            .hero-text { 
+                flex-basis: 60%; 
+                max-width: 700px; 
+            }
+            .hero-image { 
+                flex-basis: 40%;
+                margin-bottom: 0; 
+                /* NEW: Center the image within its container for better alignment */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
             .hero-buttons { justify-content: flex-start; }
             .profile-image img { width: 280px; height: 280px; }
             
-            /* Increase animation duration slightly for a more premium feel on desktop */
             .animate-on-scroll { transition-duration: 0.8s; }
         }
-
-        /* QA Testing: Check on very large screens (1440px+) to ensure content doesn't stretch too wide. The max-width on .container should handle this. */
-
 
         /* ============================================================= */
         /* == INTERACTIVITY & ACCESSIBILITY OVERRIDES == */
         /* ============================================================= */
-
-        /* For touch devices, disable the card lift effect on "hover" (tap) to prevent jarring movement. */
         @media (pointer: coarse) {
             .card:hover {
                 transform: none;
             }
             .btn:hover, .profile-image img:hover {
-                transform: none; /* Disable hover transforms that interfere with tapping */
+                transform: none;
             }
-            /* Add active state for touch feedback */
             .btn:active {
                 transform: translateY(2px) scale(0.98);
             }
         }
         
-        /* For users who prefer reduced motion, disable animations and transitions. */
         @media (prefers-reduced-motion: reduce) {
             html {
                 scroll-behavior: auto;
@@ -424,7 +413,6 @@
                 animation: none !important;
                 transition: none !important;
             }
-            /* Make sure animated elements are visible by default */
             .animate-on-scroll {
                 opacity: 1;
                 transform: none;
@@ -473,8 +461,6 @@
                 </div>
                 <div class="hero-image animate-on-scroll slide-up" style="transition-delay: 100ms;">
                     <div class="profile-image">
-                        <!-- UPDATED: Added srcset and sizes for responsive images. -->
-                        <!-- NOTE: You should create different sized images (e.g., profile_small.jpg at 240w, profile_medium.jpg at 560w) for optimal performance. -->
                         <img src="static/images/profile.jpg" 
                              srcset="static/images/profile.jpg 280w, static/images/profile.jpg 560w" 
                              sizes="(max-width: 1023px) 240px, 280px"
@@ -593,7 +579,7 @@
         <div class="container"><div class="footer-content"><div class="footer-links"><a href="https://www.linkedin.com/in/vedant-kulkarni07/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a><a href="https://github.com/vedant-kulkarni" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></div><p>&copy; 2025 Vedant Kulkarni</p></div></div>
     </footer>
 
-    <!-- JavaScript for Animations (Unchanged as requested) -->
+    <!-- JavaScript for Animations (Unchanged) -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         // Preloader Logic
