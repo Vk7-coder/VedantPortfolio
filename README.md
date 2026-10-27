@@ -16,9 +16,9 @@ Regenerate both website entry points with Python 3:
 python3 portfolio/build.py
 ```
 
-The builder writes `index.html` for GitHub Pages and the matching `templates/index.html` for the existing Flask application. Asset URLs include content hashes so browsers receive updated styles and scripts after a release.
+The builder writes `index.html` for GitHub Pages and the matching `templates/index.html` for the existing Flask application. Both include the complete stylesheet and interaction script, so the first visit does not need separate CSS or JavaScript downloads to finish rendering and initialise controls. No page loader or font-ready gate hides the content.
 
-It also combines `style.css`, `refinements.css` and `responsive.css` into `static/portfolio/site.css`. Edit those source stylesheets and rebuild; do not edit the generated bundle directly. Phone layouts use a single column below 768px, while the approved desktop layout remains intact. External fonts load without blocking the initial page render; the full-resolution portrait is unchanged.
+It also combines `style.css`, `refinements.css` and `responsive.css` into `static/portfolio/site.css` and embeds that same CSS into each HTML entry point. Edit those source stylesheets or `app.js` and rebuild; do not edit generated files directly. Phone layouts use a single column below 768px, while the approved desktop layout remains intact. External fonts load without blocking the initial page render, with system-font fallbacks. The original portrait is preloaded and remains at full resolution.
 
 ## Deployment
 

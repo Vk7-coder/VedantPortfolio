@@ -53,11 +53,11 @@
     const allOpen = visible.length > 0 && visible.every(project => project.querySelector('details')?.open);
     detailsToggle.disabled = visible.length === 0;
     detailsToggle.setAttribute('aria-pressed', String(allOpen));
-    detailsToggle.replaceChildren(document.createTextNode(allOpen ? 'Collapse all details ' : 'Expand all details '));
+    detailsToggle.textContent = allOpen ? 'Collapse all details ' : 'Expand all details ';
     const icon = document.createElement('span');
     icon.setAttribute('aria-hidden', 'true');
     icon.textContent = allOpen ? '−' : '+';
-    detailsToggle.append(icon);
+    detailsToggle.appendChild(icon);
   };
   const applyFilters = () => {
     const terms = normalise(search?.value || '').split(' ').filter(Boolean);
@@ -140,7 +140,7 @@
     updateDetailsToggle();
     updateProgress();
   }));
-  if (document.fonts) {
+  if (document.fonts && document.fonts.ready) {
     document.fonts.ready.then(updateProgress);
     document.fonts.addEventListener?.('loadingdone', updateProgress);
   }
@@ -161,8 +161,8 @@
     document.querySelectorAll('main > section[id]').forEach(section => observer.observe(section));
   }
 
-  document.documentElement.classList.add('js');
   applyFilters();
+  document.documentElement.classList.add('js');
 
   // Appearance motion never hides content; phones avoid extra scroll animation.
   if ('IntersectionObserver' in window && window.matchMedia &&
