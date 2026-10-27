@@ -91,19 +91,25 @@ for phrase in ['Azure data pipelines', 'SQL, Python and PySpark']:
     hero_intro = hero_intro.replace(escape(phrase), '<strong>' + escape(phrase) + '</strong>', 1)
 hero_intro = hero_intro.replace('e-commerce', '<span class="nowrap">e-commerce</span>', 1)
 
+# Deliver the complete layout and small interaction script with the HTML.
+# A first visit must not depend on a second CSS/JS request or a warm cache.
+styles = REPOSITORY / 'static/portfolio'
+site_styles = '\n'.join(
+    (styles / name).read_text()
+    for name in ['style.css', 'refinements.css', 'responsive.css']
+)
+site_script = (styles / 'app.js').read_text()
+if '</style' in site_styles.lower() or '</script' in site_script.lower():
+    raise ValueError('Embedded assets must not contain an HTML closing tag')
+(styles / 'site.css').write_text(site_styles)
 output = Template((ROOT / 'site-template.html').read_text()).substitute(
     hero_intro=hero_intro, hero_support=escape(data['intro_support']),
     approach=''.join(approach), project_filters=''.join(filters), projects=project_groups(),
     experience=''.join(role_card(role, i) for i, role in enumerate(data['roles'])),
     skills=''.join(skill_groups), education=''.join(degrees), certifications=''.join(certificates),
+    site_styles=site_styles, site_script=site_script,
 )
-# One local stylesheet request, with phone rules last in the cascade.
-styles = REPOSITORY / 'static/portfolio'
-(styles / 'site.css').write_text('\n'.join(
-    (styles / name).read_text()
-    for name in ['style.css', 'refinements.css', 'responsive.css']
-))
-for asset in ['site.css', 'app.js', 'favicon.svg']:
+for asset in ['favicon.svg']:
     digest = hashlib.sha256((REPOSITORY / 'static/portfolio' / asset).read_bytes()).hexdigest()[:12]
     output = output.replace('assets/' + asset, 'static/portfolio/' + asset + '?v=' + digest)
 output = output.replace('assets/portrait.jpeg', 'static/images/vedant-kulkarni-profile-2026.jpeg')
