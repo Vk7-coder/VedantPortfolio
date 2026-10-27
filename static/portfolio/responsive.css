@@ -1,0 +1,157 @@
+/* Phone layout overrides. Keep the approved desktop design and palette intact. */
+@media (max-width: 767px) {
+  html { scroll-behavior: auto; scroll-padding-top: 90px; }
+  .shell {
+    width: 100%; max-width: 100%;
+    padding-left: max(18px, env(safe-area-inset-left));
+    padding-right: max(18px, env(safe-area-inset-right));
+  }
+  .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .header-inner { min-height: 72px; padding-top: 12px; padding-bottom: 12px; gap: 12px; }
+  .brand { min-width: 0; gap: 10px; }
+  .brand-name { font-size: 12px; }
+  .brand-name > span { font-size: 8px; letter-spacing: .09em; }
+  .menu-toggle { flex-shrink: 0; min-width: 44px; min-height: 44px; }
+  .js .main-nav {
+    max-height: calc(100vh - 78px); max-height: calc(100svh - 78px);
+    overflow-y: auto; overscroll-behavior: contain;
+    padding: 12px max(18px, env(safe-area-inset-right)) 18px max(18px, env(safe-area-inset-left));
+  }
+  .js .main-nav > a { min-height: 44px; }
+  .hero { padding-top: 30px; }
+  .hero-grid { grid-template-columns: minmax(0, 1fr); gap: 26px; }
+  .hero-copy { min-width: 0; }
+  .hero-copy > .eyebrow { font-size: 9px; letter-spacing: .08em; line-height: 1.8; }
+  h1 { font-size: clamp(36px, 9.6vw, 48px); line-height: 1.1; margin: 16px 0 20px; }
+  .hero-intro { font-size: 15px; line-height: 1.75; }
+  .hero-support { font-size: 14px; line-height: 1.75; }
+  .hero-actions { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 22px; }
+  .hero-actions > a { min-width: 0; min-height: 44px; justify-content: center; }
+  .hero-actions > .button { padding: 12px 10px; font-size: 12px; gap: 8px; }
+  .hero-actions > .text-link { font-size: 11px; gap: 7px; }
+  .hero-facts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 24px; padding-top: 18px; }
+  .hero-facts > div { min-width: 0; max-width: none; }
+  .hero-facts > div + div { padding-left: 14px; }
+  .hero-facts strong { font-size: 12px; line-height: 1.6; }
+  .hero-facts span { font-size: 11px; line-height: 1.65; }
+  .portrait-panel { width: min(250px, 68vw); max-width: 250px; justify-self: center; margin: 0; }
+  .portrait-frame { padding: 7px; }
+  .portrait-frame img { width: 100%; height: auto; object-fit: contain; }
+  .current-role { display: grid; grid-template-columns: 8px minmax(0, 1fr); align-items: start; gap: 5px 10px; min-height: 0; margin-top: 28px; padding-top: 16px; padding-bottom: 16px; font-size: 11px; line-height: 1.8; }
+  .current-role .status-dot { margin-top: 7px; }
+  .current-role > a { grid-column: 2; margin-left: 0; font-size: 11px; min-height: 36px; }
+  .section-space { padding: 46px 0; }
+  .section-heading h2 { font-size: clamp(30px, 8vw, 38px); line-height: 1.16; margin: 12px 0 17px; }
+  .section-heading > p:not(.eyebrow), .heading-row > p { font-size: 14px; line-height: 1.75; }
+  .heading-row { display: block; }
+  .heading-row > p { max-width: none; margin-top: 20px; }
+  .approach-layout, .experience-layout { grid-template-columns: minmax(0, 1fr); gap: 30px; }
+  .approach-intro, .experience-intro { position: static; }
+  .approach-note { margin: 20px 0; }
+  .contribution-steps > li { grid-template-columns: 32px minmax(0, 1fr); gap: 14px; padding-bottom: 26px; }
+  .approach-node { width: 32px; height: 32px; font-size: 10px; }
+  .contribution-steps > li:not(:last-child):before { left: 15px; top: 32px; }
+  .contribution-steps .step-number { font-size: 10px; line-height: 1.6; }
+  .contribution-steps h3 { font-size: 17px; line-height: 1.5; margin: 6px 0 8px; }
+  .contribution-steps p { font-size: 14px; line-height: 1.75; }
+  .js .project-explorer { margin: 25px 0 28px; }
+  .work-toolbar { display: block; margin-bottom: 14px; }
+  .project-filters, .js .project-filters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; width: 100%; }
+  .project-filters button { justify-content: space-between; min-width: 0; min-height: 44px; padding: 10px; font-size: 11px; gap: 6px; }
+  .project-filters button > span { font-size: 10px; }
+  .explorer-actions { flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+  .details-toggle, .reset-view { min-height: 44px; font-size: 12px; margin-top: 0; }
+  .search-row { display: block; }
+  .project-search { max-width: none; min-height: 48px; padding: 0 12px; }
+  .project-search input { font-size: 16px; padding: 12px 0; }
+  .project-search input::placeholder { font-size: 12px; letter-spacing: 0; }
+  .project-count { display: block; font-size: 12px; margin-top: 10px; }
+  .project-library { margin-top: 26px; }
+  .project-group + .project-group { margin-top: 32px; }
+  .project-group-heading { gap: 11px; align-items: start; margin-bottom: 18px; padding-bottom: 16px; }
+  .project-group-heading > div { min-width: 0; }
+  .group-number { width: 30px; height: 32px; font-size: 10px; flex-shrink: 0; }
+  .project-group-heading h3 { font-size: 18px; line-height: 1.5; }
+  .project-group-heading p { font-size: 12px; line-height: 1.75; }
+  .group-count { display: none; }
+  .project-grid, .project-group[data-project-group="pipelines"] > .project-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .project-card, .project-featured { padding: 22px 20px 0; }
+  .project-topline, .project-featured .project-topline { gap: 8px; margin-bottom: 16px; }
+  .project-title { font-size: 19px; line-height: 1.5; }
+  .project-featured .project-title { font-size: 21px; line-height: 1.5; }
+  .project-description, .project-featured .project-description { font-size: 14px; line-height: 1.75; margin: 12px 0 17px; }
+  .project-featured .project-overview { grid-template-columns: minmax(0, 1fr); gap: 0; }
+  .project-flow { grid-template-columns: minmax(0, 1fr); gap: 12px; border-left: 0; border-top: 1px solid var(--card-rule); padding: 17px 0; margin-bottom: 7px; }
+  .project-flow > li { display: grid; grid-template-columns: 74px minmax(0, 1fr); gap: 10px; padding-left: 0; }
+  .project-flow > li:before { display: none; }
+  .project-flow span { padding-top: 3px; }
+  .project-flow strong { font-size: 12px; }
+  .tool-tag { font-size: 11px; padding: 4px 8px; }
+  .project-output, .project-featured .project-output { font-size: 13px; line-height: 1.75; padding: 12px 0 18px; }
+  .project-details > summary { font-size: 12px; min-height: 54px; line-height: 1.7; gap: 10px; }
+  .details-body li, .project-featured .details-body li { font-size: 14px; line-height: 1.75; }
+  .details-body h5, .details-body .full-stack, .project-methods { font-size: 12px; }
+  .experience-card { padding: 22px 20px; }
+  .experience-card h3 { font-size: 21px; }
+  .role-topline { flex-wrap: wrap; gap: 8px; }
+  .role-details > summary { font-size: 12px; min-height: 48px; gap: 10px; }
+  .role-details li { font-size: 14px; line-height: 1.75; }
+  .expertise-grid { grid-template-columns: minmax(0, 1fr); gap: 13px; margin-top: 26px; }
+  .expertise-group { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 0 10px; min-height: 0; padding: 20px; }
+  .expertise-number { font-size: 10px; padding-top: 3px; }
+  .expertise-group h3 { font-size: 15px; line-height: 1.6; margin: 0; }
+  .expertise-group .tool-tags { grid-column: 1 / -1; margin-top: 13px; }
+  .expertise-group .tool-tag { font-size: 12px; padding: 4px 8px; }
+  .qualifications-section .education-list { grid-template-columns: minmax(0, 1fr); gap: 26px; margin-top: 26px; padding-bottom: 28px; }
+  .education-card h3 { font-size: 21px; }
+  .qualification-date { margin-bottom: 10px; }
+  .training-heading { display: block; margin: 14px 0 21px; }
+  .training-heading h3 { font-size: 20px; }
+  .training-heading p { max-width: none; text-align: left; font-size: 12px; line-height: 1.75; margin-top: 8px; }
+  .training-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .certification-card { grid-template-columns: 36px minmax(0, 1fr); gap: 12px; padding: 21px 18px; }
+  .training-mark { width: 36px; height: 36px; font-size: 10px; }
+  .certification-meta { flex-wrap: wrap; gap: 5px 10px; font-size: 10px; }
+  .certification-meta .certification-date { font-size: 10px; }
+  .certification-card h4 { font-size: 15px; line-height: 1.6; }
+  .certification-card p.certification-issuer { font-size: 13px; }
+  .training-details > summary { font-size: 12px; min-height: 46px; gap: 8px; }
+  .training-details > p { font-size: 14px; line-height: 1.75; }
+  .contact-panel.shell { width: auto; max-width: none; margin-left: max(14px, env(safe-area-inset-left)); margin-right: max(14px, env(safe-area-inset-right)); grid-template-columns: minmax(0, 1fr); padding: 28px 20px; gap: 25px; border-radius: 15px; }
+  .contact-panel h2 { font-size: clamp(28px, 7.8vw, 36px); }
+  .contact-panel > div > p:not(.eyebrow) { font-size: 14px; line-height: 1.75; }
+  .email-link { font-size: 15px; min-height: 48px; overflow-wrap: anywhere; }
+  .contact-actions { flex-wrap: wrap; gap: 12px 18px; }
+  .contact-actions .button { min-height: 44px; font-size: 12px; }
+  .contact-actions .text-link { font-size: 12px; min-height: 44px; }
+  .social-links > a { min-height: 44px; font-size: 13px; }
+  .site-footer { padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+  .site-footer > .shell { flex-wrap: wrap; gap: 12px 20px; font-size: 10px; }
+  .site-footer a { min-height: 44px; display: inline-flex; align-items: center; }
+  .hero-copy, .section-heading, .experience-list, .contact-panel > div, .project-overview > div { min-width: 0; }
+  .motion-enter { animation: none; }
+}
+
+@media (max-width: 359px) {
+  .brand-name > span { font-size: 7px; }
+  .hero-actions { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .hero-facts { gap: 11px; }
+  .hero-facts > div + div { padding-left: 11px; }
+  .hero-facts strong { font-size: 11px; }
+  .hero-facts span { font-size: 10px; }
+  .project-filters button { padding: 9px 8px; font-size: 10px; }
+  .certification-card { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (min-width: 768px) and (max-width: 980px) and (max-height: 520px) {
+  .hero { padding-top: 26px; }
+  .hero-grid { grid-template-columns: minmax(0, 1.5fr) minmax(0, .65fr); gap: 28px; }
+  h1 { font-size: 36px; }
+  .portrait-panel { max-width: 180px; }
+  .hero-intro { font-size: 14px; }
+  .hero-facts { margin-top: 20px; }
+}
+
+@media (max-width: 767px) and (prefers-reduced-motion: no-preference) {
+  .hero-copy, .portrait-panel { animation-duration: .24s; animation-delay: 0s; }
+}

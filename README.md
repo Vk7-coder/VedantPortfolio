@@ -18,6 +18,8 @@ python3 portfolio/build.py
 
 The builder writes `index.html` for GitHub Pages and the matching `templates/index.html` for the existing Flask application. Asset URLs include content hashes so browsers receive updated styles and scripts after a release.
 
+It also combines `style.css`, `refinements.css` and `responsive.css` into `static/portfolio/site.css`. Edit those source stylesheets and rebuild; do not edit the generated bundle directly. Phone layouts use a single column below 768px, while the approved desktop layout remains intact. External fonts load without blocking the initial page render; the full-resolution portrait is unchanged.
+
 ## Deployment
 
 The existing GitHub Actions workflow publishes committed files from `main` to GitHub Pages. Commit the generated HTML together with any source or asset changes. The approved portrait remains at `static/images/vedant-kulkarni-profile-2026.jpeg`.
