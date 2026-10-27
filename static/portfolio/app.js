@@ -26,6 +26,12 @@
         menuButton.focus();
       }
     });
+    // Do not retain an open phone menu after rotating or crossing a breakpoint.
+    if (window.matchMedia) {
+      const navigationBreakpoint = window.matchMedia('(max-width: 980px)');
+      if (navigationBreakpoint.addEventListener) navigationBreakpoint.addEventListener('change', closeMenu);
+      else if (navigationBreakpoint.addListener) navigationBreakpoint.addListener(closeMenu);
+    }
   }
 
   const filterButtons = Array.from(document.querySelectorAll('[data-filter]'));
@@ -134,7 +140,10 @@
     updateDetailsToggle();
     updateProgress();
   }));
-  if (document.fonts) document.fonts.ready.then(updateProgress);
+  if (document.fonts) {
+    document.fonts.ready.then(updateProgress);
+    document.fonts.addEventListener?.('loadingdone', updateProgress);
+  }
 
   if ('IntersectionObserver' in window) {
     const navLinks = Array.from(document.querySelectorAll('[data-nav]'));
@@ -155,8 +164,9 @@
   document.documentElement.classList.add('js');
   applyFilters();
 
-  // Appearance motion never hides content and runs only once per element.
+  // Appearance motion never hides content; phones avoid extra scroll animation.
   if ('IntersectionObserver' in window && window.matchMedia &&
+      !window.matchMedia('(max-width: 767px)').matches &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
     const appearanceObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
