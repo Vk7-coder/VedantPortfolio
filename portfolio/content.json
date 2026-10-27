@@ -1,0 +1,459 @@
+{
+  "projects": [
+    {
+      "id": "ecommerce-payment-exceptions",
+      "title": "E-commerce Payment Exceptions and Delivery Delay Detection",
+      "domain": "Commerce data",
+      "category": "Pipelines & validation",
+      "filter": "pipelines",
+      "description": "Historical order and payment data replayed through Kafka, transformed in Databricks, and checked for payment exceptions and delivery delays.",
+      "tools": [
+        "Python",
+        "Apache Kafka",
+        "ADLS Gen2",
+        "Azure Databricks",
+        "PySpark",
+        "Delta Lake",
+        "SQL",
+        "Apache Airflow"
+      ],
+      "bullets": [
+        "Replayed historical e-commerce order and payment records through Kafka using Python and stored the events in Azure Data Lake Storage Gen2.",
+        "Developed PySpark transformations in Azure Databricks to update Delta tables, aggregating order charges and payments separately before comparing totals.",
+        "Generated order-level exception records in SQL for missing payments, amount differences and late deliveries, including exception reasons and delay durations.",
+        "Orchestrated processing and validation with Apache Airflow, comparing record counts and monetary totals after reruns to identify missing or duplicated records."
+      ],
+      "validation_heading": "Validation",
+      "scope": "Project",
+      "implementation_heading": "Implementation",
+      "details_label": "Implementation and validation",
+      "methods": [],
+      "featured": true,
+      "output": "Order-level payment and delivery exceptions",
+      "flow": [
+        [
+          "INGEST",
+          "Python · Kafka · ADLS"
+        ],
+        [
+          "TRANSFORM",
+          "Databricks · PySpark · Delta"
+        ],
+        [
+          "CHECK",
+          "SQL exceptions · Airflow validation"
+        ]
+      ]
+    },
+    {
+      "id": "stock-price-report-validation",
+      "title": "Stock Price Error Detection and Investment Report Validation",
+      "domain": "Financial data",
+      "category": "Pipelines & validation",
+      "filter": "pipelines",
+      "description": "Historical stock-price data and sample holdings loaded into Snowflake, with checks on price records and investment-report totals.",
+      "tools": [
+        "Apache Airflow",
+        "ADLS Gen2",
+        "Snowflake",
+        "SQL"
+      ],
+      "bullets": [
+        "Built an Airflow workflow to ingest historical stock-price files into ADLS Gen2 and load Snowflake tables using external stages and COPY INTO.",
+        "Modelled daily prices and sample holdings separately, using SQL joins and aggregations to calculate the value of sample holdings and investment-report totals.",
+        "Implemented SQL checks for duplicate prices, invalid price relationships and unmatched holdings, identifying affected securities before report generation.",
+        "Verified report totals against independently calculated test cases and produced validation summaries linking failed checks to affected securities and sample holdings."
+      ],
+      "validation_heading": "Validation",
+      "scope": "Project",
+      "implementation_heading": "Implementation",
+      "details_label": "Implementation and validation",
+      "methods": [],
+      "output": "Price checks and report-validation summaries"
+    },
+    {
+      "id": "cloud-ai-cost-validation",
+      "title": "Cloud and AI Cost Validation with Budget Checks",
+      "domain": "Cloud costs",
+      "category": "Pipelines & validation",
+      "filter": "pipelines",
+      "description": "Azure billing exports reconciled in SQL, with AI request-cost estimates kept separate and budget thresholds checked.",
+      "tools": [
+        "Python",
+        "Apache Airflow",
+        "Azure Billing Exports",
+        "SQL"
+      ],
+      "bullets": [
+        "Built an Airflow-scheduled Python workflow to load Azure billing exports into SQL tables and incorporate revised charges into cost records.",
+        "Created SQL cost summaries by resource, service and project tag, reconciling allocated and unallocated charges with source export totals.",
+        "Recorded AI application requests, model names and token usage to estimate costs from versioned rates, keeping these estimates separate from exported billing charges.",
+        "Implemented budget-threshold checks and alert records, testing threshold crossings and rerun behaviour with documented scenarios."
+      ],
+      "validation_heading": "Validation",
+      "scope": "Project",
+      "implementation_heading": "Implementation",
+      "details_label": "Implementation and validation",
+      "methods": [],
+      "output": "Reconciled costs and budget-check records"
+    },
+    {
+      "id": "invoice-processing-quality",
+      "title": "Automated Invoice Processing and Data Quality Checks",
+      "domain": "Financial operations",
+      "filter": "pipelines",
+      "scope": "Project",
+      "description": "Python invoice processing with SQL discrepancy checks, payment reconciliation and email alerts for exceptions.",
+      "tools": [
+        "Python",
+        "SQL"
+      ],
+      "methods": [
+        "Invoice validation",
+        "Reconciliation",
+        "Email alerts"
+      ],
+      "output": "Reconciliation exceptions and email alerts",
+      "implementation_heading": "Processing and reconciliation",
+      "validation_heading": "Exception handling",
+      "details_label": "Processing, checks and alerts",
+      "bullets": [
+        "Developed Python scripts to process invoice records and check for missing, inconsistent or incorrect values.",
+        "Built SQL discrepancy checks to identify inconsistencies in invoice data before financial reporting.",
+        "Reconciled invoice and payment records to identify unmatched entries and other exceptions.",
+        "Implemented automated email alerts to flag validation failures and reconciliation exceptions."
+      ]
+    },
+    {
+      "id": "hospital-admission-billing",
+      "title": "Hospital Patient Admission and Billing Process Analysis",
+      "domain": "Healthcare workflows",
+      "filter": "process",
+      "scope": "Process design study",
+      "description": "Admission and billing workflows mapped from current to proposed processes, supported by requirements documents and a Power BI dashboard.",
+      "tools": [
+        "Lucidchart",
+        "Power BI"
+      ],
+      "methods": [
+        "AS-IS / TO-BE",
+        "BRD / FSD",
+        "Fishbone analysis",
+        "5 Whys"
+      ],
+      "output": "Process maps, requirements documents and a KPI dashboard",
+      "implementation_heading": "Process and requirements analysis",
+      "validation_heading": "Reporting output",
+      "details_label": "Process design and reporting",
+      "bullets": [
+        "Mapped AS-IS and TO-BE workflows in Lucidchart for patient onboarding, insurance-claim validation and billing.",
+        "Prepared a Business Requirements Document (BRD) and Functional Specification Document (FSD) covering functional scope, proposed EMR integration and billing-workflow automation.",
+        "Used fishbone diagrams and the 5 Whys to analyse causes of claim rejections and propose validation checkpoints in the target workflow.",
+        "Developed a Power BI dashboard covering average wait time, admission cycle time, billing turnaround and claim approval rate."
+      ]
+    },
+    {
+      "id": "vehicle-service-workflow",
+      "title": "Vehicle Service Workflow and Automation Design",
+      "domain": "Service operations",
+      "filter": "process",
+      "scope": "Agile simulation",
+      "description": "A service-booking, technician-dispatch and billing workflow explored through process maps, customer journeys, user stories and data design.",
+      "tools": [
+        "Jira"
+      ],
+      "methods": [
+        "Value Stream Mapping",
+        "Personas",
+        "Customer journey mapping",
+        "ER diagrams",
+        "Data dictionary"
+      ],
+      "output": "Target workflows, Jira stories and a documented data model",
+      "implementation_heading": "Workflow and requirements design",
+      "validation_heading": "Data-design output",
+      "details_label": "Workflow, requirements and data design",
+      "bullets": [
+        "Used Value Stream Mapping to identify bottlenecks in booking, servicing and billing, and propose a simpler target process.",
+        "Created personas and customer journey maps to examine user pain points in technician dispatch and customer feedback.",
+        "Documented epics and user stories in Jira during an Agile simulation for scheduling and notification modules.",
+        "Designed a data dictionary and entity-relationship (ER) diagram to document data structures for requirements handoff."
+      ]
+    },
+    {
+      "id": "ecommerce-conversion-pricing",
+      "title": "E-commerce Conversion Prediction and Pricing Analysis",
+      "domain": "Commercial analytics",
+      "filter": "analytics",
+      "scope": "Analysis project",
+      "description": "Conversion modelling, customer segmentation and pricing analysis used to examine sales, profitability and customer behaviour.",
+      "tools": [
+        "Python",
+        "pandas",
+        "NumPy"
+      ],
+      "methods": [
+        "Logistic regression",
+        "Clustering",
+        "Pricing scenarios"
+      ],
+      "output": "Conversion-model evaluation, customer segments and pricing comparisons",
+      "implementation_heading": "Data preparation and commercial analysis",
+      "validation_heading": "Customer segmentation",
+      "details_label": "Modelling, pricing and segmentation",
+      "bullets": [
+        "Prepared and analysed e-commerce data with pandas and NumPy to examine conversion patterns and pricing variables.",
+        "Built a logistic regression model for conversion prediction and evaluated predictions using F1-score.",
+        "Compared pricing scenarios using sales, profitability, revenue and return-on-investment measures to assess trade-offs.",
+        "Applied clustering to group customers by shared characteristics and behaviours for segment-level analysis."
+      ]
+    },
+    {
+      "id": "financial-transaction-fraud-detection",
+      "title": "Fraud Detection in Financial Transactions",
+      "domain": "Applied machine learning",
+      "category": "Analytics & ML",
+      "filter": "analytics",
+      "description": "Compared classifiers on imbalanced transaction data and evaluated predictions using precision, recall and F1-score.",
+      "tools": [
+        "Python",
+        "pandas",
+        "scikit-learn",
+        "imbalanced-learn"
+      ],
+      "bullets": [
+        "Built and compared Random Forest and Logistic Regression classifiers in scikit-learn to distinguish fraudulent transactions from legitimate transactions.",
+        "Prepared transaction features with pandas, applied feature scaling and used SMOTE from imbalanced-learn during model training to address class imbalance.",
+        "Evaluated model predictions using precision, recall and F1-score to compare fraud-classification performance."
+      ],
+      "validation_heading": "Evaluation",
+      "scope": "Analysis project",
+      "implementation_heading": "Implementation",
+      "details_label": "Modelling and evaluation",
+      "methods": [],
+      "output": "Classifier comparison using precision, recall and F1-score"
+    }
+  ],
+  "roles": [
+    [
+      "Data Engineer",
+      "Cognopi Solutions Pvt Ltd",
+      "Jun 2025 – Present",
+      [
+        "Built ETL workflows in SQL and Python for e-commerce order, product catalogue and sales data, using incremental loading to refresh analytical datasets without full reprocessing.",
+        "Developed PySpark transformations in Azure Databricks for CRM lead, customer and follow-up activity records, applying source-to-target mappings and deduplication rules to produce consolidated reporting datasets.",
+        "Implemented SQL reconciliation checks across transaction and payment data, comparing identifiers, amounts and statuses to flag missing or mismatched records.",
+        "Maintained Azure Data Factory (ADF) pipelines loading data into Azure Data Lake Storage Gen2 (ADLS Gen2), monitoring scheduled runs and investigating failed loads and data discrepancies.",
+        "Collaborated with application developers and business stakeholders to define transformation rules and validate outputs, using Git for version control and Jira to track changes and issues."
+      ]
+    ],
+    [
+      "Business Consultant (Contract)",
+      "Vaani Research Labs",
+      "Oct 2024 – May 2025",
+      [
+        "Organised and validated conversational AI interaction logs and performance data, identifying missing or inconsistent records before agent evaluation.",
+        "Reviewed transcription results, sentiment outputs and agent-response failures, categorising recurring errors to identify evaluation and refinement priorities.",
+        "Prepared a product enhancement proposal from voice AI benchmarking across banking, financial services and insurance (BFSI) and healthcare use cases, summarising findings, technical limitations and competitor comparisons."
+      ]
+    ],
+    [
+      "Data Analyst",
+      "Knowlettwoods Solutions LLP",
+      "May 2020 – Dec 2021",
+      [
+        "Joined course enquiry records, sales leads and marketing campaign data in SQL to prepare datasets for acquisition and conversion analysis.",
+        "Developed reusable Python scripts to standardise lead and registration records, identify duplicates and handle incomplete data before recurring reporting.",
+        "Built Power BI dashboards for sales and product teams to track campaign performance, course enquiries and conversion-funnel metrics.",
+        "Analysed website traffic and user journeys in Google Analytics to identify conversion drop-offs and inform website improvement recommendations."
+      ]
+    ]
+  ],
+  "skills": [
+    [
+      "Programming and Processing",
+      [
+        "SQL",
+        "Python",
+        "PySpark",
+        "pandas",
+        "NumPy"
+      ]
+    ],
+    [
+      "Azure",
+      [
+        "Azure Data Factory",
+        "ADLS Gen2",
+        "Azure Databricks"
+      ]
+    ],
+    [
+      "Databases and Table Formats",
+      [
+        "MySQL",
+        "Snowflake",
+        "Delta Lake"
+      ]
+    ],
+    [
+      "Data Engineering",
+      [
+        "ETL/ELT",
+        "Data Ingestion and Transformation",
+        "Incremental Loading",
+        "Data Modelling",
+        "Data Warehousing"
+      ]
+    ],
+    [
+      "Orchestration and Streaming",
+      [
+        "Apache Airflow",
+        "Apache Kafka"
+      ]
+    ],
+    [
+      "Data Quality and Operations",
+      [
+        "Data Validation",
+        "Reconciliation",
+        "Pipeline Testing",
+        "Monitoring and Troubleshooting"
+      ]
+    ],
+    [
+      "Tools and BI",
+      [
+        "Git",
+        "Jira",
+        "Power BI",
+        "Microsoft Excel",
+        "Lucidchart"
+      ]
+    ]
+  ],
+  "degrees": [
+    [
+      "MSc Business Analytics",
+      "University of Exeter",
+      "United Kingdom",
+      "Jan 2022 – Apr 2023"
+    ],
+    [
+      "Bachelor of Engineering",
+      "University of Mumbai",
+      "India",
+      "Jun 2015 – Aug 2019"
+    ]
+  ],
+  "certifications": [
+    {
+      "name": "Entry Certificate in Business Analysis (ECBA)",
+      "issuer": "International Institute of Business Analysis (IIBA)",
+      "date": "Aug 2021",
+      "kind": "Certification",
+      "description": "Business analysis planning, requirements management and analysis, elicitation, and stakeholder collaboration.",
+      "topics": [
+        "Requirements",
+        "Stakeholders"
+      ],
+      "reference": "36289469"
+    },
+    {
+      "name": "Agile Business Analyst and Scrum Prodegree",
+      "issuer": "Imarticus Learning",
+      "date": "Jan 2020 – Jul 2020",
+      "kind": "Professional training",
+      "description": "Coursework in process automation with Camunda, Microsoft Dynamics ERP integration, and process modelling with ARIS and Lucidchart.",
+      "topics": [
+        "Agile delivery",
+        "Process modelling"
+      ]
+    },
+    {
+      "name": "Python Programming",
+      "issuer": "IT Vedant Education Pvt. Ltd.",
+      "date": "Sep 2021",
+      "kind": "Programming training",
+      "description": "Algorithms, control flow, functions and modules, variables and data types, plus SDLC and Agile fundamentals.",
+      "topics": [
+        "Python",
+        "Programming fundamentals"
+      ],
+      "reference": "ITV614b15dd4d41"
+    },
+    {
+      "name": "Google Analytics Academy Courses",
+      "issuer": "Google Analytics Academy",
+      "date": "",
+      "kind": "Analytics coursework",
+      "description": "Advanced Google Analytics, Google Analytics for Power Users, and Getting Started with Google Analytics 360.",
+      "note": "Historical Analytics Academy coursework.",
+      "topics": [
+        "Digital analytics",
+        "Reporting"
+      ]
+    }
+  ],
+  "intro": "I'm Vedant Kulkarni. I build and maintain Azure data pipelines, transform e-commerce, CRM and payment data with SQL, Python and PySpark, and investigate data discrepancies.",
+  "intro_support": "I work with developers and business stakeholders to clarify requirements, define transformation rules and validate outputs. My projects also cover process mapping, data modelling and workflow design.",
+  "project_groups": [
+    {
+      "id": "pipelines",
+      "number": "01",
+      "title": "Data pipelines and quality",
+      "description": "Ingestion, transformation, reconciliation and exception handling.",
+      "tone": "teal"
+    },
+    {
+      "id": "process",
+      "number": "02",
+      "title": "Process analysis and solution design",
+      "description": "Requirements, target workflows and the documents that connect them.",
+      "tone": "gold"
+    },
+    {
+      "id": "analytics",
+      "number": "03",
+      "title": "Analytics and decision support",
+      "description": "Predictive modelling, segmentation and commercial analysis.",
+      "tone": "blue"
+    }
+  ],
+  "approach": [
+    [
+      "Requirements",
+      "Define the expected output.",
+      "Clarify what a report or process needs to show, identify the data involved, and agree the rules and checks with stakeholders."
+    ],
+    [
+      "Technical analysis",
+      "Understand the source data.",
+      "Review schemas, keys and record relationships; check for missing, duplicated or inconsistent values before deciding how to transform the data."
+    ],
+    [
+      "Solution design",
+      "Map the data and workflow.",
+      "Define source-to-target mappings, data models and processing steps. Use process maps or requirements documents where the task also involves a workflow change."
+    ],
+    [
+      "Implement and validate",
+      "Build, test and investigate.",
+      "Use SQL, Python and PySpark to implement transformations, reconcile records and totals, and investigate failed loads or validation checks."
+    ],
+    [
+      "Usable outputs",
+      "Deliver results that can be checked.",
+      "Prepare reporting datasets, dashboards and exception summaries, with transformation rules and validation findings documented so others can review and use the output."
+    ]
+  ],
+  "business_skills": [
+    "Requirements Analysis",
+    "Process Mapping",
+    "BRD / FSD",
+    "User Stories",
+    "Data Dictionaries",
+    "Stakeholder Communication"
+  ]
+}
